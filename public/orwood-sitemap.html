@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ORWOOD — Visual Sitemap</title>
+<style>
+  :root{
+    --paper:#edebe6; --card:#fbfaf7; --ink:#18120f; --stone:#6d6862;
+    --soft:#9a958c; --line:#e3e0d8; --line2:#d6d2c8; --clay:#732017;
+    --pill:#f1efe9; --dark:#1f1b19; --bone:#f4f3ef;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:radial-gradient(var(--line2) 1px, transparent 1px);
+    background-size:24px 24px;
+    line-height:1.45;
+    padding:48px 32px 80px;
+  }
+  .wrap{max-width:1240px;margin:0 auto}
+
+  /* ── Header ── */
+  header{margin-bottom:8px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand b{font-weight:700;letter-spacing:.34em;font-size:18px}
+  .brand .sq{width:7px;height:7px;background:var(--clay);display:inline-block;margin-top:8px}
+  h1{font-weight:300;font-size:clamp(30px,5vw,52px);letter-spacing:-.02em;margin:22px 0 0;max-width:18ch}
+  .sub{color:var(--stone);font-size:16px;margin-top:14px;max-width:60ch}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .chip{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);
+        border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 12px}
+  .chip b{color:var(--ink);font-weight:600}
+
+  .legend{display:flex;flex-wrap:wrap;gap:22px;margin-top:28px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .lg{display:flex;align-items:center;gap:9px;font-size:12px;color:var(--stone)}
+  .lg .dot{width:8px;height:8px;background:var(--clay)}
+  .lg .bar{width:16px;height:9px;background:var(--pill);border:1px solid var(--line2);border-radius:3px}
+  .lg .stk{width:14px;height:11px;background:#fff;border:1px solid var(--clay);border-radius:3px;box-shadow:2px 2px 0 0 rgba(115,32,23,.18)}
+  .lg .ut{width:11px;height:11px;border:1px solid var(--soft);transform:rotate(45deg)}
+
+  /* ── Map ── */
+  .map{margin-top:44px;display:flex;flex-direction:column;align-items:center}
+  .conn{width:2px;background:var(--line2)}
+  .conn.s{height:26px}.conn.m{height:34px}
+
+  .globalbar{width:100%;background:var(--dark);color:var(--bone);border-radius:12px;
+    padding:16px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .globalbar .gtag{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);
+    border:1px solid #3a3431;border-radius:999px;padding:5px 10px;white-space:nowrap}
+  .globalbar .gname{font-weight:600;letter-spacing:.04em}
+  .globalbar .gitems{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto}
+  .globalbar .gi{font-size:11px;color:#cbc5bd;background:#2a2522;border:1px solid #3a3431;border-radius:6px;padding:5px 9px}
+  .globalbar .gi.cta{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+
+  .tierhead{display:flex;align-items:center;gap:16px;width:100%;margin:6px 0 24px}
+  .tierhead span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);white-space:nowrap}
+  .tierhead:before,.tierhead:after{content:"";height:1px;background:var(--line2);flex:1}
+
+  /* root card */
+  .root{width:280px}
+
+  /* grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:22px 22px;width:100%}
+
+  /* card */
+  .card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:11px;
+    box-shadow:0 1px 2px rgba(24,20,18,.04),0 10px 26px rgba(24,20,18,.05);overflow:hidden;
+    align-self:start}
+  .card.root{justify-self:center}
+  .card-head{display:flex;align-items:flex-start;gap:9px;padding:14px 15px;border-bottom:1px solid #efeae1}
+  .card.accent .card-head{background:linear-gradient(180deg,rgba(115,32,23,.06),transparent)}
+  .card-head .dot{width:7px;height:7px;background:var(--clay);margin-top:5px;flex:none}
+  .card-title{font-weight:600;font-size:14px;letter-spacing:.01em}
+  .card-route{font-size:11px;color:var(--soft);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin-top:2px}
+  .secs{padding:13px 14px;display:flex;flex-direction:column;gap:6px}
+  .sec{font-size:12px;color:var(--stone);background:var(--pill);border-radius:5px;padding:7px 10px;border:1px solid #ebe7df}
+  .sec .n{color:var(--soft);font-size:10px;font-family:ui-monospace,Menlo,monospace;margin-right:7px}
+
+  /* cms template */
+  .cms{position:relative;margin:0 14px 16px}
+  .cms:before,.cms:after{content:"";position:absolute;inset:0;border:1px solid var(--line2);border-radius:8px;background:var(--card)}
+  .cms:before{transform:translate(4px,4px);z-index:0;opacity:.7}
+  .cms:after{transform:translate(8px,8px);z-index:0;opacity:.4}
+  .cms-inner{position:relative;z-index:1;border:1px solid var(--clay);border-radius:8px;background:#fff;overflow:hidden}
+  .cms-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-bottom:1px solid #f0e7e4}
+  .cms-name{font-size:12.5px;font-weight:600}
+  .cms-route{font-size:10px;color:var(--soft);font-family:ui-monospace,Menlo,monospace}
+  .cms-tag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--clay);border-radius:999px;padding:3px 8px;white-space:nowrap}
+  .cms .secs{padding:11px 12px;gap:5px}
+  .cms .sec{background:#faf6f5;border-color:#f0e3e0}
+  .cms-link{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--clay);
+    padding:8px 14px 12px;font-family:ui-monospace,Menlo,monospace}
+  .cms-link .a{width:14px;height:1px;background:var(--clay);position:relative}
+  .cms-link .a:after{content:"";position:absolute;right:-1px;top:-2px;width:4px;height:4px;border-top:1px solid var(--clay);border-right:1px solid var(--clay);transform:rotate(45deg)}
+
+  /* utility */
+  .util{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;width:100%}
+  .ucard{background:var(--card);border:1px dashed var(--line2);border-radius:10px;padding:14px 15px}
+  .ucard .ut{display:flex;align-items:center;gap:8px}
+  .ucard .ut i{width:9px;height:9px;border:1.5px solid var(--soft);transform:rotate(45deg);flex:none}
+  .ucard .uname{font-weight:600;font-size:13px}
+  .ucard .uroute{font-size:11px;color:var(--soft);font-family:ui-monospace,Menlo,monospace;margin-top:5px}
+  .ucard .unote{font-size:11.5px;color:var(--stone);margin-top:8px}
+
+  footer{margin-top:54px;padding-top:20px;border-top:1px solid var(--line);
+    display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;color:var(--soft);font-size:12px}
+
+  @media (max-width:560px){body{padding:28px 16px 56px}.globalbar .gitems{margin-left:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><b>ORWOOD</b><span class="sq"></span></div>
+    <h1>Website Sitemap</h1>
+    <p class="sub">The full information architecture of the ORWOOD redesign — every page and the sections it stacks. A visual companion to the live site and the Context Engine.</p>
+    <div class="meta" id="meta"></div>
+    <div class="legend">
+      <div class="lg"><span class="dot"></span>Page</div>
+      <div class="lg"><span class="bar"></span>Section / block</div>
+      <div class="lg"><span class="stk"></span>CMS template (×N instances)</div>
+      <div class="lg"><span class="ut"></span>System / SEO route</div>
+    </div>
+  </header>
+
+  <div class="map" id="map"></div>
+
+  <footer>
+    <span id="genline"></span>
+    <span>Global to every page: sticky Navbar · floating WhatsApp · Footer</span>
+  </footer>
+</div>
+
+<script>
+/* ────────────────────────────────────────────────────────────
+   ORWOOD sitemap data — mirrors lib/content.ts + the app routes.
+   ──────────────────────────────────────────────────────────── */
+const NAVBAR = ["Logo","Projects","Services","Industries","Manufacturing","About","Contact"];
+const FOOTER = ["Promise + social","Explore (10 links)","Services","Studio + contact","Sitemap","Legal"];
+
+const HOME = {
+  name:"Home", route:"/", accent:true,
+  secs:["Hero","Positioning statement","Featured work","Industries we serve (grid)","Stats","Services","Manufacturing teaser","How we work (process)","Global presence","Testimonials + clients","CTA"]
+};
+
+const PAGES = [
+  { name:"Projects", route:"/projects",
+    secs:["Page header","Filter — Industry × Region × Year","Project grid","CTA"],
+    cms:{ name:"Project case study", route:"/projects/[slug]", count:6,
+          secs:["Overview","Scope","Challenges","Solutions","Deliverables","Gallery","Project facts","Related"] } },
+  { name:"Services", route:"/services",
+    secs:["Page header","Services (8)","Process (7 steps)","CTA"] },
+  { name:"Industries", route:"/industries",
+    secs:["Page header","Industries grid (6)","CTA"],
+    cms:{ name:"Industry", route:"/industries/[slug]", count:6,
+          secs:["Hero","What we deliver","Related work","CTA"] } },
+  { name:"Manufacturing & Joinery", route:"/manufacturing",
+    secs:["Page header","Factory image","Intro","Capabilities (5)","The group","CTA"] },
+  { name:"Process", route:"/process",
+    secs:["Page header","7-step timeline","CTA"] },
+  { name:"Global Presence", route:"/global-presence",
+    secs:["Page header","Map visual","Regions (3)","CTA"] },
+  { name:"Insights / Journal", route:"/journal",
+    secs:["Page header","Lead article","Article grid","CTA"],
+    cms:{ name:"Article", route:"/journal/[slug]", count:5,
+          secs:["Title + meta","Hero","Body","Next article","CTA"] } },
+  { name:"Careers", route:"/careers",
+    secs:["Page header","Open roles (5)","Speculative","CTA"] },
+  { name:"About", route:"/about",
+    secs:["Story","Vision & Mission","Values","Leadership","Stats band","The group","Sustainability","Quality","CTA"] },
+  { name:"Contact", route:"/contact",
+    secs:["Page header","Enquiry form (7 fields)","Studio details"] },
+  { name:"Sitemap (HTML)", route:"/sitemap",
+    secs:["Pages","Projects","Industries","Journal"] },
+];
+
+const UTILITY = [
+  { name:"sitemap.xml", route:"/sitemap.xml", note:"SEO — 28 URLs, auto-generated" },
+  { name:"robots.txt", route:"/robots.txt", note:"Crawl rules + sitemap ref" },
+  { name:"Enquiry API", route:"/api/contact", note:"POST — validates + accepts enquiries" },
+  { name:"OG image", route:"/opengraph-image", note:"Generated social share card" },
+];
+
+/* ── render ── */
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const secRows = arr => arr.map((s,i)=>`<div class="sec"><span class="n">${String(i+1).padStart(2,"0")}</span>${esc(s)}</div>`).join("");
+
+function cardHTML(p){
+  const cms = p.cms ? `
+    <div class="cms">
+      <div class="cms-inner">
+        <div class="cms-head">
+          <div><div class="cms-name">${esc(p.cms.name)}</div><div class="cms-route">${esc(p.cms.route)}</div></div>
+          <span class="cms-tag">Template ×${p.cms.count}</span>
+        </div>
+        <div class="secs">${secRows(p.cms.secs)}</div>
+      </div>
+    </div>` : "";
+  return `
+    <div class="card${p.accent?" accent":""}">
+      <div class="card-head">
+        <span class="dot"></span>
+        <div><div class="card-title">${esc(p.name)}</div><div class="card-route">${esc(p.route)}</div></div>
+      </div>
+      <div class="secs">${secRows(p.secs)}</div>
+      ${cms}
+    </div>`;
+}
+
+const map = document.getElementById("map");
+map.innerHTML = `
+  <div class="globalbar">
+    <span class="gtag">Global · all pages</span>
+    <span class="gname">Navbar</span>
+    <div class="gitems">${NAVBAR.map(n=>`<span class="gi">${esc(n)}</span>`).join("")}<span class="gi cta">Start a project</span></div>
+  </div>
+  <div class="conn s"></div>
+
+  <div class="card root accent" style="width:288px">
+    <div class="card-head"><span class="dot"></span>
+      <div><div class="card-title">${esc(HOME.name)}</div><div class="card-route">${esc(HOME.route)}</div></div>
+    </div>
+    <div class="secs">${secRows(HOME.secs)}</div>
+  </div>
+  <div class="conn m"></div>
+
+  <div class="tierhead"><span>Primary pages</span></div>
+  <div class="grid">${PAGES.map(cardHTML).join("")}</div>
+
+  <div class="conn m" style="margin-top:40px"></div>
+  <div class="tierhead"><span>System &amp; SEO routes</span></div>
+  <div class="util">${UTILITY.map(u=>`
+    <div class="ucard"><div class="ut"><i></i><span class="uname">${esc(u.name)}</span></div>
+      <div class="uroute">${esc(u.route)}</div><div class="unote">${esc(u.note)}</div></div>`).join("")}
+  </div>
+
+  <div class="conn s" style="margin-top:36px"></div>
+  <div class="globalbar">
+    <span class="gtag">Global · all pages</span>
+    <span class="gname">Footer</span>
+    <div class="gitems">${FOOTER.map(n=>`<span class="gi">${esc(n)}</span>`).join("")}</div>
+  </div>`;
+
+/* meta + footer line */
+const tpl = PAGES.filter(p=>p.cms);
+const tplTotal = tpl.reduce((n,p)=>n+p.cms.count,0);
+document.getElementById("meta").innerHTML = `
+  <span class="chip"><b>${PAGES.length+1}</b> pages</span>
+  <span class="chip"><b>${tplTotal}</b> templated pages</span>
+  <span class="chip"><b>${UTILITY.length}</b> system routes</span>
+  <span class="chip">Next.js 15 · custom build</span>`;
+document.getElementById("genline").textContent = "ORWOOD website revamp · visual sitemap · v1 — June 2026";
+</script>
+</body>
+</html>
