@@ -629,6 +629,12 @@ export const process = [
   },
 ];
 
+export type ArticleCTA = {
+  label: string;
+  href: string;
+  description: string;
+};
+
 export type Article = {
   id: string;
   title: string;
@@ -638,9 +644,31 @@ export type Article = {
   excerpt: string;
   tone: number;
   body: string[];
+  /** Optional mid-funnel CTA matched to the reader's stage. */
+  cta?: ArticleCTA;
 };
 
 export const journal: Article[] = [
+  {
+    id: "why-istanbul-for-hospitality-fit-out-manufacturing",
+    title:
+      "Why İstanbul? The case for manufacturing hospitality interiors in Turkey",
+    category: "Manufacturing",
+    date: "June 2026",
+    readingTime: "5 min read",
+    excerpt:
+      "İstanbul sits at the crossroads of Europe and the Gulf — a city with deep craft traditions, modern production capacity, and direct shipping access to every market where five-star hotels are being built.",
+    tone: 2,
+    body: [
+      "When a hospitality developer in Doha, Dubai, or Riyadh shortlists fit-out partners, the field is dominated by contractors with offices in the Gulf. What often goes unexamined is where the furniture, joinery, and doors are actually made. For many of those contractors, the answer is the same: Turkey. The difference is whether the firm owns the factory or simply places an order with one.",
+      "ORWOOD has manufactured in İstanbul since 2004. Our production facilities in İkitelli — one of the city's established industrial districts — house three dedicated operations: Hi Mobilya for bespoke and contract furniture, SILADU for surface and veneer development, and ORWOOD Doors for our proprietary acoustic and fire-rated door systems. These are not subcontracted workshops. They are owned facilities, staffed by our own machinists, joiners, and finishing teams, running CNC lines alongside hand-finishing benches.",
+      "İstanbul's advantage for hospitality manufacturing is structural, not incidental. The city has a centuries-old woodworking and furniture-making tradition — the labour pool includes skilled craftspeople whose training is generational, not just vocational. Modern investment has layered CNC technology, automated finishing lines, and quality-management systems on top of that craft base. The result is production that can hold furniture-grade tolerances at the volume a 300-key hotel demands.",
+      "Geography matters as much as capability. İstanbul is a two-hour flight from Dubai and four hours from London — the two cities where most Gulf and European hospitality projects are conceived. Shipping from Turkish ports to Doha, Abu Dhabi, or Jeddah is measured in days, not weeks. For projects in the UK and Europe, overland freight is viable. This logistical position means ORWOOD can run manufacture against a construction programme rather than ahead of it, compressing the gap between sign-off and installation.",
+      "Cost is part of the calculation, but it is not the whole of it. Turkish production costs sit below Western European levels and above Far Eastern ones — a middle ground that reflects the quality of the labour, not a race to the bottom. For a hotel operator specifying bespoke joinery, matched veneers, and certified fire-rated door sets, the question is not where the cheapest unit comes from. It is where the unit that matches the sample, meets the standard, and arrives on programme comes from. That is the question İstanbul answers well.",
+      "What makes the ORWOOD model distinct is not simply being in İstanbul — many joinery houses are. It is that design, engineering, and manufacture happen in the same building. A detail drawn by our design studio is costed by our engineers, prototyped in our workshops, and finished by our own teams before it ships. There is no handoff to a third-party factory, no specification lost in translation between a Dubai office and an overseas supplier. The prototype you approve is the product you receive, at scale.",
+      "For developers and operators building in the GCC, Turkey, or Europe, the manufacturing base matters more than the sales office. İstanbul gives ORWOOD proximity to every market we serve, access to a deep craft tradition, and the production infrastructure to deliver complete hotel interiors — furniture, joinery, doors, and FF&E — from a single, accountable source. That is why we manufacture here, and why the interiors we deliver carry the quality of a city that has been making things well for a very long time.",
+    ],
+  },
   {
     id: "fire-rated-doors-what-hotel-developers-need-to-know",
     title:
@@ -661,6 +689,12 @@ export const journal: Article[] = [
       "For developers writing tender documents, the specification stage is where this is won or lost. A line item that reads 'fire-rated door, 60 minutes, to approval' invites substitution. A specification that names the assembly standard, requires a single-source manufacturer for leaf, frame, and seals, and demands a test report for the complete configuration as tendered — that is the specification that protects the programme and the occupants.",
       "The cost difference between a properly specified fire-rated door set and a lowest-bidder assembly is marginal on a per-unit basis. On a 300-key hotel with 400 or more rated openings, the aggregate cost of getting it wrong — failed inspections, programme delays, post-opening remediation — dwarfs the upfront saving. The door set is one of the few building components where the cheapest option is almost never the most economical one.",
     ],
+    cta: {
+      label: "Download our fire-rated door specification guide",
+      href: "/contact?intent=specification-guide",
+      description:
+        "Get the ORWOOD Doors technical pack — assembly standards, test certifications, and specification language you can drop into your next tender document.",
+    },
   },
   {
     id: "why-vertically-integrated-fit-out-delivers-better-hotels",

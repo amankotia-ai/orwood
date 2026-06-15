@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Reveal } from "@/components/reveal";
 import { Artwork } from "@/components/artwork";
 import { CTA } from "@/components/cta";
+import { ArticleCTA } from "@/components/article-cta";
 import { journal } from "@/lib/content";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -86,6 +87,14 @@ export default async function ArticlePage({ params }: Params) {
               </Reveal>
             ))}
           </div>
+
+          {article.cta && (
+            <ArticleCTA
+              label={article.cta.label}
+              href={article.cta.href}
+              description={article.cta.description}
+            />
+          )}
         </div>
       </article>
 
@@ -106,10 +115,10 @@ export default async function ArticlePage({ params }: Params) {
       </section>
 
       <CTA
-        eyebrow="Insights"
-        title="Have a project in mind?"
-        body="If something here resonates, tell us what you're building — we'll bring the team to deliver it."
-        cta="Start a project"
+        eyebrow="Start a project"
+        title="Ready to work with ORWOOD?"
+        body="When you're ready to move forward, tell us what you're building — we'll bring the design, the workshop, and the team."
+        cta="Get in touch"
       />
     </>
   );
