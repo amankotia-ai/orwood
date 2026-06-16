@@ -716,6 +716,33 @@ export const journal: Article[] = [
     ],
   },
   {
+    id: "single-source-ffe-for-hotel-projects",
+    title:
+      "Single-source FF&E: what changes when one manufacturer owns the whole package",
+    category: "FF&E Trends",
+    date: "June 2026",
+    readingTime: "6 min read",
+    excerpt:
+      "Hotel FF&E is typically assembled from dozens of suppliers across multiple countries. When one manufacturer makes the furniture, the joinery, and the doors, the savings are not just in cost — they are in programme, quality, and the gap between what was specified and what arrives on site.",
+    tone: 3,
+    body: [
+      "On a typical 200-key hotel project, the FF&E package involves forty to sixty suppliers across half a dozen countries. A procurement house manages the specification. A trading company sources the loose furniture from factories in China or Vietnam. A European mill supplies the case goods. A local contractor handles the fixed joinery. A specialist provides the fire-rated door sets. Each supplier has its own lead time, its own quality standard, and its own idea of what 'to approval' means.",
+      "The procurement team's job is to make this work — to consolidate shipping, align delivery dates, manage sample approvals across time zones, and hope that the finish on the bedside table, made in Guangdong, matches the finish on the wardrobe, made in Istanbul, and the finish on the door, made somewhere else entirely. When it works, it works. When it does not, the consequences land in the last eight weeks before opening, when there is no time or budget to fix them.",
+      "Single-source FF&E manufacturing is a different model. At ORWOOD, the furniture, the joinery, and the fire-rated doors for a hotel project are manufactured in the same Istanbul production campus. Hi Mobilya makes the bespoke and contract furniture — beds, desks, seating, case goods — on dedicated production lines. The same veneer stock that SILADU matches for the furniture is used for the wall panelling and the fixed millwork. ORWOOD Doors produces the acoustic and fire-rated door sets — leaf, frame, seals, and specified hardware — as complete certified assemblies. The finish is matched once and held across every element, because every element comes from the same source.",
+      "What this changes for a procurement team is concrete. First, the approval cycle compresses. Instead of managing sample submissions from five factories, the procurement lead reviews a single mock-up room where the desk, the wardrobe, the panelling, and the door are shown together, in the same finish, under the same light. The approval is for the room, not the parts. Second, the logistics consolidate. Furniture, joinery, and doors ship from one origin, in one coordinated container plan, timed to the installation sequence — not as disconnected deliveries that arrive out of order and sit in a warehouse burning storage fees.",
+      "Third — and this is the one that matters most on a compressed pre-opening programme — the manufacturing programme is unified. When the base build runs two weeks late, as it always does, a single manufacturer can re-sequence production across all elements in one decision. With five suppliers, that re-sequencing requires five separate negotiations, five revised shipping schedules, and the near certainty that at least one of them cannot accommodate the change. The result is partial deliveries, incomplete floors, and an installation team waiting for the one item that did not arrive.",
+      "Quality is the less visible benefit, and the more durable one. When one organisation is responsible for the furniture, the millwork, and the doors, there is nowhere to hide a mismatch. The grain direction on a veneer panel cannot be blamed on 'the joinery subcontractor' when the joinery subcontractor is the same company that made the furniture beside it. Accountability concentrates, and with it, the incentive to get the detail right the first time.",
+      "For hotel developers and operators working in the GCC, Turkey, and Europe, where ORWOOD delivers, this model addresses a specific, recurring problem: the gap between the specified interior and the installed one. That gap is rarely a design failure. It is a supply-chain failure — too many handoffs, too many factories, too little shared accountability. Single-source manufacturing does not guarantee perfection. It guarantees that when something needs to be fixed, one team fixes it, in one place, against one programme.",
+      "The economics are straightforward. A single-source package typically costs within three to five per cent of a multi-source one when the total cost of ownership is calculated — factoring in consolidated logistics, reduced sample rounds, fewer site remediation costs, and the programme savings from unified manufacturing. For a 200-key hotel, the programme savings alone — even one week recovered — can exceed the entire FF&E cost differential. The cheapest package is almost never the most economical one when the hotel's opening date is on the line.",
+    ],
+    cta: {
+      label: "Request a single-source FF&E proposal",
+      href: "/contact?intent=ffe-procurement",
+      description:
+        "Tell us about your hotel project — key count, programme, and scope — and we will show you what a single-source FF&E package looks like from our Istanbul production campus.",
+    },
+  },
+  {
     id: "designing-for-the-tenth-year",
     title:
       "Designing hospitality interiors for the tenth year, not the opening photograph",
