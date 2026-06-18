@@ -44,6 +44,7 @@ export const siteLinks = [
   { label: "Manufacturing & Joinery", href: "/manufacturing" },
   { label: "Process", href: "/process" },
   { label: "Global Presence", href: "/global-presence" },
+  { label: "İstanbul", href: "/istanbul" },
   { label: "Insights / Journal", href: "/journal" },
   { label: "Resources & Downloads", href: "/resources" },
   { label: "Careers", href: "/careers" },
@@ -1121,6 +1122,45 @@ export const leadership: Leader[] = [
     tone: 2,
   },
 ];
+
+export const istanbul = {
+  headline: "ORWOOD İstanbul",
+  intro:
+    "Founded in 2004, headquartered in İstanbul — where our design studio, three manufacturing facilities, and twenty years of craft come together under one roof.",
+  story: [
+    "ORWOOD was born in İstanbul and has never left. Our headquarters, design studio, and production campus sit in İkitelli OSB, one of the city's established industrial zones — a neighbourhood of factories, workshops, and trade that has been making things for decades.",
+    "From here we run three dedicated manufacturing operations: Hi Mobilya for bespoke and contract furniture, SILADU for surface and veneer development, and ORWOOD Doors for our proprietary acoustic and fire-rated door systems. These are owned facilities, staffed by our own machinists, joiners, and finishing teams.",
+    "İstanbul gives us proximity to every market we serve. A two-hour flight to Dubai, four hours to London, and direct shipping access to the GCC, Europe, and North Africa. Twenty years of projects across fifteen countries have been designed, engineered, and manufactured from this city.",
+  ],
+  capabilities: [
+    {
+      title: "Design Studio",
+      body: "Concept through technical detail — our interior architects carry a project from first sketch to installed millwork.",
+    },
+    {
+      title: "Hi Mobilya — Furniture Manufacturing",
+      body: "Bespoke and contract furniture for hospitality and commercial projects, produced on dedicated CNC and finishing lines.",
+    },
+    {
+      title: "SILADU — Materials & Surfaces",
+      body: "Veneer matching, solid-wood development, and composite engineering — the palette behind every ORWOOD interior.",
+    },
+    {
+      title: "ORWOOD Doors — Fire Rated Door Systems",
+      body: "Proprietary acoustic and fire-rated door sets, engineered, tested, and manufactured as complete certified assemblies.",
+    },
+  ],
+  facts: [
+    { label: "Founded", value: "2004" },
+    { label: "Headquarters", value: "İstanbul, Türkiye" },
+    { label: "Production campus", value: "İkitelli OSB, Başakşehir" },
+    { label: "Manufacturing brands", value: "Hi Mobilya · SILADU · ORWOOD Doors" },
+    { label: "Countries delivered", value: "15+" },
+    { label: "Projects completed", value: "200+" },
+    { label: "Core sectors", value: "Hospitality · Commercial · Residential" },
+    { label: "Certifications", value: "ISO 9001 · ISO 14001 · BS EN 1634-1" },
+  ],
+};
 
 export const sustainability = {
   intro:
