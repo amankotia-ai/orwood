@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { PageHeader } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { ContactForm } from "@/components/contact-form";
-import { site } from "@/lib/content";
+import { site, projects, sectors } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -10,12 +11,30 @@ export const metadata: Metadata = {
     "Start a project with ORWOOD. Tell us about the space and the date — we'll bring the design, the workshops and the team.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const headersList = await headers();
+  const referer = headersList.get("referer") ?? "";
+  const match = referer.match(/\/projects\/([^/?#]+)/);
+  const referrerProject = match
+    ? projects.find((p) => p.id === match[1]) ?? null
+    : null;
+
+  // Map the project's sector to the matching sector title for pre-selecting the dropdown
+  const defaultProjectType = referrerProject
+    ? sectors.find((s) =>
+        s.title.toLowerCase() === referrerProject.sector.toLowerCase()
+      )?.title ?? ""
+    : "";
+
   return (
     <>
       <PageHeader
         eyebrow="Contact"
-        index="Start a project"
+        index={
+          referrerProject
+            ? `Inspired by ${referrerProject.title}?`
+            : "Start a project"
+        }
         title={
           <>
             Let&apos;s build
@@ -23,14 +42,21 @@ export default function ContactPage() {
             something.
           </>
         }
-        intro="Tell us what you're making. The studio reads every message — expect a reply within two working days."
+        intro={
+          referrerProject
+            ? `Loved the ${referrerProject.sector.toLowerCase()} work? Tell us about yours — we'll bring the same rigour to your project.`
+            : "Tell us what you're making. The studio reads every message — expect a reply within two working days."
+        }
       />
 
       <section className="shell pb-28 md:pb-36">
         <div className="grid gap-16 md:grid-cols-12 md:gap-8">
           {/* Form */}
           <div className="md:col-span-7">
-            <ContactForm />
+            <ContactForm
+              defaultProjectType={defaultProjectType}
+              referrerProject={referrerProject?.id}
+            />
           </div>
 
           {/* Details */}

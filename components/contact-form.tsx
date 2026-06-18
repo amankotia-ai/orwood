@@ -36,8 +36,17 @@ const BUDGETS = [
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-export function ContactForm() {
-  const [form, setForm] = useState<Form>(EMPTY);
+export function ContactForm({
+  defaultProjectType,
+  referrerProject,
+}: {
+  defaultProjectType?: string;
+  referrerProject?: string;
+} = {}) {
+  const [form, setForm] = useState<Form>({
+    ...EMPTY,
+    ...(defaultProjectType ? { projectType: defaultProjectType } : {}),
+  });
   const [errors, setErrors] = useState<Partial<Record<keyof Form, string>>>({});
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -71,7 +80,12 @@ export function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          ...(referrerProject
+            ? { _attribution: { referrerProject } }
+            : {}),
+        }),
       });
       if (!res.ok) throw new Error("Request failed");
       setSent(true);
