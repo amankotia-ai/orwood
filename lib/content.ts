@@ -45,6 +45,7 @@ export const siteLinks = [
   { label: "Process", href: "/process" },
   { label: "Global Presence", href: "/global-presence" },
   { label: "Insights / Journal", href: "/journal" },
+  { label: "Resources & Downloads", href: "/resources" },
   { label: "Careers", href: "/careers" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -65,6 +66,8 @@ export type Service = {
   detail: string;
   capabilities: string[];
   tone: number;
+  /** Optional extended body paragraphs for the dedicated service page. */
+  body?: string[];
 };
 
 export const services: Service[] = [
@@ -171,7 +174,7 @@ export const services: Service[] = [
     summary:
       "Cost-conscious design development that protects the intent — finding the right detail at the right price before it reaches the workshop.",
     detail:
-      "Because we hold design and manufacture in one house, we can test what a detail costs to make as we draw it. Value engineering starts at the sketch, not as a late-stage cut — so the scheme that opens is the scheme that was drawn.",
+      "Because our design studio and workshops share the same building, we can test what a detail costs to make as we draw it. Value engineering starts at the sketch, not as a late-stage cut — so the scheme that opens is the scheme that was drawn.",
     capabilities: [
       "Early-stage cost modelling",
       "Material & detail alternatives",
@@ -294,6 +297,11 @@ export const sectors: Sector[] = [
   },
 ];
 
+export type ProjectCertification = {
+  label: string;
+  standard?: string;
+};
+
 export type Project = {
   id: string;
   title: string;
@@ -311,6 +319,13 @@ export type Project = {
   solution: string;
   deliverables: string[];
   gallery: number[];
+  architect?: string;
+  architectUrl?: string;
+  /* — certifications & technical — */
+  certifications?: ProjectCertification[];
+  fireRating?: string;
+  acousticRating?: string;
+  referenceAvailable?: boolean;
 };
 
 export const projects: Project[] = [
@@ -336,7 +351,7 @@ export const projects: Project[] = [
     challenge:
       "A compressed pre-opening programme left no room for the usual handover gaps between designer, contractor and supplier. Long-lead FF&E and bespoke joinery had to be engineered, made and shipped in parallel with the base build.",
     solution:
-      "Holding design, the workshops and procurement in one house, we ran manufacture against the construction programme rather than after it. A mock-up guestroom was signed off early, then repeated to tolerance across all 220 keys.",
+      "With design, our three workshops and procurement under single accountability, we ran manufacture against the construction programme rather than after it. A mock-up guestroom was signed off early, then repeated to tolerance across all 220 keys.",
     deliverables: [
       "Full FF&E specification, procurement & install",
       "Reception, bar & restaurant joinery",
@@ -345,6 +360,17 @@ export const projects: Project[] = [
       "Snagging, commissioning & handover",
     ],
     gallery: [0, 2, 5, 1],
+    architect: "LW Design Group",
+    architectUrl: "https://lwdesigngroup.com",
+    certifications: [
+      { label: "ISO 9001:2015", standard: "Quality Management" },
+      { label: "ISO 14001:2015", standard: "Environmental Management" },
+      { label: "BS EN 1634-1", standard: "Fire resistance — door & shutter assemblies" },
+      { label: "BS EN ISO 10140", standard: "Acoustic performance — laboratory measurement" },
+    ],
+    fireRating: "FD60 (60-minute integrity)",
+    acousticRating: "Rw 35 dB",
+    referenceAvailable: true,
   },
   {
     id: "lumen-offices",
@@ -377,6 +403,13 @@ export const projects: Project[] = [
       "Phased handover to a fixed date",
     ],
     gallery: [2, 5, 1, 0],
+    architect: "Roar Studio",
+    architectUrl: "https://roar.studio",
+    certifications: [
+      { label: "ISO 9001:2015", standard: "Quality Management" },
+      { label: "ISO 14001:2015", standard: "Environmental Management" },
+    ],
+    referenceAvailable: true,
   },
   {
     id: "maren-residence",
@@ -404,6 +437,12 @@ export const projects: Project[] = [
       "Hand-finished on site",
     ],
     gallery: [4, 5, 2, 1],
+    architect: "Escapefromsofa",
+    architectUrl: "https://escapefromsofa.com",
+    certifications: [
+      { label: "ISO 9001:2015", standard: "Quality Management" },
+    ],
+    referenceAvailable: true,
   },
   {
     id: "solis-resort",
@@ -436,6 +475,13 @@ export const projects: Project[] = [
       "Turnkey handover before season",
     ],
     gallery: [1, 5, 0, 2],
+    architect: "Godwin Austen Johnson",
+    architectUrl: "https://gaj.com",
+    certifications: [
+      { label: "ISO 9001:2015", standard: "Quality Management" },
+      { label: "ISO 14001:2015", standard: "Environmental Management" },
+    ],
+    referenceAvailable: true,
   },
   {
     id: "northbank-hq",
@@ -463,6 +509,12 @@ export const projects: Project[] = [
       "Delivery & install across floors",
     ],
     gallery: [3, 1, 5, 2],
+    architect: "Omrania",
+    architectUrl: "https://omrania.com",
+    certifications: [
+      { label: "ISO 9001:2015", standard: "Quality Management" },
+    ],
+    referenceAvailable: true,
   },
   {
     id: "cedar-house",
@@ -490,6 +542,94 @@ export const projects: Project[] = [
       "Supply, install & snag",
     ],
     gallery: [5, 1, 4, 2],
+    architect: "Studio Mackereth",
+    architectUrl: "https://studiomackereth.com",
+    certifications: [
+      { label: "ISO 9001:2015", standard: "Quality Management" },
+      { label: "BS EN 1634-1", standard: "Fire resistance — door & shutter assemblies" },
+      { label: "BS EN ISO 10140", standard: "Acoustic performance — laboratory measurement" },
+      { label: "BS 476-22", standard: "Fire resistance — non-loadbearing elements" },
+    ],
+    fireRating: "FD30 / FD60 (30- and 60-minute integrity)",
+    acousticRating: "Rw 32–38 dB",
+    referenceAvailable: true,
+  },
+];
+
+/* ─────────────────────── Resources / Downloads ─────────────────────── */
+
+export type Resource = {
+  id: string;
+  title: string;
+  description: string;
+  category: "Certification" | "Technical" | "Corporate" | "Qualification";
+  format: string;
+};
+
+export const resources: Resource[] = [
+  {
+    id: "iso-9001-certificate",
+    title: "ISO 9001:2015 Certificate",
+    description:
+      "Quality management system certification covering design, manufacture, and installation of interior fit-out, joinery, and furniture.",
+    category: "Certification",
+    format: "PDF",
+  },
+  {
+    id: "iso-14001-certificate",
+    title: "ISO 14001:2015 Certificate",
+    description:
+      "Environmental management system certification for sustainable manufacturing and site operations.",
+    category: "Certification",
+    format: "PDF",
+  },
+  {
+    id: "fire-test-report-fd30-fd60",
+    title: "Fire Test Report — FD30 & FD60 Door Sets",
+    description:
+      "Accredited test report to BS EN 1634-1 covering ORWOOD fire-rated door assemblies at 30- and 60-minute integrity ratings.",
+    category: "Technical",
+    format: "PDF",
+  },
+  {
+    id: "acoustic-test-report",
+    title: "Acoustic Performance Report",
+    description:
+      "Laboratory test results to BS EN ISO 10140 for ORWOOD door sets, demonstrating Rw 32–38 dB sound reduction.",
+    category: "Technical",
+    format: "PDF",
+  },
+  {
+    id: "company-profile",
+    title: "ORWOOD Company Profile",
+    description:
+      "Overview of capabilities, manufacturing facilities, project references, and key personnel — suitable for PQQ submissions.",
+    category: "Corporate",
+    format: "PDF",
+  },
+  {
+    id: "pqq-qualification-pack",
+    title: "Pre-Qualification Questionnaire (PQQ) Pack",
+    description:
+      "Standard qualification pack including insurance certificates, H&S policy summary, references, and certification copies.",
+    category: "Qualification",
+    format: "PDF",
+  },
+  {
+    id: "product-datasheet-fire-doors",
+    title: "Product Datasheet — Fire Rated Doors",
+    description:
+      "Technical datasheet covering specifications, performance ratings, available configurations, and finish options for ORWOOD door sets.",
+    category: "Technical",
+    format: "PDF",
+  },
+  {
+    id: "sustainability-statement",
+    title: "Sustainability & Environmental Statement",
+    description:
+      "ORWOOD’s approach to responsible sourcing, waste management, and carbon reduction across manufacturing and site operations.",
+    category: "Corporate",
+    format: "PDF",
   },
 ];
 
@@ -814,7 +954,7 @@ export const journal: Article[] = [
     tone: 4,
     body: [
       "Value engineering has a bad name because it usually arrives too late — a cost-cutting exercise that strips a finished design of the things that made it good.",
-      "Done properly, it happens early, while the design is still flexible. Because we hold design and manufacture in one house, we can test what a detail costs to make as we draw it, and find the version that keeps the intent at the right price.",
+      "Done properly, it happens early, while the design is still flexible. Because our design studio and workshops share the same building, we can test what a detail costs to make as we draw it, and find the version that keeps the intent at the right price.",
       "Value engineering should protect the design, not punish it. That only works if it starts at the beginning.",
     ],
   },
@@ -931,7 +1071,7 @@ export const vision =
   "To be the interior partner a client wants in the room for whatever they build next — anywhere in the world.";
 
 export const mission =
-  "To hold design, manufacture and delivery under one roof, so every interior we touch is made to a single standard and a single point of accountability.";
+  "To design, manufacture and deliver from three owned workshops — Hi Mobilya, SILADU, ORWOOD Doors — so every interior we touch is made to a single standard and a single point of accountability.";
 
 export type Leader = {
   id: string;

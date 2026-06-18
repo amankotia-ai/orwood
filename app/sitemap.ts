@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/process",
     "/global-presence",
     "/journal",
+    "/resources",
     "/careers",
     "/about",
     "/contact",

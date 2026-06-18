@@ -23,7 +23,7 @@ export default function CareersPage() {
             other people photograph.
           </>
         }
-        intro="We bring design, manufacture and delivery under one roof — so the people who draw a detail are in the same building as the people who make it."
+        intro="We design, manufacture and deliver from our own workshops — so the people who draw a detail walk the same floors as the people who make it."
       />
 
       <div className="shell pb-12">

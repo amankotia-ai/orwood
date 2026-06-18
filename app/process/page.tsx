@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { CTA } from "@/components/cta";
@@ -8,6 +9,38 @@ export const metadata: Metadata = {
   title: "Process",
   description:
     "From discovery to handover — the seven stages ORWOOD runs to take an interior from brief to a finished, commissioned space.",
+};
+
+/** Inline cross-links for steps that make capability claims worth evidencing. */
+const richBody: Record<string, React.ReactNode> = {
+  "03": (
+    <>
+      We engineer every element for manufacture and compliance — shop drawings,
+      tolerances, and{" "}
+      <Link href="/manufacturing" className="underline underline-offset-2">
+        acoustic and fire performance
+      </Link>
+      .
+    </>
+  ),
+  "04": (
+    <>
+      <Link href="/manufacturing" className="underline underline-offset-2">
+        Furniture, joinery and doors
+      </Link>{" "}
+      are made in our own workshops, prototyped and quality-checked before
+      anything ships.
+    </>
+  ),
+  "05": (
+    <>
+      <Link href="/services" className="underline underline-offset-2">
+        FF&E
+      </Link>{" "}
+      is specified, sourced and consolidated — logistics, lead times and
+      warehousing managed against the programme.
+    </>
+  ),
 };
 
 export default function ProcessPage() {
@@ -23,7 +56,7 @@ export default function ProcessPage() {
             handover.
           </>
         }
-        intro="Design, manufacture and delivery sit in one house — so the process runs as one accountable thread, not a chain of handovers."
+        intro="Design, manufacture and delivery run through three owned workshops — one accountable thread, not a chain of handovers."
         meta={[
           { k: "Stages", v: "07" },
           { k: "Workshops", v: "03" },
@@ -43,7 +76,7 @@ export default function ProcessPage() {
                 {p.title}
               </h2>
               <p className="col-span-12 max-w-xl text-lg text-stone md:col-span-6">
-                {p.body}
+                {richBody[p.index] ?? p.body}
               </p>
             </div>
           </Reveal>

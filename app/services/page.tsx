@@ -19,6 +19,38 @@ const serviceReferences: Record<string, string> = {
   "project-management": "lumen-offices",
 };
 
+/** Cross-links to /industries sector pages per service. */
+const serviceSectors: Record<string, { id: string; label: string }[]> = {
+  "design-build": [
+    { id: "hospitality", label: "Hospitality" },
+    { id: "commercial", label: "Commercial" },
+    { id: "mixed-use", label: "Mixed-use" },
+  ],
+  ffe: [
+    { id: "hospitality", label: "Hospitality" },
+    { id: "commercial", label: "Commercial" },
+  ],
+  doors: [
+    { id: "hospitality", label: "Hospitality" },
+    { id: "residential", label: "Residential" },
+    { id: "commercial", label: "Commercial" },
+  ],
+  "interior-fit-out": [
+    { id: "hospitality", label: "Hospitality" },
+    { id: "commercial", label: "Commercial" },
+    { id: "mixed-use", label: "Mixed-use" },
+  ],
+  "value-engineering": [
+    { id: "hospitality", label: "Hospitality" },
+    { id: "commercial", label: "Commercial" },
+  ],
+  "project-management": [
+    { id: "hospitality", label: "Hospitality" },
+    { id: "commercial", label: "Commercial" },
+    { id: "mixed-use", label: "Mixed-use" },
+  ],
+};
+
 const fireTestReport = resources.find(
   (r) => r.id === "fire-test-report-fd30-fd60"
 )!;
@@ -104,7 +136,27 @@ export default function ServicesPage() {
                   </ul>
                 </Reveal>
 
-                {/* Certifications callout — Fire Rated Doors only */}
+                {/* Residential-register callout — Furniture Solutions & Joinery */}
+                {(s.id === "furniture-solutions" || s.id === "joinery") && (
+                  <Reveal delay={0.2}>
+                    <div className="mt-8 border border-line bg-bone/40 p-5">
+                      <p className="label text-stone">Private &amp; residential</p>
+                      <p className="mt-2 text-sm text-stone">
+                        {s.id === "furniture-solutions"
+                          ? "For private homes and branded residences, we work at a different register — bespoke, one-of-a-kind pieces, hand-finished to the tolerance of a made object rather than a production run."
+                          : "In residential work, our joinery is finished like furniture — matched veneers, hand-fitted shadow gaps, and the close, quiet quality of a crafted object."}
+                      </p>
+                      <Link
+                        href="/industries/residential"
+                        className="mt-3 inline-block label text-sm text-accent transition-colors hover:text-accent/70"
+                      >
+                        See our residential work →
+                      </Link>
+                    </div>
+                  </Reveal>
+                )}
+
+                {/* Certifications callout — Fire Rated Doors */}
                 {s.id === "doors" && (
                   <Reveal delay={0.2}>
                     <div className="mt-8 border border-line bg-bone/40 p-5">
@@ -136,7 +188,33 @@ export default function ServicesPage() {
                   </Reveal>
                 )}
 
-                {/* Named project reference */}
+                {/* Certifications callout — Interior Fit-Out */}
+                {s.id === "interior-fit-out" && (
+                  <Reveal delay={0.2}>
+                    <div className="mt-8 border border-line bg-bone/40 p-5">
+                      <p className="label text-stone">Certifications &amp; qualification</p>
+                      <p className="mt-2 text-sm text-stone">
+                        ISO 9001:2015 quality management and ISO 14001:2015 environmental management certified. Fire-rated and acoustic door sets installed as part of our fit-out scope are tested to BS EN 1634-1.
+                      </p>
+                      <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+                        <a
+                          href={`mailto:${site.email}?subject=Document request — ${pqqPack.title}`}
+                          className="label text-sm text-accent transition-colors hover:text-accent/70"
+                        >
+                          Request PQQ pack ↗
+                        </a>
+                        <Link
+                          href="/resources"
+                          className="label text-sm text-ink underline-offset-4 transition-colors hover:text-clay hover:underline"
+                        >
+                          All downloads
+                        </Link>
+                      </div>
+                    </div>
+                  </Reveal>
+                )}
+
+                {/* Named project reference with scope/scale */}
                 {(() => {
                   const refId = serviceReferences[s.id];
                   const ref = refId
@@ -154,11 +232,31 @@ export default function ServicesPage() {
                           {ref.title}
                         </Link>
                         {" — "}
-                        {ref.location}, {ref.year}
+                        {ref.size} · {ref.location}, {ref.year}
                       </p>
                     </Reveal>
                   );
                 })()}
+
+                {/* Cross-links to relevant /industries sector pages */}
+                {serviceSectors[s.id] && (
+                  <Reveal delay={0.25}>
+                    <p className="mt-4 text-sm text-stone">
+                      <span className="text-ink">See this in:</span>{" "}
+                      {serviceSectors[s.id].map((sector, idx) => (
+                        <span key={sector.id}>
+                          {idx > 0 && ", "}
+                          <Link
+                            href={`/industries/${sector.id}`}
+                            className="underline underline-offset-4 transition-colors hover:text-clay"
+                          >
+                            {sector.label}
+                          </Link>
+                        </span>
+                      ))}
+                    </p>
+                  </Reveal>
+                )}
               </div>
             </section>
           );
@@ -258,7 +356,7 @@ export default function ServicesPage() {
       <CTA
         eyebrow="Services"
         title="Not sure which scope you need?"
-        body="Tell us about the space and the date. We'll help you shape the brief and the right mix of disciplines."
+        body="Tell us about your project — whether it's a hotel opening, a headquarters move-in, or a private home. We'll help you shape the brief and the right mix of disciplines."
         cta="Talk to us"
       />
     </>

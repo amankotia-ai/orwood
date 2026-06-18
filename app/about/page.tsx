@@ -19,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Twenty years of interior fit-out. ORWOOD keeps design, manufacture and delivery under one roof — to be a part of every project.",
+    "Twenty years of interior fit-out. ORWOOD designs, manufactures and delivers from three owned workshops — one team, one standard, every project.",
 };
 
 export default function AboutPage() {

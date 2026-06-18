@@ -75,7 +75,7 @@ export default function HomePage() {
           <p className="text-[clamp(1.6rem,3.3vw,2.9rem)] leading-[1.22] tracking-[-0.01em]">
             For two decades, ORWOOD has built interiors for the people who build
             everything else — hotels, headquarters and homes across fifteen
-            countries. Design, manufacture and delivery, kept under one roof.
+            countries. Three workshops. One project team. Every detail designed, made and delivered — not outsourced.
           </p>
         </Reveal>
         <Reveal delay={0.1}>
@@ -192,8 +192,8 @@ export default function HomePage() {
             </h2>
             <Reveal delay={0.08}>
               <p className="mt-6 max-w-xs text-stone">
-                Design, manufacture and delivery — held in one house, so nothing
-                is lost between them.
+                Three workshops, one project team — so nothing is lost between
+                design and delivery.
               </p>
             </Reveal>
             <Reveal delay={0.12}>
