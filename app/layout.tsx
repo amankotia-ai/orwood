@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
-import { site } from "@/lib/content";
+import { site, projects } from "@/lib/content";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppButton } from "@/components/whatsapp-button";
@@ -60,6 +60,60 @@ const orgSchema = {
     addressCountry: "TR",
   },
   sameAs: site.social.map((s) => s.href),
+  areaServed: [
+    { "@type": "Country", name: "United Arab Emirates" },
+    { "@type": "Country", name: "Qatar" },
+    { "@type": "Country", name: "Saudi Arabia" },
+    { "@type": "Country", name: "Bahrain" },
+    { "@type": "Country", name: "Kuwait" },
+    { "@type": "Country", name: "Oman" },
+    { "@type": "Country", name: "Turkey" },
+    { "@type": "Country", name: "United Kingdom" },
+  ],
+  knowsAbout: [
+    "hotel interior fit-out",
+    "hospitality FF&E procurement",
+    "resort interior design and build",
+    "fire-rated door manufacturing",
+    "bespoke joinery for hotels",
+    "turnkey interior fit-out",
+    "contract furniture manufacturing",
+  ],
+  makesOffer: {
+    "@type": "Offer",
+    itemOffered: {
+      "@type": "Service",
+      name: "Hospitality Interior Fit-Out",
+      description:
+        "Turnkey hotel and resort interior fit-out — design & build, FF&E procurement, joinery manufacturing, and fire-rated doors — delivered from our own workshops in İstanbul.",
+      areaServed: [
+        { "@type": "Country", name: "United Arab Emirates" },
+        { "@type": "Country", name: "Qatar" },
+        { "@type": "Country", name: "Saudi Arabia" },
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Hospitality Fit-Out Services",
+        itemListElement: [
+          { "@type": "Service", name: "Design & Build" },
+          { "@type": "Service", name: "FF&E Procurement" },
+          { "@type": "Service", name: "Joinery & Manufacturing" },
+          { "@type": "Service", name: "Fire Rated Doors" },
+          { "@type": "Service", name: "Interior Fit-Out" },
+          { "@type": "Service", name: "Furniture Solutions" },
+        ],
+      },
+    },
+  },
+  subjectOf: projects
+    .filter((p) => p.sector === "Hospitality")
+    .map((p) => ({
+      "@type": "CreativeWork",
+      name: p.title,
+      description: p.summary,
+      locationCreated: p.location,
+      url: `https://orwood.com/projects/${p.id}`,
+    })),
 };
 
 export default function RootLayout({

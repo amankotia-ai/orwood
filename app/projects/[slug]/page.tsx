@@ -52,21 +52,64 @@ export default async function ProjectPage({ params }: Params) {
       : []),
   ];
 
+  /* ── Split location into city + country for structured data ── */
+  const [city, countryCode] = project.location.split(", ");
+  const countryMap: Record<string, string> = {
+    QA: "Qatar",
+    AE: "United Arab Emirates",
+    SA: "Saudi Arabia",
+    TR: "Turkey",
+    UK: "United Kingdom",
+  };
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "CreativeWork",
+    "@type": "Project",
     name: project.title,
-    headline: project.title,
+    headline: `${project.title} — ${project.sector} Interior Fit-Out by ORWOOD`,
     description: project.summary,
     about: project.services,
-    locationCreated: project.location,
-    dateCreated: project.year,
     url: `https://orwood.com/projects/${project.id}`,
+    dateCreated: project.year,
+    locationCreated: {
+      "@type": "Place",
+      name: `${city}, ${countryMap[countryCode] ?? countryCode}`,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: city,
+        addressCountry: countryCode,
+      },
+    },
     creator: {
       "@type": "Organization",
       name: "ORWOOD",
       url: "https://orwood.com",
+      description:
+        "Interior fit-out contractor specialising in hospitality, commercial and residential projects across the GCC, Turkey and Europe — with own manufacturing workshops in İstanbul.",
+      foundingDate: "2004",
+      areaServed: [
+        { "@type": "Country", name: "United Arab Emirates" },
+        { "@type": "Country", name: "Qatar" },
+        { "@type": "Country", name: "Saudi Arabia" },
+      ],
     },
+    ...(project.architect
+      ? {
+          contributor: {
+            "@type": "Organization",
+            name: project.architect,
+            ...(project.architectUrl ? { url: project.architectUrl } : {}),
+          },
+        }
+      : {}),
+    keywords: [
+      `${project.sector.toLowerCase()} interior fit-out`,
+      `hotel fit-out ${city}`,
+      `interior fit-out ${countryMap[countryCode] ?? countryCode}`,
+      "FF&E procurement",
+      "turnkey interiors",
+      "ORWOOD",
+    ],
   };
 
   return (

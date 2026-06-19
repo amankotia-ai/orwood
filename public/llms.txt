@@ -10,7 +10,7 @@ ORWOOD serves hospitality groups, hotel owners, developers, commercial property 
 - [FF&E Procurement](https://orwood.com/services): Furniture, fixtures and equipment — specified, sourced and installed to the millimetre of the design intent.
 - [Furniture Solutions](https://orwood.com/services): Contract-grade furniture, manufactured in owned workshops to survive the wear of public, commercial and hospitality life.
 - [Joinery & Manufacturing](https://orwood.com/services): Bespoke joinery — panelling, reception desks and fitted detail — machined and hand-finished in-house.
-- [Fire Rated Doors](https://orwood.com/services): Proprietary ORWOOD Doors system — acoustic and fire-rated door sets engineered, manufactured and certified as a complete assembly.
+- [Fire Rated Doors](https://orwood.com/orwood-doors): Proprietary ORWOOD Doors system — acoustic and fire-rated door sets engineered, manufactured and certified as complete assemblies. BS EN 1634-1 and BS EN ISO 10140 certified, FD30/FD60 integrity, Rw 32–38 dB. Manufactured in Istanbul, delivered across GCC, Turkey, UK and Europe.
 - [Interior Fit-Out](https://orwood.com/services): Complete interior construction — partitions, ceilings, flooring and M&E, coordinated and delivered as one managed scope.
 - [Value Engineering](https://orwood.com/services): Cost-conscious design development that protects the intent — finding the right detail at the right price before it reaches the workshop.
 - [Project Management](https://orwood.com/services): Programme, cost and quality held by one accountable team from mobilisation to handover.
@@ -66,6 +66,7 @@ ORWOOD follows a seven-step delivery process: Discovery, Design Development, Eng
 
 - [About](https://orwood.com/about): Company history, leadership, values and manufacturing capabilities.
 - [Journal](https://orwood.com/journal): Insights on hospitality design, FF&E procurement, joinery techniques, material innovation and value engineering.
+- [ORWOOD Doors](https://orwood.com/orwood-doors): Dedicated product page for ORWOOD's proprietary fire-rated and acoustic door system — certifications, technical specifications, test reports, and project references.
 - [Resources & Downloads](https://orwood.com/resources): ISO certificates, fire test reports, acoustic performance reports, company profile and PQQ qualification pack.
 - [Careers](https://orwood.com/careers): Open positions across project management, design, manufacturing and site operations.
 - [Global Presence](https://orwood.com/global-presence): Regions and countries served from Istanbul production base.

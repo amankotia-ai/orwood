@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/careers",
     "/about",
     "/contact",
+    "/orwood-doors",
     "/sitemap",
   ].map((path) => ({
     url: `${base}${path}`,

@@ -33,8 +33,52 @@ export default async function IndustryPage({ params }: Params) {
 
   const related = projects.filter((p) => p.sector === sector.title);
 
+  const sectorJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${sector.title} Interior Fit-Out`,
+    description: sector.lead,
+    url: `https://orwood.com/industries/${sector.id}`,
+    provider: {
+      "@type": "Organization",
+      name: "ORWOOD",
+      url: "https://orwood.com",
+      foundingDate: "2004",
+    },
+    ...(sector.id === "hospitality"
+      ? {
+          areaServed: [
+            { "@type": "Country", name: "United Arab Emirates" },
+            { "@type": "Country", name: "Qatar" },
+            { "@type": "Country", name: "Saudi Arabia" },
+            { "@type": "Country", name: "Turkey" },
+          ],
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Hospitality Fit-Out Services",
+            itemListElement: sector.offer.map((o) => ({
+              "@type": "Service",
+              name: o,
+            })),
+          },
+          subjectOf: related.map((p) => ({
+            "@type": "CreativeWork",
+            name: p.title,
+            description: p.summary,
+            locationCreated: p.location,
+            url: `https://orwood.com/projects/${p.id}`,
+          })),
+        }
+      : {}),
+    serviceType: `${sector.title} interior fit-out`,
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(sectorJsonLd) }}
+      />
       <section className="shell pt-40 md:pt-52">
         <Reveal>
           <Link

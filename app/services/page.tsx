@@ -165,6 +165,12 @@ export default function ServicesPage() {
                         Tested to BS EN 1634-1 &amp; BS EN ISO 10140. FD30 / FD60 integrity ratings, Rw 32–38 dB acoustic performance.
                       </p>
                       <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+                        <Link
+                          href="/orwood-doors"
+                          className="label text-sm text-accent transition-colors hover:text-accent/70"
+                        >
+                          ORWOOD Doors — full product page →
+                        </Link>
                         <a
                           href={`mailto:${site.email}?subject=Document request — ${fireTestReport.title}`}
                           className="label text-sm text-accent transition-colors hover:text-accent/70"

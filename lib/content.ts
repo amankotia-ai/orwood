@@ -46,6 +46,7 @@ export const siteLinks = [
   { label: "Global Presence", href: "/global-presence" },
   { label: "İstanbul", href: "/istanbul" },
   { label: "Insights / Journal", href: "/journal" },
+  { label: "ORWOOD Doors", href: "/orwood-doors" },
   { label: "Resources & Downloads", href: "/resources" },
   { label: "Careers", href: "/careers" },
   { label: "About", href: "/about" },
