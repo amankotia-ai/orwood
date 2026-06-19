@@ -1,0 +1,112 @@
+{
+  "version": "1",
+  "rules": [
+    {
+      "id": "exp-hospitality-subhead",
+      "name": "Homepage hero subhead — hospitality campaign traffic",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          { "type": "currentPath", "match": { "op": "equals", "value": "/" } },
+          { "type": "utm", "param": "campaign", "match": { "op": "equals", "value": "hospitality" } }
+        ]
+      },
+      "actions": [
+        {
+          "type": "textReplace",
+          "selector": "[data-pano=\"hero-subhead\"]",
+          "replace": "Furniture, joinery, doors and FF&E from our own workshops — one contract, one team, one pre-opening date."
+        }
+      ],
+      "metric": "start_project_click",
+      "segment": "utm_campaign=hospitality"
+    },
+    {
+      "id": "exp-instagram-subhead",
+      "name": "Homepage hero subhead — Instagram traffic",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          { "type": "currentPath", "match": { "op": "equals", "value": "/" } },
+          { "type": "utm", "param": "source", "match": { "op": "equals", "value": "instagram" } }
+        ]
+      },
+      "actions": [
+        {
+          "type": "textReplace",
+          "selector": "[data-pano=\"hero-subhead\"]",
+          "replace": "Hospitality, commercial and residential interiors — designed, made in our own workshops, and delivered turnkey."
+        }
+      ],
+      "metric": "start_project_click",
+      "segment": "utm_source=instagram"
+    },
+    {
+      "id": "exp-linkedin-headline",
+      "name": "Homepage hero headline — LinkedIn traffic",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          { "type": "currentPath", "match": { "op": "equals", "value": "/" } },
+          { "type": "utm", "param": "source", "match": { "op": "equals", "value": "linkedin" } }
+        ]
+      },
+      "actions": [
+        {
+          "type": "textReplace",
+          "selector": "[data-pano=\"hero-headline\"]",
+          "replace": "Three workshops. One team. Every hotel interior made and delivered — not outsourced."
+        }
+      ],
+      "metric": "start_project_click",
+      "segment": "utm_source=linkedin"
+    },
+    {
+      "id": "exp-uae-headline",
+      "name": "Homepage hero headline — UAE visitors",
+      "description": "Needs geo from edge headers (initialContext.geo.country). Inert until geo is injected.",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          { "type": "currentPath", "match": { "op": "equals", "value": "/" } },
+          { "type": "geo", "field": "country", "match": { "op": "equals", "value": "AE" } }
+        ]
+      },
+      "actions": [
+        {
+          "type": "textReplace",
+          "selector": "[data-pano=\"hero-headline\"]",
+          "replace": "Hospitality interiors made in İstanbul, delivered across the Gulf."
+        }
+      ],
+      "consentRequired": true,
+      "metric": "start_project_click",
+      "segment": "geo:country=AE"
+    },
+    {
+      "id": "exp-returning-cta",
+      "name": "Homepage CTA headline — returning visitors",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          { "type": "currentPath", "match": { "op": "equals", "value": "/" } },
+          { "type": "session", "field": "isReturning", "match": { "op": "equals", "value": true } }
+        ]
+      },
+      "actions": [
+        {
+          "type": "textReplace",
+          "selector": "[data-pano=\"cta-headline\"]",
+          "replace": "Tell us what you're building — we'll send a project approach within 48 hours."
+        }
+      ],
+      "metric": "start_project_click",
+      "segment": "session:returning"
+    }
+  ]
+}

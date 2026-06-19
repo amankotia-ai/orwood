@@ -35,14 +35,14 @@ export default function HomePage() {
             </span>
           </Reveal>
 
-          <h1 className="mt-10 max-w-5xl text-[clamp(2.2rem,6vw,5rem)] leading-[1.05] tracking-[-0.03em]">
+          <h1 data-pano="hero-headline" className="mt-10 max-w-5xl text-[clamp(2.2rem,6vw,5rem)] leading-[1.05] tracking-[-0.03em]">
             <Reveal mask delay={0.05}>We finish &amp; furnish</Reveal>
             <Reveal mask delay={0.12}>spaces worth remembering.</Reveal>
           </h1>
 
           <div className="mt-12 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <Reveal delay={0.25}>
-              <p className="max-w-md text-stone">
+              <p data-pano="hero-subhead" className="max-w-md text-stone">
                 A design-and-build atelier where concept, joinery, furniture and
                 FF&amp;E are delivered as one project — in {stats[2].value}{" "}
                 countries and counting.

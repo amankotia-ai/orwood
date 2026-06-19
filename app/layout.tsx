@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { CookieBanner } from "@/components/cookie-banner";
+import { Panorama } from "@/components/panorama";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -133,6 +134,7 @@ export default function RootLayout({
         <SiteFooter />
         <WhatsAppButton />
         <CookieBanner />
+        <Panorama />
       </body>
     </html>
   );

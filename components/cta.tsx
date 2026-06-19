@@ -25,7 +25,7 @@ export function CTA({
       />
       <div className="shell relative grid gap-10 py-28 md:grid-cols-12 md:items-end md:py-40">
         <div className="md:col-span-8">
-          <h2 className="max-w-3xl text-[clamp(2.4rem,5.5vw,4.6rem)] text-bone">
+          <h2 data-pano="cta-headline" className="max-w-3xl text-[clamp(2.4rem,5.5vw,4.6rem)] text-bone">
             <Reveal mask delay={0.05}>
               {title}
             </Reveal>
