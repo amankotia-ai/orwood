@@ -6,11 +6,11 @@ ORWOOD serves hospitality groups, hotel owners, developers, commercial property 
 
 ## Services
 
-- [Design & Build](https://orwood.com/services): One accountable team from first sketch to final handover — concept, technical detail, and on-site delivery under a single roof.
+- [Design & Build](https://orwood.com/services): One accountable team from first sketch to final handover — concept, technical detail, and on-site delivery under a single contract.
 - [FF&E Procurement](https://orwood.com/services): Furniture, fixtures and equipment — specified, sourced and installed to the millimetre of the design intent.
-- [Furniture Solutions](https://orwood.com/services): Contract-grade furniture, manufactured in owned workshops to survive the wear of public, commercial and hospitality life.
+- [Furniture Solutions](https://orwood.com/services): Contract-grade furniture manufactured in owned workshops — for hospitality, commercial and luxury residential interiors.
 - [Joinery & Manufacturing](https://orwood.com/services): Bespoke joinery — panelling, reception desks and fitted detail — machined and hand-finished in-house.
-- [Fire Rated Doors](https://orwood.com/orwood-doors): Proprietary ORWOOD Doors system — acoustic and fire-rated door sets engineered, manufactured and certified as complete assemblies. BS EN 1634-1 and BS EN ISO 10140 certified, FD30/FD60 integrity, Rw 32–38 dB. Manufactured in Istanbul, delivered across GCC, Turkey, UK and Europe.
+- [Fire Rated Doors](https://orwood.com/orwood-doors): Proprietary ORWOOD Doors system — acoustic and fire-rated door sets engineered, manufactured and certified as complete assemblies. BS EN 1634-1 and BS EN ISO 10140 certified, FD30/FD60 integrity, Rw 32-38 dB. Manufactured in Istanbul, delivered across GCC, Turkey, UK and Europe.
 - [Interior Fit-Out](https://orwood.com/services): Complete interior construction — partitions, ceilings, flooring and M&E, coordinated and delivered as one managed scope.
 - [Value Engineering](https://orwood.com/services): Cost-conscious design development that protects the intent — finding the right detail at the right price before it reaches the workshop.
 - [Project Management](https://orwood.com/services): Programme, cost and quality held by one accountable team from mobilisation to handover.
@@ -32,6 +32,8 @@ ORWOOD owns three dedicated manufacturing operations in Istanbul:
 - **SILADU**: Surface, veneer and material development — the palette behind every ORWOOD interior.
 - **ORWOOD Doors**: Proprietary acoustic and fire-rated door systems, engineered and tested as complete assemblies to BS EN 1634-1 and BS EN ISO 10140.
 
+Manufacturing details: [orwood.com/manufacturing](https://orwood.com/manufacturing)
+
 ## Key Facts
 
 - Founded: 2004
@@ -47,6 +49,8 @@ ORWOOD owns three dedicated manufacturing operations in Istanbul:
 
 ORWOOD follows a seven-step delivery process: Discovery, Design Development, Engineering, Manufacturing, Procurement, Installation, Handover. Design, engineering and manufacture happen in the same building, so a detail drawn by the design studio is costed by engineers, prototyped in workshops, and finished by in-house teams before it ships.
 
+Process details: [orwood.com/process](https://orwood.com/process)
+
 ## Selected Projects
 
 - [The Aram Hotel](https://orwood.com/projects/aram-hotel): 220-key waterfront hotel in Doha — Design & Build, FF&E, Joinery, Fire Rated Doors.
@@ -55,6 +59,35 @@ ORWOOD follows a seven-step delivery process: Discovery, Design Development, Eng
 - [Solis Resort & Spa](https://orwood.com/projects/solis-resort): 140-key coastal resort in Bodrum — Design & Build, Interior Fit-Out, Joinery, FF&E.
 - [Northbank HQ](https://orwood.com/projects/northbank-hq): 12,000 sqm corporate headquarters in Riyadh — Furniture Solutions, FF&E, Value Engineering.
 - [Cedar House](https://orwood.com/projects/cedar-house): Five-storey London townhouse — Joinery, Fire Rated Doors, Furniture Solutions.
+
+## Resources & Downloads
+
+Downloadable documentation for procurement and specification teams:
+
+- ISO 9001:2015 Certificate (Quality Management)
+- ISO 14001:2015 Certificate (Environmental Management)
+- Fire Test Report — FD30 & FD60 Door Sets
+- Acoustic Performance Report
+- Product Datasheet — Fire Rated Doors
+- Sustainability & Environmental Statement
+- ORWOOD Company Profile
+- Pre-Qualification Questionnaire (PQQ) Pack
+
+Available at: [orwood.com/resources](https://orwood.com/resources)
+
+## Journal
+
+Insights on hospitality interiors, manufacturing, materials and fit-out practice:
+
+- [Why Istanbul? The case for manufacturing hospitality interiors in Turkey](https://orwood.com/journal/why-istanbul-for-hospitality-fit-out-manufacturing)
+- [Fire-rated door sets: what hotel developers need to know before tender](https://orwood.com/journal/fire-rated-doors-what-hotel-developers-need-to-know)
+- [Why vertically integrated fit-out delivers better hotels](https://orwood.com/journal/why-vertically-integrated-fit-out-delivers-better-hotels)
+- [Single-source FF&E: what changes when one manufacturer owns the whole package](https://orwood.com/journal/single-source-ffe-for-hotel-projects)
+- [Designing hospitality interiors for the tenth year, not the opening photograph](https://orwood.com/journal/designing-for-the-tenth-year)
+- [FF&E procurement without the surprises](https://orwood.com/journal/ffe-procurement-without-surprises)
+- [The case for developing materials in-house](https://orwood.com/journal/the-case-for-owned-materials)
+- [Where joinery tolerances come from](https://orwood.com/journal/where-joinery-tolerances-come-from)
+- [Value engineering that adds value](https://orwood.com/journal/value-engineering-that-adds-value)
 
 ## Contact
 
@@ -65,8 +98,8 @@ ORWOOD follows a seven-step delivery process: Discovery, Design Development, Eng
 ## Optional
 
 - [About](https://orwood.com/about): Company history, leadership, values and manufacturing capabilities.
-- [Journal](https://orwood.com/journal): Insights on hospitality design, FF&E procurement, joinery techniques, material innovation and value engineering.
+- [Manufacturing](https://orwood.com/manufacturing): CNC technology, production facilities, quality control and material expertise across three owned operations.
 - [ORWOOD Doors](https://orwood.com/orwood-doors): Dedicated product page for ORWOOD's proprietary fire-rated and acoustic door system — certifications, technical specifications, test reports, and project references.
-- [Resources & Downloads](https://orwood.com/resources): ISO certificates, fire test reports, acoustic performance reports, company profile and PQQ qualification pack.
-- [Careers](https://orwood.com/careers): Open positions across project management, design, manufacturing and site operations.
 - [Global Presence](https://orwood.com/global-presence): Regions and countries served from Istanbul production base.
+- [Istanbul](https://orwood.com/istanbul): The manufacturing headquarters — why ORWOOD produces in Istanbul and what that means for delivery.
+- [Careers](https://orwood.com/careers): Open positions across project management, design, manufacturing and site operations.
