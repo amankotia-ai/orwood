@@ -8,8 +8,21 @@
       "audience": {
         "type": "all",
         "conditions": [
-          { "type": "currentPath", "match": { "op": "equals", "value": "/" } },
-          { "type": "utm", "param": "campaign", "match": { "op": "equals", "value": "hospitality" } }
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/"
+            }
+          },
+          {
+            "type": "utm",
+            "param": "campaign",
+            "match": {
+              "op": "equals",
+              "value": "hospitality"
+            }
+          }
         ]
       },
       "actions": [
@@ -29,8 +42,21 @@
       "audience": {
         "type": "all",
         "conditions": [
-          { "type": "currentPath", "match": { "op": "equals", "value": "/" } },
-          { "type": "utm", "param": "source", "match": { "op": "equals", "value": "instagram" } }
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/"
+            }
+          },
+          {
+            "type": "utm",
+            "param": "source",
+            "match": {
+              "op": "equals",
+              "value": "instagram"
+            }
+          }
         ]
       },
       "actions": [
@@ -50,8 +76,21 @@
       "audience": {
         "type": "all",
         "conditions": [
-          { "type": "currentPath", "match": { "op": "equals", "value": "/" } },
-          { "type": "utm", "param": "source", "match": { "op": "equals", "value": "linkedin" } }
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/"
+            }
+          },
+          {
+            "type": "utm",
+            "param": "source",
+            "match": {
+              "op": "equals",
+              "value": "linkedin"
+            }
+          }
         ]
       },
       "actions": [
@@ -72,8 +111,21 @@
       "audience": {
         "type": "all",
         "conditions": [
-          { "type": "currentPath", "match": { "op": "equals", "value": "/" } },
-          { "type": "geo", "field": "country", "match": { "op": "equals", "value": "AE" } }
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/"
+            }
+          },
+          {
+            "type": "geo",
+            "field": "country",
+            "match": {
+              "op": "equals",
+              "value": "AE"
+            }
+          }
         ]
       },
       "actions": [
@@ -94,8 +146,21 @@
       "audience": {
         "type": "all",
         "conditions": [
-          { "type": "currentPath", "match": { "op": "equals", "value": "/" } },
-          { "type": "session", "field": "isReturning", "match": { "op": "equals", "value": true } }
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/"
+            }
+          },
+          {
+            "type": "session",
+            "field": "isReturning",
+            "match": {
+              "op": "equals",
+              "value": true
+            }
+          }
         ]
       },
       "actions": [
@@ -107,6 +172,404 @@
       ],
       "metric": "start_project_click",
       "segment": "session:returning"
+    },
+    {
+      "id": "homepage-dual-cta-returning-organic-visitors-secondary-evidence-path-button",
+      "name": "Homepage dual CTA — returning organic visitors (secondary evidence-path button)",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/"
+            }
+          },
+          {
+            "type": "session",
+            "field": "isReturning",
+            "match": {
+              "op": "equals",
+              "value": true
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "modifyButton",
+          "selector": "[data-pano='cta-button']",
+          "changes": {
+            "addSecondary": true,
+            "secondaryText": "View delivered projects",
+            "secondaryHref": "/projects",
+            "secondaryStyle": "outline",
+            "secondaryClass": "border border-[#732017] text-[#732017] hover:bg-[#732017] hover:text-white"
+          }
+        }
+      ],
+      "metric": "click_to_projects_or_contact",
+      "holdout": 0.12
+    },
+    {
+      "id": "homepage-qualification-strip-linkedin-returning-visitors-inject-after-group-section",
+      "name": "Homepage qualification strip — LinkedIn returning visitors (inject after Group section)",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "utm",
+            "param": "source",
+            "match": {
+              "op": "equals",
+              "value": "linkedin"
+            }
+          },
+          {
+            "type": "session",
+            "field": "isReturning",
+            "match": {
+              "op": "equals",
+              "value": true
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "injectField",
+          "after": "[data-section='group']",
+          "content": {
+            "eyebrow": "Qualifications",
+            "items": [
+              {
+                "label": "Fire-rated door systems",
+                "detail": "Tested and certified to BS 476 / EN 1634"
+              },
+              {
+                "label": "Acoustic performance",
+                "detail": "Tested to BS EN ISO 10140"
+              },
+              {
+                "label": "Quality management",
+                "detail": "ISO 9001 certified manufacturing"
+              }
+            ],
+            "cta": {
+              "text": "Request capability statement",
+              "href": "/contact"
+            }
+          },
+          "style": {
+            "borderTop": "1px solid #e5e4e0",
+            "py": "3rem",
+            "bg": "#f4f3ef",
+            "font": "Archivo",
+            "color": "#18120f"
+          }
+        }
+      ],
+      "metric": "click_to_contact",
+      "holdout": 0.12
+    },
+    {
+      "id": "homepage-siladu-materials-strip-design-channel-visitors-inject-after-manufacturing",
+      "name": "Homepage SILADU materials strip — design-channel visitors (inject after manufacturing)",
+      "status": "active",
+      "audience": {
+        "type": "any",
+        "conditions": [
+          {
+            "type": "referrer",
+            "match": {
+              "op": "contains",
+              "value": "pinterest"
+            }
+          },
+          {
+            "type": "referrer",
+            "match": {
+              "op": "contains",
+              "value": "behance"
+            }
+          },
+          {
+            "type": "utm",
+            "param": "source",
+            "match": {
+              "op": "contains",
+              "value": "design"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "injectField",
+          "after": "[data-section='manufacturing']",
+          "content": {
+            "eyebrow": "Materials & Surfaces",
+            "headline": "SILADU",
+            "body": "Veneer, finish and surface development — the palette behind every ORWOOD interior.",
+            "cta": {
+              "text": "Inside the workshops",
+              "href": "/manufacturing"
+            }
+          },
+          "style": {
+            "borderTop": "1px solid #e5e4e0",
+            "py": "4rem",
+            "bg": "#f4f3ef",
+            "font": "Archivo",
+            "color": "#18120f"
+          }
+        }
+      ],
+      "metric": "click_to_manufacturing",
+      "holdout": 0.15
+    },
+    {
+      "id": "homepage-residential-proof-overlay-desktop-new-visitors-exit-intent",
+      "name": "Homepage residential proof overlay — desktop new visitors (exit intent)",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "device",
+            "field": "type",
+            "match": {
+              "op": "equals",
+              "value": "desktop"
+            }
+          },
+          {
+            "type": "session",
+            "field": "isNew",
+            "match": {
+              "op": "equals",
+              "value": true
+            }
+          },
+          {
+            "type": "exitIntent"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "overlay",
+          "position": "bottom-right",
+          "content": {
+            "headline": "Private & residential interiors",
+            "body": "Bespoke joinery, kitchens, wardrobes and libraries — finished like furniture, not fitted like cabinetry.",
+            "cta": {
+              "text": "View residential projects",
+              "href": "/industries/residential"
+            },
+            "dismiss": true
+          },
+          "style": {
+            "maxWidth": "420px",
+            "bg": "#f4f3ef",
+            "border": "1px solid #e5e4e0",
+            "font": "Archivo",
+            "color": "#18120f"
+          }
+        }
+      ],
+      "metric": "click_to_residential",
+      "holdout": 0.15,
+      "priority": 1
+    },
+    {
+      "id": "exp-exit-intent-projects",
+      "name": "Exit-intent projects overlay — new visitors",
+      "description": "Non-intrusive corner overlay at exit intent directing new visitors to the projects page (proof asset). Yields to higher-priority residential overlay on desktop.",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/"
+            }
+          },
+          {
+            "type": "session",
+            "field": "isNew",
+            "match": {
+              "op": "equals",
+              "value": true
+            }
+          },
+          {
+            "type": "exitIntent"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "overlay",
+          "position": "bottom-right",
+          "animation": "slide",
+          "autoCloseMs": 8000,
+          "content": {
+            "headline": "Before you go — see what we've delivered.",
+            "cta": {
+              "text": "View projects →",
+              "href": "/projects"
+            },
+            "dismiss": true
+          },
+          "style": {
+            "maxWidth": "360px",
+            "bg": "#f4f3ef",
+            "border": "1px solid #e5e4e0",
+            "font": "Archivo",
+            "color": "#18120f"
+          }
+        }
+      ],
+      "metric": "projects_click",
+      "holdout": 0.1,
+      "frequencyCap": {
+        "per": "session",
+        "max": 1
+      },
+      "priority": 0
+    },
+    {
+      "id": "exp-deep-scroll-sticky-cta",
+      "name": "Homepage sticky CTA — desktop deep-scroll engaged visitors",
+      "description": "Overlay banner at bottom triggered by 70% scroll depth + 30s time on page. Surfaces the conversion action mid-journey for engaged desktop visitors who may never reach the final CTA section.",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/"
+            }
+          },
+          {
+            "type": "device",
+            "field": "type",
+            "match": {
+              "op": "equals",
+              "value": "desktop"
+            }
+          },
+          {
+            "type": "scrollDepth",
+            "percent": 70
+          },
+          {
+            "type": "timeOnPage",
+            "seconds": 30
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "overlay",
+          "overlay": "banner",
+          "position": "bottom",
+          "animation": "slide",
+          "dismissible": true,
+          "id": "pa-sticky-cta-desktop",
+          "content": {
+            "headline": "Ready to start a project?",
+            "body": "Tell us what you’re building — we’ll send a project approach within 48 hours.",
+            "cta": {
+              "text": "Get in touch",
+              "href": "/contact"
+            },
+            "dismiss": true
+          },
+          "style": {
+            "bg": "#18120f",
+            "color": "#f4f3ef",
+            "font": "Archivo",
+            "border": "none",
+            "maxWidth": "100vw"
+          }
+        }
+      ],
+      "metric": "start_project_click",
+      "holdout": 0.1,
+      "frequencyCap": {
+        "per": "session",
+        "max": 1
+      }
+    },
+    {
+      "id": "exp-mobile-sticky-cta",
+      "name": "Homepage sticky CTA — mobile scroll-engaged visitors",
+      "description": "Overlay banner at bottom triggered by 50% scroll depth on mobile. Surfaces the conversion action earlier on mobile where the homepage is ~12 full scrolls.",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/"
+            }
+          },
+          {
+            "type": "device",
+            "field": "mobile",
+            "match": {
+              "op": "equals",
+              "value": true
+            }
+          },
+          {
+            "type": "scrollDepth",
+            "percent": 50
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "overlay",
+          "overlay": "banner",
+          "position": "bottom",
+          "animation": "slide",
+          "dismissible": true,
+          "id": "pa-sticky-cta-mobile",
+          "content": {
+            "headline": "Ready to start a project?",
+            "cta": {
+              "text": "Get in touch",
+              "href": "/contact"
+            },
+            "dismiss": true
+          },
+          "style": {
+            "bg": "#18120f",
+            "color": "#f4f3ef",
+            "font": "Archivo",
+            "border": "none",
+            "maxWidth": "100vw"
+          }
+        }
+      ],
+      "metric": "mobile_cta_click",
+      "holdout": 0.1,
+      "frequencyCap": {
+        "per": "session",
+        "max": 1
+      }
     }
   ]
 }

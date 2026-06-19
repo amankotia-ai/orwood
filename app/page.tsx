@@ -49,7 +49,7 @@ export default function HomePage() {
               </p>
             </Reveal>
             <Reveal delay={0.32}>
-              <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+              <div data-pano="cta-button" className="flex flex-wrap items-center gap-x-8 gap-y-4">
                 <Button href="/projects">View selected work</Button>
                 <ArrowLink href="/services">Our services</ArrowLink>
               </div>
@@ -72,7 +72,7 @@ export default function HomePage() {
       {/* ─────────────────── Positioning statement ─────────────────── */}
       <section className="shell py-32 md:py-56">
         <Reveal className="max-w-5xl">
-          <p className="text-[clamp(1.6rem,3.3vw,2.9rem)] leading-[1.22] tracking-[-0.01em]">
+          <p data-pano="positioning-statement" className="text-[clamp(1.6rem,3.3vw,2.9rem)] leading-[1.22] tracking-[-0.01em]">
             For two decades, ORWOOD has built interiors for the people who build
             everything else — hotels, headquarters and homes across fifteen
             countries. Three workshops. One project team. Every detail designed, made and delivered — not outsourced.
@@ -226,7 +226,7 @@ export default function HomePage() {
       </section>
 
       {/* ───────────────── The group ───────────────── */}
-      <section className="shell pb-32 md:pb-56">
+      <section data-section="group" className="shell pb-32 md:pb-56">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
             <h2 className="text-[clamp(2rem,4.5vw,3.4rem)]">
@@ -250,11 +250,11 @@ export default function HomePage() {
       </section>
 
       {/* ───────────────── Manufacturing teaser ───────────────── */}
-      <section className="relative isolate overflow-hidden bg-walnut text-paper">
+      <section data-section="manufacturing" data-pano="manufacturing-section" className="relative isolate overflow-hidden bg-walnut text-paper">
         <div className="shell grid gap-12 py-28 md:grid-cols-12 md:items-center md:py-40">
           <div className="md:col-span-6">
-            <span className="label text-bone/60">Manufacturing &amp; Joinery</span>
-            <h2 className="mt-5 max-w-xl text-[clamp(2rem,4.5vw,3.6rem)] text-bone">
+            <span className="label text-stone-soft">Manufacturing &amp; Joinery</span>
+            <h2 data-pano="manufacturing-headline" className="mt-5 max-w-xl text-[clamp(2rem,4.5vw,3.6rem)] text-bone">
               <Reveal mask>We don&apos;t just specify it. We make it.</Reveal>
             </h2>
             <Reveal delay={0.1}>
@@ -263,6 +263,7 @@ export default function HomePage() {
             <Reveal delay={0.15}>
               <Link
                 href="/manufacturing"
+                data-pano="manufacturing-link"
                 className="group mt-8 inline-flex items-center gap-2 label text-bone"
               >
                 <span className="link-underline group-hover:link-underline-on pb-1">
@@ -360,7 +361,7 @@ export default function HomePage() {
             <span className="label text-stone-soft">Selected clients</span>
             <div className="mt-6 flex flex-wrap items-center gap-x-10 gap-y-4">
               {clients.map((c) => (
-                <span key={c} className="text-lg tracking-tight text-stone">
+                <span key={c} className="text-lg tracking-tight text-stone/70">
                   {c}
                 </span>
               ))}
