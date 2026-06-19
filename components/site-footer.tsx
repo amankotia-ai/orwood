@@ -111,6 +111,18 @@ export function SiteFooter() {
         </p>
         <div className="flex items-center gap-6">
           <Link
+            href="/privacy"
+            className="label transition-colors hover:text-bone"
+          >
+            Privacy
+          </Link>
+          <Link
+            href="/terms"
+            className="label transition-colors hover:text-bone"
+          >
+            Terms
+          </Link>
+          <Link
             href="/sitemap"
             className="label transition-colors hover:text-bone"
           >
