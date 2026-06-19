@@ -620,6 +620,29 @@
         "per": "session",
         "max": 1
       }
+    },
+    {
+      "id": "returning-visitor-cta-headline-on-homepage",
+      "name": "Returning-visitor CTA headline on homepage",
+      "status": "active",
+      "audience": {
+        "type": "session",
+        "match": {
+          "op": "equals",
+          "value": true,
+          "caseInsensitive": true
+        },
+        "field": "isReturning"
+      },
+      "actions": [
+        {
+          "type": "textReplace",
+          "replace": "Welcome back — let's pick up where we left off",
+          "find": "Ready to start a new project with ORWOOD?"
+        }
+      ],
+      "metric": "enquiry-click-through",
+      "holdout": 0.1
     }
   ]
 }
