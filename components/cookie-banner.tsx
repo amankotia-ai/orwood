@@ -20,13 +20,22 @@ export function CookieBanner() {
 
   useEffect(() => {
     try {
-      if (!localStorage.getItem(STORAGE_KEY)) {
-        setVisible(true);
-      }
+      if (localStorage.getItem(STORAGE_KEY)) return;
     } catch {
-      // localStorage unavailable (SSR, private browsing) — show the banner
-      setVisible(true);
+      // localStorage unavailable — fall through to show
     }
+
+    // Defer render so the hero content paints as the LCP element instead of
+    // the banner's <p>. requestIdleCallback fires after the main thread is
+    // idle; the 3 500 ms timeout is a fallback for Safari (no rIC support)
+    // and guarantees the banner still appears even under sustained load.
+    const show = () => setVisible(true);
+    if (typeof requestIdleCallback === "function") {
+      const id = requestIdleCallback(show, { timeout: 3_500 });
+      return () => cancelIdleCallback(id);
+    }
+    const timer = setTimeout(show, 3_500);
+    return () => clearTimeout(timer);
   }, []);
 
   function dismiss() {

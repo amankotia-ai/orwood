@@ -281,7 +281,7 @@ export default function ServicesPage() {
             {process.map((p, i) => (
               <Reveal key={p.index} delay={i * 0.08}>
                 <div className="border-t border-line-inv pt-5">
-                  <span className="label text-stone-soft">{p.index}</span>
+                  <span className="label text-bone/60">{p.index}</span>
                   <h3 className="mt-4 font-serif text-2xl text-bone">{p.title}</h3>
                   <p className="mt-3 text-paper/70">{p.body}</p>
                 </div>

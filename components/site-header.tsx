@@ -53,7 +53,7 @@ export function SiteHeader() {
             <span className="mb-2 h-1 w-1 bg-clay" />
           </Link>
 
-          <nav className="hidden items-center gap-x-6 md:flex lg:gap-x-8">
+          <nav aria-label="Main" className="hidden items-center gap-x-6 md:flex lg:gap-x-8">
             {nav.map((item) => {
               const active =
                 pathname === item.href ||
@@ -123,7 +123,7 @@ export function SiteHeader() {
               </button>
             </div>
 
-            <nav className="shell flex flex-1 flex-col justify-center gap-2 pb-16">
+            <nav aria-label="Main" className="shell flex flex-1 flex-col justify-center gap-2 pb-16">
               {nav.map((item, i) => (
                 <motion.div
                   key={item.href}
