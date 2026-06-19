@@ -1,5 +1,5 @@
 /** DOM action executors. Uses the Web Animations API — no external dependencies. */
-import { Action, AnimationStyle, OverlayPosition, OverlayType, PanoramaEvent } from "./types";
+import { Action, AnimationStyle, FormField, OverlayPosition, OverlayType, PanoramaEvent } from "./types";
 
 type Emit = (e: PanoramaEvent) => void;
 
@@ -171,7 +171,7 @@ function injectSection(a: { after: string; content: Record<string, unknown>; sty
   emit({ kind: "interaction", ruleId, detail: "section_injected" });
 }
 
-function injectField(a: Extract<Action, { type: "injectField" }>): void {
+function injectField(a: { type: "injectField"; formSelector: string; field: FormField; position?: "start" | "end" | number }): void {
   const form = document.querySelector(a.formSelector);
   if (!form) return;
   const f = a.field;
