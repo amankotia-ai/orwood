@@ -204,6 +204,7 @@ export function ContactForm({
             <textarea
               value={form.message}
               onChange={update("message")}
+              required
               rows={4}
               placeholder="What are you building, where, and by when?"
               aria-invalid={!!errors.message}
@@ -261,6 +262,7 @@ function Field({
         type={type}
         value={value}
         onChange={onChange}
+        required={required}
         placeholder={placeholder}
         autoComplete={autoComplete}
         aria-invalid={!!error}

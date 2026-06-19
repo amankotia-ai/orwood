@@ -253,7 +253,7 @@ export default function HomePage() {
       <section className="relative isolate overflow-hidden bg-walnut text-paper">
         <div className="shell grid gap-12 py-28 md:grid-cols-12 md:items-center md:py-40">
           <div className="md:col-span-6">
-            <span className="label text-stone-soft">Manufacturing &amp; Joinery</span>
+            <span className="label text-bone/60">Manufacturing &amp; Joinery</span>
             <h2 className="mt-5 max-w-xl text-[clamp(2rem,4.5vw,3.6rem)] text-bone">
               <Reveal mask>We don&apos;t just specify it. We make it.</Reveal>
             </h2>
@@ -360,7 +360,7 @@ export default function HomePage() {
             <span className="label text-stone-soft">Selected clients</span>
             <div className="mt-6 flex flex-wrap items-center gap-x-10 gap-y-4">
               {clients.map((c) => (
-                <span key={c} className="text-lg tracking-tight text-stone/70">
+                <span key={c} className="text-lg tracking-tight text-stone">
                   {c}
                 </span>
               ))}

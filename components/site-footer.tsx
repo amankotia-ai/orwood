@@ -37,7 +37,7 @@ export function SiteFooter() {
         </div>
 
         {/* Explore */}
-        <nav className="md:col-span-2">
+        <nav aria-label="Footer — Explore" className="md:col-span-2">
           <h3 className="label text-bone/60">Explore</h3>
           <ul className="mt-5 space-y-3">
             {siteLinks.map((item) => (
@@ -54,7 +54,7 @@ export function SiteFooter() {
         </nav>
 
         {/* Services */}
-        <nav className="md:col-span-2">
+        <nav aria-label="Footer — Services" className="md:col-span-2">
           <h3 className="label text-bone/60">Services</h3>
           <ul className="mt-5 space-y-3">
             {services.slice(0, 5).map((s) => (
