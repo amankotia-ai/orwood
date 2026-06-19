@@ -31,7 +31,7 @@ export function CTA({
             </Reveal>
           </h2>
           <Reveal delay={0.1}>
-            <p className="mt-7 max-w-md text-paper/70">{body}</p>
+            <p data-pano="cta-body" className="mt-7 max-w-md text-paper/70">{body}</p>
           </Reveal>
         </div>
         <div className="md:col-span-4 md:justify-self-end">

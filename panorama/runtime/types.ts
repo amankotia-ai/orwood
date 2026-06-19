@@ -79,10 +79,20 @@ export type Action =
   | { type: "removeClass"; selector: string; className: string }
   // navigation & flow
   | { type: "redirect"; url: string; newTab?: boolean }
-  | { type: "modifyButton"; selector: string; label?: string; href?: string; clickEvent?: string }
+  | { type: "modifyButton"; selector: string; label?: string; href?: string; clickEvent?: string;
+      changes?: {
+        addSecondary?: boolean;
+        secondaryText?: string;
+        secondaryHref?: string;
+        secondaryStyle?: string;
+        secondaryClass?: string;
+      };
+    }
   // advanced UX
   | { type: "overlay"; overlay: OverlayType; position?: OverlayPosition; animation?: AnimationStyle; html: string; autoCloseMs?: number; dismissible?: boolean; id?: string }
+  | { type: "overlay"; position?: OverlayPosition; animation?: AnimationStyle; content: { headline?: string; body?: string; cta?: { text: string; href: string }; dismiss?: boolean }; style?: Record<string, string>; autoCloseMs?: number; id?: string }
   | { type: "injectField"; formSelector: string; field: FormField; position?: "start" | "end" | number }
+  | { type: "injectField"; after: string; content: Record<string, unknown>; style?: Record<string, string> }
   | { type: "personalize"; selector: string; source: "behavior" | "location" | "history" | "recommendation"; html?: string; fallback?: string };
 
 // ---------- Rule envelope ----------

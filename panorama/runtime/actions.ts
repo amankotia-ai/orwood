@@ -52,17 +52,33 @@ const POS: Record<OverlayPosition, Partial<CSSStyleDeclaration>> = {
   "bottom-right": { bottom: "16px", right: "16px" },
 };
 
-function buildOverlay(a: Extract<Action, { type: "overlay" }>, ruleId: string, emit: Emit): void {
+function buildOverlay(a: any, ruleId: string, emit: Emit): void {
   const id = a.id || "pa-ov-" + ruleId;
-  if (document.getElementById(id)) return; // already shown
+  if (document.getElementById(id)) return;
   const wrap = document.createElement("div");
   wrap.id = id;
   wrap.setAttribute("data-pa-rule", ruleId);
   const box = document.createElement("div");
-  box.innerHTML = a.html;
-  Object.assign(box.style, { background: "#fff", color: "#111", boxShadow: "0 8px 40px rgba(0,0,0,.18)", borderRadius: "12px", padding: "20px", position: "relative" } as Partial<CSSStyleDeclaration>);
+  if (a.html) {
+    box.innerHTML = a.html;
+  } else if (a.content) {
+    const c = a.content;
+    let html = "";
+    if (c.headline) html += `<h3 style="margin:0 0 8px;font-size:1.25rem;font-weight:600">${c.headline}</h3>`;
+    if (c.body) html += `<p style="margin:0 0 16px;font-size:0.95rem;opacity:0.85">${c.body}</p>`;
+    if (c.cta) html += `<a href="${c.cta.href}" data-pa-overlay-cta data-rule="${ruleId}" style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;font-size:0.82rem;font-weight:500;background:#18120f;color:#f4f3ef;text-decoration:none;letter-spacing:0.025em;transition:background 300ms">${c.cta.text}</a>`;
+    box.innerHTML = html;
+    const ctaLink = box.querySelector("[data-pa-overlay-cta]");
+    if (ctaLink) ctaLink.addEventListener("click", () => emit({ kind: "interaction", ruleId, detail: "overlay_cta_click" }));
+  }
+  const sty = a.style || {};
+  Object.assign(box.style, {
+    background: sty.bg || "#fff", color: sty.color || "#111",
+    boxShadow: "0 8px 40px rgba(0,0,0,.18)", borderRadius: "12px", padding: "20px", position: "relative",
+    maxWidth: sty.maxWidth || "", border: sty.border || "", fontFamily: sty.font || "",
+  } as Partial<CSSStyleDeclaration>);
 
-  const type: OverlayType = a.overlay;
+  const type: OverlayType = a.overlay || "corner";
   const pos: OverlayPosition = a.position || (type === "banner" ? "top" : type === "sidebar" ? "right" : type === "corner" ? "bottom-right" : "center");
 
   Object.assign(wrap.style, { position: "fixed", zIndex: "2147483600" } as Partial<CSSStyleDeclaration>);
@@ -75,7 +91,8 @@ function buildOverlay(a: Extract<Action, { type: "overlay" }>, ruleId: string, e
   if (type === "sidebar") Object.assign(box.style, { height: "100vh", borderRadius: "0", width: "360px", maxWidth: "90vw" } as Partial<CSSStyleDeclaration>);
   if (type === "corner" || type === "tooltip") Object.assign(box.style, { maxWidth: "320px" } as Partial<CSSStyleDeclaration>);
 
-  if (a.dismissible !== false) {
+  const isDismissible = a.dismissible !== false && (a.content?.dismiss !== false);
+  if (isDismissible) {
     const x = document.createElement("button");
     x.textContent = "×";
     Object.assign(x.style, { position: "absolute", top: "6px", right: "10px", border: "none", background: "transparent", fontSize: "20px", cursor: "pointer", lineHeight: "1" } as Partial<CSSStyleDeclaration>);
@@ -89,6 +106,69 @@ function buildOverlay(a: Extract<Action, { type: "overlay" }>, ruleId: string, e
   if (a.autoCloseMs && a.autoCloseMs > 0) {
     setTimeout(() => { if (document.getElementById(id)) animateOut(wrap, a.animation, 200, () => wrap.remove()); }, a.autoCloseMs);
   }
+}
+
+function injectSection(a: { after: string; content: Record<string, unknown>; style?: Record<string, string> }, ruleId: string, emit: Emit): void {
+  const anchor = document.querySelector(a.after);
+  if (!anchor) return;
+  const section = document.createElement("section");
+  section.setAttribute("data-pa-rule", ruleId);
+  const s = a.style || {};
+  Object.assign(section.style, {
+    borderTop: s.borderTop || "", paddingTop: s.py || "", paddingBottom: s.py || "",
+    backgroundColor: s.bg || "", fontFamily: s.font || "", color: s.color || "",
+  });
+  const shell = document.createElement("div");
+  shell.className = "shell";
+  const c = a.content;
+  if (c.eyebrow) {
+    const ey = document.createElement("span");
+    ey.className = "label text-stone";
+    ey.textContent = String(c.eyebrow);
+    shell.appendChild(ey);
+  }
+  if (c.headline) {
+    const h = document.createElement("h2");
+    h.className = "mt-4 text-[clamp(2rem,4.5vw,3.4rem)]";
+    h.textContent = String(c.headline);
+    shell.appendChild(h);
+  }
+  if (c.body) {
+    const p = document.createElement("p");
+    p.className = "mt-4 max-w-xl text-stone";
+    p.textContent = String(c.body);
+    shell.appendChild(p);
+  }
+  if (Array.isArray(c.items)) {
+    const grid = document.createElement("div");
+    grid.className = "mt-10 grid gap-x-8 gap-y-8 sm:grid-cols-2 md:grid-cols-3";
+    for (const item of c.items as Array<{ label: string; detail: string }>) {
+      const card = document.createElement("div");
+      card.className = "border-t border-line pt-5";
+      const lbl = document.createElement("h3");
+      lbl.className = "text-lg";
+      lbl.textContent = item.label;
+      const det = document.createElement("p");
+      det.className = "mt-2 text-sm text-stone";
+      det.textContent = item.detail;
+      card.appendChild(lbl);
+      card.appendChild(det);
+      grid.appendChild(card);
+    }
+    shell.appendChild(grid);
+  }
+  const cta = c.cta as { text: string; href: string } | undefined;
+  if (cta) {
+    const link = document.createElement("a");
+    link.href = cta.href;
+    link.textContent = cta.text;
+    link.className = "mt-8 inline-flex items-center gap-3 px-7 py-4 text-[0.82rem] font-medium tracking-wide bg-ink text-bone hover:bg-clay transition-colors duration-300";
+    link.addEventListener("click", () => emit({ kind: "interaction", ruleId, detail: "section_cta_click" }));
+    shell.appendChild(link);
+  }
+  section.appendChild(shell);
+  anchor.parentNode?.insertBefore(section, anchor.nextSibling);
+  emit({ kind: "interaction", ruleId, detail: "section_injected" });
 }
 
 function injectField(a: Extract<Action, { type: "injectField" }>): void {
@@ -156,11 +236,36 @@ export function executeAction(action: Action, ruleId: string, emit: Emit): void 
           if (action.label !== undefined) el.textContent = action.label;
           if (action.href !== undefined && el instanceof HTMLAnchorElement) el.href = action.href;
           if (action.clickEvent) el.addEventListener("click", () => emit({ kind: "interaction", ruleId, detail: action.clickEvent! }));
+          if ((action as any).changes?.addSecondary) {
+            const c = (action as any).changes;
+            const parent = el.parentElement;
+            if (parent && c.secondaryText && c.secondaryHref) {
+              const link = document.createElement("a");
+              link.href = c.secondaryHref;
+              link.textContent = c.secondaryText;
+              if (c.secondaryClass) link.className = c.secondaryClass;
+              Object.assign(link.style, {
+                display: "inline-flex", alignItems: "center", gap: "0.75rem",
+                padding: "1rem 1.75rem", fontSize: "0.82rem", fontWeight: "500",
+                letterSpacing: "0.025em", transition: "all 300ms", textDecoration: "none",
+              });
+              link.setAttribute("data-pa-rule", ruleId);
+              link.addEventListener("click", () => emit({ kind: "interaction", ruleId, detail: "secondary_cta_click" }));
+              parent.appendChild(link);
+            }
+          }
         }
         break;
       }
-      case "overlay": buildOverlay(action, ruleId, emit); break;
-      case "injectField": injectField(action); break;
+      case "overlay": buildOverlay(action as any, ruleId, emit); break;
+      case "injectField": {
+        if ("after" in action && typeof (action as any).after === "string") {
+          injectSection(action as any, ruleId, emit);
+        } else {
+          injectField(action as any);
+        }
+        break;
+      }
       case "personalize": {
         for (const el of els(action.selector)) {
           const html = action.html ?? action.fallback ?? "";
