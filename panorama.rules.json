@@ -570,6 +570,49 @@
         "per": "session",
         "max": 1
       }
+    },
+    {
+      "id": "exp-hospitality-manufacturing-emphasis",
+      "name": "Manufacturing section visual emphasis — hospitality campaign traffic",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/"
+            }
+          },
+          {
+            "type": "utm",
+            "param": "campaign",
+            "match": {
+              "op": "equals",
+              "value": "hospitality"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "setStyle",
+          "selector": "[data-pano='manufacturing-section']",
+          "styles": {
+            "border-left": "4px solid #732017"
+          }
+        },
+        {
+          "type": "textReplace",
+          "selector": "[data-pano='manufacturing-link']",
+          "find": "Inside the workshops",
+          "replace": "See our production facilities"
+        }
+      ],
+      "metric": "manufacturing_click",
+      "holdout": 0.1,
+      "segment": "utm_campaign=hospitality"
     }
   ]
 }
