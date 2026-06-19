@@ -511,6 +511,56 @@
       }
     },
     {
+      "id": "exp-returning-evidence-nav",
+      "name": "Homepage evidence-path banner — returning visitors",
+      "description": "Slim top banner acknowledging returning visitors with fast-path links to Projects, Manufacturing, and Get in touch — the three pages evaluation-stage buyers come back for.",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/"
+            }
+          },
+          {
+            "type": "session",
+            "field": "isReturning",
+            "match": {
+              "op": "equals",
+              "value": true
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "overlay",
+          "overlay": "banner",
+          "position": "top",
+          "animation": "slide",
+          "dismissible": true,
+          "id": "pa-returning-evidence-nav",
+          "html": "<div style=\"display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;padding:12px 24px;font-family:Archivo,sans-serif;font-size:0.82rem;letter-spacing:0.025em\"><span style=\"font-weight:500;color:#18120f\">Welcome back</span><a href=\"/projects\" data-pa-overlay-cta data-pa-cta-label=\"projects\" style=\"color:#732017;text-decoration:none;font-weight:500;transition:opacity 200ms\">Projects</a><a href=\"/manufacturing\" data-pa-overlay-cta data-pa-cta-label=\"manufacturing\" style=\"color:#732017;text-decoration:none;font-weight:500;transition:opacity 200ms\">Manufacturing</a><a href=\"/contact\" data-pa-overlay-cta data-pa-cta-label=\"contact\" style=\"color:#732017;text-decoration:none;font-weight:500;transition:opacity 200ms\">Get in touch</a></div>",
+          "style": {
+            "bg": "#f4f3ef",
+            "color": "#18120f",
+            "font": "Archivo",
+            "border": "none",
+            "maxWidth": "100vw"
+          }
+        }
+      ],
+      "metric": "evidence_path_click",
+      "holdout": 0.1,
+      "frequencyCap": {
+        "per": "session",
+        "max": 1
+      }
+    },
+    {
       "id": "exp-mobile-sticky-cta",
       "name": "Homepage sticky CTA — mobile scroll-engaged visitors",
       "description": "Overlay banner at bottom triggered by 50% scroll depth on mobile. Surfaces the conversion action earlier on mobile where the homepage is ~12 full scrolls.",

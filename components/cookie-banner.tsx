@@ -42,6 +42,10 @@ export function CookieBanner() {
     setVisible(false);
     try {
       localStorage.setItem(STORAGE_KEY, "1");
+      // Signal consent to the Panorama engine so geo-gated experiments can fire.
+      localStorage.setItem("orwood-analytics-consent", "granted");
+      const engine = (window as unknown as Record<string, { setConsent?: (ok: boolean) => void }>).__panorama;
+      engine?.setConsent?.(true);
     } catch {
       // ignore
     }
