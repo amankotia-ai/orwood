@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { group, services, site, siteLinks } from "@/lib/content";
 import { Grain } from "@/components/grain";
+import { OutboundLink } from "@/components/outbound-link";
 
 const year = 2026;
 
@@ -23,7 +24,7 @@ export function SiteFooter() {
           </p>
           <div className="mt-8 flex gap-5">
             {site.social.map((s) => (
-              <a
+              <OutboundLink
                 key={s.label}
                 href={s.href}
                 target="_blank"
@@ -31,7 +32,7 @@ export function SiteFooter() {
                 className="label text-bone/60 transition-colors hover:text-bone"
               >
                 {s.label}
-              </a>
+              </OutboundLink>
             ))}
           </div>
         </div>
