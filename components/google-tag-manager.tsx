@@ -1,3 +1,5 @@
+import Script from "next/script";
+
 const GTM_ID = "GTM-MVNXRW94";
 
 const GTM_SNIPPET = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -7,7 +9,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','${GTM_ID}');`;
 
 export function GTMScript() {
-  return <script dangerouslySetInnerHTML={{ __html: GTM_SNIPPET }} />;
+  return <Script id="gtm-init" strategy="afterInteractive">{GTM_SNIPPET}</Script>;
 }
 
 export function GTMNoScript() {

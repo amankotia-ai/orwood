@@ -126,10 +126,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-scroll-behavior="smooth" className={archivo.variable}>
-      <head>
-        <GTMScript />
-      </head>
       <body>
+        <GTMScript />
         <GTMNoScript />
         <script
           type="application/ld+json"
