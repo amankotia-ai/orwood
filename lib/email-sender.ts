@@ -8,7 +8,21 @@ import { join } from "node:path";
 import { site } from "./content";
 import type { EmailTrack } from "./email-segments";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+/**
+ * Resend client, created lazily on first use.
+ *
+ * The Resend constructor throws when no API key is present, and constructing it
+ * at module scope would run during `next build` page-data collection (which
+ * imports every route module) — breaking the build whenever RESEND_API_KEY is
+ * unset. Deferring construction keeps the import side-effect-free; callers get
+ * `null` when the key is absent and skip sending, mirroring the contact route.
+ */
+let resendClient: Resend | null = null;
+function getResend(): Resend | null {
+  if (!process.env.RESEND_API_KEY) return null;
+  resendClient ??= new Resend(process.env.RESEND_API_KEY);
+  return resendClient;
+}
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://orwood.com";
 const FROM_ADDRESS =
@@ -74,6 +88,14 @@ export type SendEmailOpts = {
 export async function sendSequenceEmail(
   opts: SendEmailOpts,
 ): Promise<string | null> {
+  const resend = getResend();
+  if (!resend) {
+    console.warn(
+      "[email-sender] RESEND_API_KEY not set — skipping email send.",
+    );
+    return null;
+  }
+
   const allVars = {
     ...globalVars(opts.to),
     ...opts.vars,
