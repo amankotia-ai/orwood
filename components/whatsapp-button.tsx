@@ -1,6 +1,20 @@
+"use client";
+
 import { site } from "@/lib/content";
 
 const MESSAGE = "Hello ORWOOD — I'd like to talk about a project.";
+
+function trackWhatsAppClick() {
+  const data = { page: window.location.pathname };
+  const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+  if (typeof w.gtag === "function") {
+    w.gtag("event", "whatsapp_click", data);
+  } else if (navigator.sendBeacon) {
+    navigator.sendBeacon(
+      `https://www.google-analytics.com/g/collect?en=whatsapp_click&ep.page=${encodeURIComponent(data.page)}`,
+    );
+  }
+}
 
 /** Floating WhatsApp click-to-chat. Uses a placeholder number (site.whatsapp). */
 export function WhatsAppButton() {
@@ -9,6 +23,7 @@ export function WhatsAppButton() {
       href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(MESSAGE)}`}
       target="_blank"
       rel="noreferrer"
+      onClick={trackWhatsAppClick}
       aria-label="Chat with ORWOOD on WhatsApp"
       className="group fixed bottom-5 right-5 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-ink text-bone shadow-[0_6px_24px_rgba(24,20,18,0.28)] transition-colors duration-300 hover:bg-clay md:bottom-7 md:right-7 md:h-14 md:w-14"
     >
