@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Reveal } from "@/components/reveal";
 import { Artwork } from "@/components/artwork";
 import { CTA } from "@/components/cta";
+import { OutboundLink } from "@/components/outbound-link";
 import { projects } from "@/lib/content";
 import { cn } from "@/lib/cn";
 
@@ -170,14 +171,14 @@ export default async function ProjectPage({ params }: Params) {
               <dt className="label text-stone">{f.k}</dt>
               <dd className="mt-3 text-lg tracking-[-0.01em]">
                 {"href" in f && f.href ? (
-                  <a
+                  <OutboundLink
                     href={f.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline decoration-stone/40 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent/40"
                   >
                     {f.v}
-                  </a>
+                  </OutboundLink>
                 ) : (
                   f.v
                 )}

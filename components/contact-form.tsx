@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useState, useRef, useCallback, type ChangeEvent, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { sectors } from "@/lib/content";
 import { Arrow } from "@/components/ui/button";
@@ -50,12 +50,23 @@ export function ContactForm({
   const [errors, setErrors] = useState<Partial<Record<keyof Form, string>>>({});
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const formStartFired = useRef(false);
+
+  const fireFormStart = useCallback(() => {
+    if (formStartFired.current) return;
+    formStartFired.current = true;
+    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+    if (typeof w.gtag === "function") {
+      w.gtag("event", "form_start", { form_name: "contact", page: "/contact" });
+    }
+  }, []);
 
   const update =
     (key: keyof Form) =>
     (
       e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
     ) => {
+      fireFormStart();
       setForm((f) => ({ ...f, [key]: e.target.value }));
       if (errors[key]) setErrors((er) => ({ ...er, [key]: undefined }));
     };
@@ -88,6 +99,17 @@ export function ContactForm({
         }),
       });
       if (!res.ok) throw new Error("Request failed");
+
+      const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+      if (typeof w.gtag === "function") {
+        w.gtag("event", "generate_lead", {
+          project_type: form.projectType,
+          budget: form.budget,
+          country: form.country,
+          page: "/contact",
+        });
+      }
+
       setSent(true);
     } catch {
       setErrors((er) => ({

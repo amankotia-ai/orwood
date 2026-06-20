@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { PageHeader } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { ContactForm } from "@/components/contact-form";
+import { OutboundLink } from "@/components/outbound-link";
 import { site, projects, sectors } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -116,7 +117,7 @@ export default async function ContactPage() {
             <Reveal delay={0.24}>
               <div className="mt-10 flex gap-5 border-t border-line pt-6">
                 {site.social.map((s) => (
-                  <a
+                  <OutboundLink
                     key={s.label}
                     href={s.href}
                     target="_blank"
@@ -124,7 +125,7 @@ export default async function ContactPage() {
                     className="label text-stone transition-colors hover:text-clay"
                   >
                     {s.label}
-                  </a>
+                  </OutboundLink>
                 ))}
               </div>
             </Reveal>
