@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { site } from "@/lib/content";
+import { ManageCookiesButton } from "@/components/manage-cookies-button";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -39,7 +40,7 @@ export default function PrivacyPage() {
           </>
         }
         intro="How we collect, use, and protect your personal data."
-        meta={[{ k: "Last updated", v: "19 June 2025" }]}
+        meta={[{ k: "Last updated", v: "20 June 2026" }]}
       />
 
       <div className="shell max-w-3xl pb-28 md:pb-40 [&_.prose-orwood]:space-y-4 [&_.prose-orwood]:text-stone [&_.prose-orwood]:leading-relaxed [&_.prose-orwood_a]:text-ink [&_.prose-orwood_a]:underline [&_.prose-orwood_a]:underline-offset-2 [&_.prose-orwood_ul]:list-disc [&_.prose-orwood_ul]:pl-5 [&_.prose-orwood_ul]:space-y-1">
@@ -86,8 +87,25 @@ export default function PrivacyPage() {
             </li>
           </ul>
           <p>
-            This site does not use cookies or third-party tracking scripts.
-            Fonts are self-hosted and no analytics data is collected passively.
+            With your consent, we use{" "}
+            <strong>Google Analytics</strong> to understand how visitors use
+            this site. Analytics cookies (e.g.&nbsp;<code>_ga</code>,{" "}
+            <code>_gid</code>) and the Google Analytics script load{" "}
+            <strong>only after you accept</strong> via the cookie banner; if you
+            decline, no analytics or tracking cookies are set. Google processes
+            this data as our processor; see{" "}
+            <a
+              href="https://policies.google.com/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Google&rsquo;s privacy policy
+            </a>
+            . Fonts are self-hosted, so no font requests are made to Google.
+          </p>
+          <p>
+            You can change or withdraw your choice at any time:{" "}
+            <ManageCookiesButton />
           </p>
         </Section>
 

@@ -613,6 +613,152 @@
       "metric": "manufacturing_click",
       "holdout": 0.1,
       "segment": "utm_campaign=hospitality"
+    },
+    {
+      "id": "hospitality-campaign-hero-scale-proof",
+      "name": "Hospitality-campaign hero scale proof",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": { "op": "equals", "value": "/projects" }
+          },
+          {
+            "type": "utm",
+            "param": "campaign",
+            "match": { "op": "equals", "value": "hospitality", "caseInsensitive": true }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "textReplace",
+          "find": "A selection across hospitality, commercial and residential. Each one designed, manufactured and delivered by the same house.",
+          "replace": "360+ hotel keys delivered turnkey — designed, manufactured and handed over by one team."
+        }
+      ],
+      "description": "Hospitality VP (weight 9) sees no scale signal in the hero — resonance 2/3. The intro is generic across all segments; hospitality campaign traffic paid to acquire deserves a scale-proof first impression.",
+      "metric": "projects_hospitality_scroll_depth",
+      "holdout": 0.1
+    },
+    {
+      "id": "sticky-cta-on-deep-scroll",
+      "name": "Sticky CTA on deep scroll",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": { "op": "equals", "value": "/projects" }
+          },
+          {
+            "type": "scrollDepth",
+            "percent": 60
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "overlay",
+          "overlay": "banner",
+          "html": "<div style=\"display:flex;align-items:center;justify-content:space-between;padding:14px 24px;font-family:Archivo,sans-serif;font-size:14px;color:#18120f;background:#f4f3ef;border-top:1px solid #e5e2dc\"><span>Interested in what you see?</span><a href=\"/contact\" style=\"display:inline-block;padding:8px 20px;background:#732017;color:#f4f3ef;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.03em\">Discuss a project like this</a></div>",
+          "dismissible": true
+        }
+      ],
+      "description": "Same pattern shipped on homepage (ins-635d77c3). /projects has 6 cards + filter bar before the only CTA — ~8 mobile scrolls. Engaged evaluators drop before reaching it.",
+      "metric": "projects_sticky_cta_click",
+      "holdout": 0.1
+    },
+    {
+      "id": "returning-visitor-fast-path-banner",
+      "name": "Returning-visitor fast-path banner",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": { "op": "equals", "value": "/projects" }
+          },
+          {
+            "type": "session",
+            "field": "isReturning",
+            "match": { "op": "equals", "value": true }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "overlay",
+          "overlay": "banner",
+          "html": "<div style=\"display:flex;align-items:center;justify-content:center;gap:16px;padding:12px 24px;font-family:Archivo,sans-serif;font-size:13px;color:#18120f;background:#f4f3ef;border-bottom:1px solid #e5e2dc\"><span>Welcome back — ready to discuss your project?</span><a href=\"/contact\" style=\"padding:6px 16px;background:#732017;color:#f4f3ef;text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.03em\">Get in touch</a></div>",
+          "dismissible": true
+        }
+      ],
+      "description": "Returning visitors to the portfolio page are late-stage evaluators. Homepage returning-visitor banner shipped (ins-dc8fba78). /projects needs the same pattern — these visitors came back to compare or gather evidence, not to re-browse.",
+      "metric": "returning_projects_cta_click",
+      "holdout": 0.1
+    },
+    {
+      "id": "exit-intent-enquiry-recovery",
+      "name": "Exit-intent enquiry recovery",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": { "op": "equals", "value": "/projects" }
+          },
+          {
+            "type": "exitIntent"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "overlay",
+          "overlay": "popup",
+          "html": "<div style=\"max-width:340px;padding:28px 24px;font-family:Archivo,sans-serif;background:#f4f3ef;border:1px solid #e5e2dc\"><p style=\"margin:0 0 16px;font-size:15px;font-weight:500;color:#18120f\">Interested in a similar scope?</p><p style=\"margin:0 0 20px;font-size:13px;color:#57534e;line-height:1.5\">Tell us about your project — we'll show you how we'd approach it.</p><a href=\"/contact\" style=\"display:inline-block;padding:10px 22px;background:#732017;color:#f4f3ef;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.03em\">Start a conversation</a></div>",
+          "dismissible": true
+        }
+      ],
+      "description": "Homepage exit-intent overlay shipped (ins-d8366862) and recovered bouncing visitors to /projects. Now /projects itself needs a recovery mechanism — but pointing to /contact (the conversion), not back to /projects.",
+      "metric": "projects_exit_cta_click",
+      "holdout": 0.1
+    },
+    {
+      "id": "gcc-localised-cta-button",
+      "name": "GCC-localised CTA button",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": { "op": "equals", "value": "/projects" }
+          },
+          {
+            "type": "geo",
+            "field": "country",
+            "match": { "op": "in", "value": ["AE", "QA", "SA"], "caseInsensitive": true }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "modifyButton",
+          "selector": "section:last-of-type a[href='/contact']",
+          "label": "Discuss your project with our Dubai team"
+        }
+      ],
+      "description": "GCC is the #1 target geography. Delivered projects in Doha, Dubai, Riyadh prove capability but the CTA carries no regional signal. GCC principals need confidence in local presence before enquiring.",
+      "metric": "gcc_projects_cta_click",
+      "holdout": 0.1,
+      "consentRequired": true
     }
   ]
 }
