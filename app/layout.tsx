@@ -8,6 +8,7 @@ import { WhatsAppButton } from "@/components/whatsapp-button";
 import { CookieBanner } from "@/components/cookie-banner";
 import { Panorama } from "@/components/panorama";
 import { Analytics } from "@/components/analytics";
+import { GTMScript, GTMNoScript } from "@/components/google-tag-manager";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -125,7 +126,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-scroll-behavior="smooth" className={archivo.variable}>
+      <GTMScript />
       <body>
+        <GTMNoScript />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
