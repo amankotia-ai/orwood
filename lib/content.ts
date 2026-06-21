@@ -21,9 +21,8 @@ export const site = {
     city: "İstanbul, Türkiye",
   },
   social: [
-    { label: "Instagram", href: "https://instagram.com" },
-    { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "Behance", href: "https://behance.net" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/orwood" },
+    { label: "YouTube", href: "https://www.youtube.com/user/odulimi/featured" },
   ],
 };
 
@@ -792,6 +791,33 @@ export type Article = {
 
 export const journal: Article[] = [
   {
+    id: "turnkey-hotel-fit-out-europe",
+    title:
+      "Turnkey hotel fit-out in Europe: what changes when one team owns the whole interior",
+    category: "Hospitality Design",
+    date: "June 2026",
+    readingTime: "6 min read",
+    excerpt:
+      "European hotel developers are used to splitting interiors across half a dozen contractors. A single-source model \u2014 design studio, owned factories, one accountable team \u2014 compresses the programme and closes the gap between specification and site.",
+    tone: 2,
+    body: [
+      "Hotel development in Europe follows a pattern that everyone involved knows is inefficient and nobody has quite replaced. The interior designer produces a scheme. A main contractor prices and builds the shell. A joinery subcontractor is appointed \u2014 often after a competitive tender that selects on price. FF&E is procured through a buying house or the operator\u2019s own procurement team, sourced from factories across three or four countries. Fire-rated doors come from a specialist supplier. Each scope has its own contract, its own programme, and its own definition of what \u2018to approval\u2019 means. The developer sits in the middle, managing interfaces that were never designed to fit together.",
+      "The result is not always a disaster, but it is reliably slower, more expensive, and further from the design intent than it needs to be. A veneer specified by the designer is substituted by the joinery contractor because the original is not available at the tendered price. The fire-rated door sets arrive with hardware that does not match the ironmongery schedule. The FF&E lands out of sequence because the buying house and the fit-out contractor are working to different programmes. These are not exceptional failures. They are the ordinary friction of a fragmented supply chain, repeated on every project, absorbed into every budget.",
+      "Turnkey fit-out \u2014 where one company carries design development, manufacture, and installation as a single scope \u2014 is a different model. It is well established in the GCC, where compressed pre-opening programmes leave no room for the coordination failures that a five-contractor model tolerates. In Europe, it is less common but gaining ground, particularly among developers who have experienced those failures first-hand and are looking for a structure that prevents them rather than manages them.",
+      "ORWOOD delivers turnkey hotel interiors from an Istanbul production campus that houses three owned manufacturing operations: Hi Mobilya for bespoke and contract furniture, SILADU for surface and veneer development, and ORWOOD Doors for proprietary acoustic and fire-rated door systems. The design studio, engineering team, and workshops share the same building. A detail drawn by the studio is costed by the engineers, prototyped in the workshops, and finished by our own teams before it ships. There is no handoff to a third-party factory, no specification lost in translation between a London office and an overseas supplier.",
+      "For European hotel developers, the logistics are straightforward. Istanbul is a short-haul flight from every major European capital and connected by established overland freight routes. Joinery, furniture, and door sets manufactured in our facilities ship to UK, German, and French sites on lead times that compete with or beat domestic European suppliers \u2014 with the advantage that every element is manufactured under single accountability, in coordinated production runs, to a unified finish standard.",
+      "The regulatory landscape in European hospitality is a reason for this model, not an obstacle to it. The UK Building Safety Act has introduced personal accountability for product compliance. German acoustic standards for hotel guestrooms are among the most demanding in the world. French heritage and planning constraints add layers of approval that reward a partner who can demonstrate full traceability from tested assembly to installed product. ORWOOD Doors \u2014 our proprietary fire-rated and acoustic door system \u2014 is engineered, manufactured, and tested as a complete certified assembly: leaf, frame, seals, and specified hardware. The test reports cover the assembly as built, not a theoretical combination of parts sourced from different suppliers. When the authority reviews the documentation, the installed product matches the tested product.",
+      "What changes for the developer is accountability. Instead of managing five contracts, five programmes, and five sets of shop drawings, the developer manages one. Instead of chasing a joinery subcontractor whose factory prioritised another client, the developer works with a manufacturer whose factory is making the furniture, the millwork, and the doors for the same project on the same production schedule. When the base build runs late \u2014 and it always runs late \u2014 one manufacturer re-sequences production across all elements in one decision. With five suppliers, that re-sequencing requires five separate negotiations and the near certainty that at least one of them cannot accommodate the change.",
+      "European hospitality is building again \u2014 new-build hotels, repositioned assets, branded residences with hotel-grade interiors. The developers behind these projects are experienced enough to know that the multi-contractor model works until it does not, and that the cost of coordination failure on a 200-key hotel is measured in weeks of lost revenue, not in the margin on a joinery package. A turnkey model that puts design, manufacture, and delivery under one roof \u2014 and one contract \u2014 is not a novel idea. It is the logical consequence of an industry that has spent decades learning what fragmentation costs.",
+    ],
+    cta: {
+      label: "Discuss your European hotel project",
+      href: "/contact?intent=turnkey-europe",
+      description:
+        "Tell us about your hotel development \u2014 location, key count, and programme \u2014 and we will show you what a turnkey interior scope looks like from a single, accountable source.",
+    },
+  },
+  {
     id: "why-istanbul-for-hospitality-fit-out-manufacturing",
     title:
       "Why İstanbul? The case for manufacturing hospitality interiors in Turkey",
@@ -949,16 +975,27 @@ export const journal: Article[] = [
     id: "value-engineering-that-adds-value",
     title: "Value engineering that adds value",
     category: "Value Engineering",
-    date: "January 2026",
-    readingTime: "4 min read",
+    date: "June 2026",
+    readingTime: "6 min read",
     excerpt:
-      "Done early and honestly, value engineering protects the design. Done late, it guts it. The difference is when you start.",
+      "Done early and honestly, value engineering protects the design. Done late, it guts it. The difference is when you start — and whether the people doing it know what things cost to make.",
     tone: 4,
     body: [
-      "Value engineering has a bad name because it usually arrives too late — a cost-cutting exercise that strips a finished design of the things that made it good.",
-      "Done properly, it happens early, while the design is still flexible. Because our design studio and workshops share the same building, we can test what a detail costs to make as we draw it, and find the version that keeps the intent at the right price.",
-      "Value engineering should protect the design, not punish it. That only works if it starts at the beginning.",
+      "Value engineering has a bad name because it usually arrives too late. On most hospitality projects, the sequence runs like this: a designer produces a scheme; the client approves it; a quantity surveyor costs it; the number comes back over budget; and a procurement team is asked to strip cost from a design that was drawn without knowing what anything cost to make. The result is predictable — the finishes get cheaper, the details get simpler, and the interior that opens bears only a passing resemblance to the one that was approved.",
+      "This is not value engineering. It is cost-cutting with a polite name. Genuine value engineering is a design discipline, not a procurement one. It asks: what is this detail trying to achieve, and is there a way to achieve it that costs less to manufacture, install, or maintain — without losing the intent? That question can only be answered usefully when the person asking it knows what things cost to make, because they make them.",
+      "At ORWOOD, the VE conversation starts with a real cost from the workshop — not an estimate from a subcontractor two time zones away — because the people pricing the detail are the same people who will make it. When a designer draws a detail — a panelled headboard wall, a reception desk with a cantilevered stone top, a corridor of matched-veneer doors — the engineering team can price it the same week: material, machine time, hand-finishing, and the jig or fixture required. If the cost is too high, the conversation is between the designer and the machinist, not between a procurement spreadsheet and a specification written months earlier.",
+      "What this changes is not the amount of money spent. It changes where the money goes. A headboard wall specified in book-matched walnut veneer might cost significantly more than the budget allows. A procurement-led VE exercise would substitute a cheaper veneer — or eliminate the feature entirely. A manufacturing-led VE exercise asks a different question: can the same visual effect be achieved with a slip-matched layout that uses narrower flitches, reducing waste and material cost, while keeping the grain character? Often it can. The detail survives. The budget is met. The designer is not asked to mourn.",
+      "Timing is half the discipline. Value engineering that starts at the concept stage — when the design is still flexible and no one has fallen in love with a specific detail — preserves more design intent than the same exercise attempted after tender. At concept stage, a change costs a conversation. After tender, it costs a variation order, a programme delay, and a designer who feels their work has been compromised. We run VE reviews at three points: concept, developed design, and pre-production. Each review catches a different class of cost — the first catches strategic choices (material families, construction systems), the second catches detail-level decisions (edge profiles, fixing methods), and the third catches manufacturing efficiencies (nesting, batch sequencing, finish rationalisation).",
+      "The disciplines most often missed are the ones that require manufacturing knowledge. Finish rationalisation — reducing the number of distinct finishes on a project from, say, fourteen to nine — saves cost not because the finishes themselves are expensive, but because each additional finish requires a separate production run, a separate quality-control standard, and a separate set of samples to approve. A project with nine finishes instead of fourteen runs faster through the workshop, ships in fewer containers, and installs with fewer opportunities for error. The design reads the same. The programme improves.",
+      "For hotel developers and operators working to fixed pre-opening dates, the programme saving is often worth more than the direct cost saving. A week recovered in manufacture — because the VE process rationalised finishes, simplified a fixing detail, or eliminated a material that required a sixteen-week lead time — is a week of revenue on a 300-key hotel. That arithmetic is specific to each project, but it is never trivial.",
+      "Value engineering should protect the design, not punish it. That only works when it starts early, when the people doing it understand what things cost to make — because they make them — and when the conversation is between the studio and the workshop, not between a spreadsheet and a specification. The interior that opens should be the one that was designed, built to the budget that was agreed, without the quiet compromises that nobody talks about but everyone can see.",
     ],
+    cta: {
+      label: "Request a value engineering review",
+      href: "/contact?intent=value-engineering",
+      description:
+        "Share your project scope and budget — we will show you where manufacturing-led VE can protect the design while meeting the number.",
+    },
   },
 ];
 

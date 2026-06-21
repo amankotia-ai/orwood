@@ -56,8 +56,8 @@ async function getKv(): Promise<any | null> {
     return null;
   }
   try {
-    const mod = await (Function('return import("@vercel/kv")')() as Promise<any>);
-    return mod.kv;
+    const { kv } = await import("@vercel/kv");
+    return kv;
   } catch {
     return null;
   }
