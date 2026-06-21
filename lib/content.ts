@@ -792,6 +792,33 @@ export type Article = {
 
 export const journal: Article[] = [
   {
+    id: "bespoke-joinery-for-luxury-hotels",
+    title:
+      "Bespoke joinery for luxury hotels: why the millwork programme shapes the interior",
+    category: "Joinery Techniques",
+    date: "June 2026",
+    readingTime: "6 min read",
+    excerpt:
+      "In a luxury hotel interior, bespoke joinery is the element that separates a finished room from an assembled one. Getting it right requires a manufacturer who controls the timber, the CNC line, and the hand-finishing bench — and answers for all three.",
+    tone: 2,
+    body: [
+      "Walk into any five-star hotel room and the first thing you touch is joinery. The wardrobe door, the desk edge, the headboard surround, the bathroom vanity — these are the surfaces a guest handles every day for the life of the interior. If the joinery is good, the room feels considered and precise. If it is not, no amount of loose furniture or decorative lighting will compensate. Bespoke joinery is the skeleton of a luxury hotel interior, and the quality of the skeleton determines whether the room holds up after ten years of full occupancy or begins to unravel after two.",
+      "The challenge is not design. Architects and interior designers draw extraordinary joinery details — shadow gaps, book-matched veneers, flush integrated handles, concealed service panels. The challenge is manufacturing those details at the scale a hotel demands. A 250-key property might require four thousand linear metres of millwork across guest rooms, corridors, public areas, and back-of-house. Every piece must match the approved sample. Every veneer must read as continuous across a full wall. Every edge must hold the tolerance that was agreed on the workshop prototype, not the looser tolerance that a site-assembled panel might accept.",
+      "This is where the distinction between a joinery contractor and a joinery manufacturer becomes material. A contractor takes a drawing, subcontracts the CNC cutting, sources the veneer from a merchant, and assembles the panels in a workshop or on site. A manufacturer controls the full sequence: selecting and matching the timber, programming and running the CNC, hand-finishing the surfaces, dry-assembling the components, and shipping finished units ready for installation. The difference shows in the joint, in the grain match, and in the consistency across four hundred identical guest-room wardrobes.",
+      "At ORWOOD, bespoke joinery is manufactured in our İstanbul production facilities alongside our furniture lines at Hi Mobilya and our veneer and surface development at SILADU. The integration matters. When the veneer for a lobby wall panel and the veneer for the reception desk are drawn from the same stock, matched by the same materials team, and finished on the same line, the designer’s intent carries through. When those same materials are sourced from separate suppliers and finished in separate workshops, the match is approximate at best. In a five-star lobby, approximate is visible.",
+      "CNC technology has transformed what bespoke joinery can achieve at volume — complex profiles, repeatable curves, integrated lighting channels, and tolerance-held joints that would have required weeks of hand work a generation ago. But CNC is a tool, not a guarantee. The quality of CNC output depends on the programming, the tooling, the material preparation, and the finishing that happens after the machine. Our production lines run CNC alongside hand-finishing benches for exactly this reason: the machine holds the geometry; the craftsperson holds the surface. A five-star hotel guest does not see a CNC file. They see a finished edge, and it must feel as good as it looks.",
+      "Programme is the other dimension that separates a joinery manufacturer from a joinery supplier. Bespoke millwork for a hotel is engineered against a construction programme — floor-by-floor, zone-by-zone, timed to follow the base build and precede the FF&E installation. When the joinery manufacturer also makes the furniture and the door sets, the entire fixed-and-loose interior can be sequenced in one manufacturing programme. When joinery is sourced separately, it arrives on its own schedule, and the installation team works around the gaps. On a compressed pre-opening programme, those gaps cost weeks.",
+      "For architects and interior designers specifying bespoke joinery, the question at tender stage is not whether the contractor can make the sample. Most can. The question is whether they can make the ten-thousandth piece to the same standard as the sample — from their own facilities, with their own materials, under their own quality system. That is the question that separates a manufacturer from an assembler, and it is the question that determines whether the interior the designer drew is the interior the hotel opens with.",
+      "ORWOOD has been manufacturing bespoke joinery and millwork for hospitality, commercial, and luxury residential projects for over twenty years. Our İstanbul facilities — Hi Mobilya for furniture, SILADU for materials and surfaces, ORWOOD Doors for fire-rated and acoustic door systems — produce complete hotel interiors under single accountability. The joinery is not a separate package. It is part of the same manufacturing programme as the furniture, the panelling, and the doors, delivered by the same team, to the same standard, on the same date.",
+    ],
+    cta: {
+      label: "Discuss your joinery specification",
+      href: "/contact?intent=bespoke-joinery",
+      description:
+        "Share your project — scope, finishes, and programme — and we will show you what owner-manufactured bespoke joinery delivers versus assembled millwork.",
+    },
+  },
+  {
     id: "why-istanbul-for-hospitality-fit-out-manufacturing",
     title:
       "Why İstanbul? The case for manufacturing hospitality interiors in Turkey",
@@ -934,16 +961,27 @@ export const journal: Article[] = [
     id: "where-joinery-tolerances-come-from",
     title: "Where joinery tolerances come from",
     category: "Joinery Techniques",
-    date: "February 2026",
-    readingTime: "5 min read",
+    date: "June 2026",
+    readingTime: "6 min read",
     excerpt:
       "The gap between fit-out tolerances and furniture tolerances — and why closing it separates good joinery from great.",
-    tone: 1,
+    tone: 2,
     body: [
-      "Construction works to one set of tolerances; furniture works to a much tighter one. Bespoke joinery lives in between — fitted to a building that was never built to furniture tolerances, yet expected to look like a made object.",
-      "We close that gap by prototyping and dry-assembling in the workshop before anything reaches site. Shadow gaps, matched veneers and flush lines are resolved where they can be controlled, so installation becomes a matter of fitting finished pieces rather than making them in place.",
-      "The tolerance you see in a finished room was decided long before, on the workshop bench.",
+      "In a luxury hotel, the joinery is what guests touch. It is the reception desk they lean against, the wall panelling that frames the lift lobby, the wardrobe they open every morning. If the veneer grain drifts between panels, if a shadow gap widens where two surfaces meet, if a door edge catches the hand — the guest does not know why the room feels wrong. They just know it does. The standard that prevents this is tolerance: the permissible deviation, measured in fractions of a millimetre, between what was drawn and what was built.",
+      "Construction and furniture operate on different tolerance regimes. A plastered wall is true to within five or six millimetres across a three-metre span. A piece of fine furniture is true to within a fraction of one. Bespoke joinery — the fitted cabinetry, panelling, and millwork that defines a luxury interior — lives in the gap between these two worlds. It is made to furniture-grade precision, then installed against a building that was never built to furniture-grade precision. The challenge is not making a perfect panel. It is making a perfect panel that meets an imperfect wall and looks as though it was always there.",
+      "That challenge is solved in the workshop, not on site. At ORWOOD, every bespoke joinery package is prototyped and dry-assembled in our Istanbul production facilities before it ships. Full-scale mock-ups are built against templates that replicate the actual site conditions — wall profiles, floor falls, ceiling heights measured by our own survey teams. Shadow gaps are set. Veneer sequences are laid out, photographed, and approved. Flush lines between adjacent panels are tested with feeler gauges. The pieces are then numbered, disassembled, wrapped, and shipped as a kit. Installation on site becomes a matter of assembly, not fabrication.",
+      "The difference is visible the moment the joinery goes in. When pieces arrive pre-fitted, the installation team works to a sequence rather than a set of tolerances they must interpret on the fly. Joints close as designed. Veneers run continuously across panels that were cut from the same flitch, in the same workshop, on the same day. The shadow gap between a wall panel and a ceiling soffit is consistent because it was set once, in controlled conditions, by the same joiner who will inspect it after installation.",
+      "Veneer matching is where tolerance becomes visible craft. On a 300-key hotel, a single public corridor may carry forty or fifty panels of the same timber species. If those panels were sourced from different flitches, or sequenced incorrectly, the result is a corridor where the grain jumps — technically within specification, aesthetically broken. Through SILADU, our materials house, we source, develop, and match veneers before they reach the joinery floor. A full flitch is allocated to a specific zone of the project. Panels are slip-matched or book-matched according to the designer’s intent, and the sequence is photographed and approved as a layout, not as individual samples.",
+      "For specifiers — the architects and interior designers who draw the detail — this process answers a persistent concern: whether the contractor can execute the design intent as drawn, or whether the detail will be value-engineered on the factory floor and arrive as an approximation. When the workshop that makes the joinery is in the same building as the studio that draws it, the feedback loop is measured in hours, not weeks. A detail that cannot be made to the specified tolerance is flagged before production, not after installation.",
+      "The cost of getting joinery tolerances wrong is not abstract. On a hospitality fit-out, remedial joinery work — removing, remaking, and reinstalling panels that do not meet the specified standard — is among the most disruptive and expensive items on the snagging list. It happens in occupied or near-occupied spaces. It delays final sign-off. And it happens most often when the joinery was fabricated remotely, by a subcontractor who never saw the site conditions and relied on drawings that assumed the walls were straight.",
+      "The tolerance you see in a finished room was decided months earlier, on a workshop bench in Istanbul. It was set by the same team that surveyed the site, drew the detail, matched the veneer, and will return to inspect the installation. That is what separates bespoke joinery from fitted joinery — not the quality of the timber, but the depth of the process behind it.",
     ],
+    cta: {
+      label: "See our joinery and manufacturing process",
+      href: "/manufacturing",
+      description:
+        "Visit our manufacturing page to see how ORWOOD’s owned workshops deliver furniture-grade joinery at building scale.",
+    },
   },
   {
     id: "value-engineering-that-adds-value",
