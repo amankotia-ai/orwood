@@ -623,12 +623,19 @@
         "conditions": [
           {
             "type": "currentPath",
-            "match": { "op": "equals", "value": "/projects" }
+            "match": {
+              "op": "equals",
+              "value": "/projects"
+            }
           },
           {
             "type": "utm",
             "param": "campaign",
-            "match": { "op": "equals", "value": "hospitality", "caseInsensitive": true }
+            "match": {
+              "op": "equals",
+              "value": "hospitality",
+              "caseInsensitive": true
+            }
           }
         ]
       },
@@ -652,7 +659,10 @@
         "conditions": [
           {
             "type": "currentPath",
-            "match": { "op": "equals", "value": "/projects" }
+            "match": {
+              "op": "equals",
+              "value": "/projects"
+            }
           },
           {
             "type": "scrollDepth",
@@ -681,12 +691,18 @@
         "conditions": [
           {
             "type": "currentPath",
-            "match": { "op": "equals", "value": "/projects" }
+            "match": {
+              "op": "equals",
+              "value": "/projects"
+            }
           },
           {
             "type": "session",
             "field": "isReturning",
-            "match": { "op": "equals", "value": true }
+            "match": {
+              "op": "equals",
+              "value": true
+            }
           }
         ]
       },
@@ -711,7 +727,10 @@
         "conditions": [
           {
             "type": "currentPath",
-            "match": { "op": "equals", "value": "/projects" }
+            "match": {
+              "op": "equals",
+              "value": "/projects"
+            }
           },
           {
             "type": "exitIntent"
@@ -739,12 +758,23 @@
         "conditions": [
           {
             "type": "currentPath",
-            "match": { "op": "equals", "value": "/projects" }
+            "match": {
+              "op": "equals",
+              "value": "/projects"
+            }
           },
           {
             "type": "geo",
             "field": "country",
-            "match": { "op": "in", "value": ["AE", "QA", "SA"], "caseInsensitive": true }
+            "match": {
+              "op": "in",
+              "value": [
+                "AE",
+                "QA",
+                "SA"
+              ],
+              "caseInsensitive": true
+            }
           }
         ]
       },
@@ -759,6 +789,334 @@
       "metric": "gcc_projects_cta_click",
       "holdout": 0.1,
       "consentRequired": true
+    },
+    {
+      "id": "services-hospitality-hero-intro",
+      "name": "Services hero intro — hospitality campaign traffic",
+      "description": "Hospitality VP (weight 9) sees generic hero on /services. Replace intro with turnkey hotel-specific framing that answers 'Can you handle 200+ rooms?'",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/services"
+            }
+          },
+          {
+            "type": "utm",
+            "param": "campaign",
+            "match": {
+              "op": "equals",
+              "value": "hospitality",
+              "caseInsensitive": true
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "textReplace",
+          "find": "We hold design, manufacture and delivery in the same building — so the people who draw a detail are the people who make it.",
+          "replace": "Turnkey hotel interiors — design, joinery and FF&E delivered from our own workshops to your pre-opening date."
+        }
+      ],
+      "metric": "services_hospitality_scroll_depth",
+      "holdout": 0.1,
+      "segment": "utm_campaign=hospitality"
+    },
+    {
+      "id": "services-sticky-cta-deep-scroll",
+      "name": "Services sticky CTA — 60% scroll depth",
+      "description": "/services has 8 service blocks + process + certs before the only CTA — ~20 mobile scrolls. Engaged evaluators drop before reaching it. Same pattern shipped on / and /projects.",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/services"
+            }
+          },
+          {
+            "type": "scrollDepth",
+            "percent": 60
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "overlay",
+          "overlay": "banner",
+          "html": "<div style=\"display:flex;align-items:center;justify-content:space-between;padding:14px 24px;font-family:Archivo,sans-serif;font-size:14px;color:#18120f;background:#f4f3ef;border-top:1px solid #e5e2dc\"><span>Like what you see?</span><a href=\"/contact\" style=\"display:inline-block;padding:8px 20px;background:#732017;color:#f4f3ef;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.03em\">Scope your project</a></div>",
+          "dismissible": true
+        }
+      ],
+      "metric": "services_sticky_cta_click",
+      "holdout": 0.1,
+      "frequencyCap": {
+        "per": "session",
+        "max": 1
+      }
+    },
+    {
+      "id": "services-specifier-mockup-joinery",
+      "name": "Specifier mock-up panel link — Joinery block",
+      "description": "Specifier visitors (architects, interior designers) need to see production quality firsthand. The Joinery block claims hand-finished quality but offers no action path to request a mock-up panel — the #1 objection for specifier personas.",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/services"
+            }
+          },
+          {
+            "type": "utm",
+            "param": "campaign",
+            "match": {
+              "op": "contains",
+              "value": "specifier",
+              "caseInsensitive": true
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "modifyButton",
+          "selector": "#joinery a[href*=\"/projects/\"]",
+          "label": "Request a mock-up panel",
+          "href": "/contact?intent=mock-up"
+        }
+      ],
+      "metric": "specifier_mockup_click",
+      "holdout": 0.15,
+      "segment": "utm_campaign=specifier"
+    },
+    {
+      "id": "services-exit-intent-projects",
+      "name": "Exit-intent recovery — /services new visitors to /projects",
+      "description": "New visitors leaving /services without seeing delivered projects. Redirect to /projects — the #1 conversion asset per SOW. Same pattern shipped on homepage (ins-d8366862).",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/services"
+            }
+          },
+          {
+            "type": "session",
+            "field": "isNew",
+            "match": {
+              "op": "equals",
+              "value": true
+            }
+          },
+          {
+            "type": "exitIntent"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "overlay",
+          "position": "bottom-right",
+          "animation": "slide",
+          "autoCloseMs": 8000,
+          "content": {
+            "headline": "See how these disciplines come together in a delivered project.",
+            "cta": {
+              "text": "View projects",
+              "href": "/projects"
+            },
+            "dismiss": true
+          },
+          "style": {
+            "maxWidth": "380px",
+            "bg": "#f4f3ef",
+            "border": "1px solid #e5e4e0",
+            "font": "Archivo",
+            "color": "#18120f"
+          }
+        }
+      ],
+      "metric": "services_exit_projects_click",
+      "holdout": 0.1,
+      "frequencyCap": {
+        "per": "session",
+        "max": 1
+      }
+    },
+    {
+      "id": "services-returning-cta-headline",
+      "name": "Services CTA headline — returning visitors",
+      "description": "The CTA reads 'Not sure which scope you need?' — assumes indecision. Returning visitors and hospitality/procurement traffic know their scope. Reframe for readiness.",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/services"
+            }
+          },
+          {
+            "type": "session",
+            "field": "isReturning",
+            "match": {
+              "op": "equals",
+              "value": true
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "textReplace",
+          "selector": "[data-pano='cta-headline']",
+          "find": "Not sure which scope you need?",
+          "replace": "Ready to scope your project?"
+        }
+      ],
+      "metric": "services_returning_cta_click",
+      "holdout": 0.1
+    },
+    {
+      "id": "exp-procurement-capability-download",
+      "name": "Procurement capability statement overlay — homepage",
+      "description": "Procurement teams arriving via utm_campaign=procurement find no shortcut to qualification materials. The PQ document exists but is not surfaced for procurement-intent traffic on the Next.js rebuild.",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/"
+            }
+          },
+          {
+            "type": "utm",
+            "param": "campaign",
+            "match": {
+              "op": "contains",
+              "value": "procurement",
+              "caseInsensitive": true
+            }
+          },
+          {
+            "type": "timeOnPage",
+            "seconds": 10
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "overlay",
+          "position": "bottom-right",
+          "animation": "slide",
+          "content": {
+            "headline": "Scope, certifications and references",
+            "body": "Download our capability statement — ISO certs, fire test reports, and project references in one pack.",
+            "cta": {
+              "text": "View resources",
+              "href": "/resources"
+            },
+            "dismiss": true
+          },
+          "style": {
+            "maxWidth": "380px",
+            "bg": "#f4f3ef",
+            "border": "1px solid #e5e4e0",
+            "font": "Archivo",
+            "color": "#18120f"
+          }
+        }
+      ],
+      "metric": "pq_download_click",
+      "holdout": 0.1,
+      "frequencyCap": {
+        "per": "session",
+        "max": 1
+      },
+      "segment": "utm_campaign=procurement"
+    },
+    {
+      "id": "exp-specifier-mockup-tooltip",
+      "name": "Specifier mock-up tooltip — homepage manufacturing section",
+      "description": "For specifier traffic (architects, interior designers), the #1 objection is 'Can your factory produce a 1:1 mock-up panel?' The manufacturing link on the homepage goes to a general page with no specifier-specific call to action.",
+      "status": "active",
+      "audience": {
+        "type": "all",
+        "conditions": [
+          {
+            "type": "currentPath",
+            "match": {
+              "op": "equals",
+              "value": "/"
+            }
+          },
+          {
+            "type": "utm",
+            "param": "campaign",
+            "match": {
+              "op": "contains",
+              "value": "specifier",
+              "caseInsensitive": true
+            }
+          },
+          {
+            "type": "elementVisible",
+            "selector": "[data-pano='manufacturing-section']"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "overlay",
+          "position": "bottom-right",
+          "animation": "slide",
+          "autoCloseMs": 10000,
+          "content": {
+            "headline": "We produce 1:1 mock-up panels.",
+            "body": "See the finish before you commit.",
+            "cta": {
+              "text": "Request a mock-up",
+              "href": "/contact?intent=mock-up"
+            },
+            "dismiss": true
+          },
+          "style": {
+            "maxWidth": "360px",
+            "bg": "#f4f3ef",
+            "border": "1px solid #e5e4e0",
+            "font": "Archivo",
+            "color": "#18120f"
+          }
+        }
+      ],
+      "metric": "specifier_contact_click",
+      "holdout": 0.15,
+      "frequencyCap": {
+        "per": "session",
+        "max": 1
+      },
+      "segment": "utm_campaign=specifier"
     }
   ]
 }
