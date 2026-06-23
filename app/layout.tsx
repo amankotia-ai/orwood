@@ -8,6 +8,7 @@ import { WhatsAppButton } from "@/components/whatsapp-button";
 import { CookieBanner } from "@/components/cookie-banner";
 import { Panorama } from "@/components/panorama";
 import { Analytics } from "@/components/analytics";
+import { PostHogTracking } from "@/components/posthog-provider";
 import { GTMScript, GTMNoScript } from "@/components/google-tag-manager";
 
 const archivo = Archivo({
@@ -140,6 +141,7 @@ export default function RootLayout({
         <CookieBanner />
         <Panorama />
         <Analytics />
+        <PostHogTracking />
       </body>
     </html>
   );
