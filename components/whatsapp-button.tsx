@@ -1,5 +1,6 @@
 "use client";
 
+import posthog from "posthog-js";
 import { site } from "@/lib/content";
 
 const MESSAGE = "Hello ORWOOD — I'd like to talk about a project.";
@@ -14,6 +15,7 @@ function trackWhatsAppClick() {
       `https://www.google-analytics.com/g/collect?en=whatsapp_click&ep.page=${encodeURIComponent(data.page)}`,
     );
   }
+  posthog.capture("whatsapp_clicked", { page: data.page });
 }
 
 /** Floating WhatsApp click-to-chat. Uses a placeholder number (site.whatsapp). */

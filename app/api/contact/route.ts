@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { resolveTrack } from "@/lib/email-segments";
 import { sendSequenceEmail } from "@/lib/email-sender";
 import { enqueueSequence } from "@/lib/email-queue";
+import { getPostHogClient } from "@/lib/posthog-server";
 
 /**
  * Enquiry endpoint.
@@ -54,6 +55,30 @@ export async function POST(req: Request) {
     budget: data.budget,
     track,
     _attribution: data._attribution ?? null,
+  });
+
+  const posthog = getPostHogClient();
+  posthog.capture({
+    distinctId: email,
+    event: "enquiry_received",
+    properties: {
+      name,
+      company: data.company ?? null,
+      country: data.country ?? null,
+      project_type: data.projectType ?? null,
+      budget: data.budget ?? null,
+      nurture_track: track,
+      referrer_project: (data._attribution as Record<string, unknown> | null)?.referrerProject ?? null,
+    },
+  });
+  posthog.identify({
+    distinctId: email,
+    properties: {
+      name,
+      email,
+      company: data.company ?? null,
+      country: data.country ?? null,
+    },
   });
 
   // Send the Day 0 welcome email immediately.

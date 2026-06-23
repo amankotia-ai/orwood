@@ -5,6 +5,7 @@ import { Reveal } from "@/components/reveal";
 import { Artwork } from "@/components/artwork";
 import { ProjectCard } from "@/components/project-card";
 import { CTA } from "@/components/cta";
+import { PostHogPageView } from "@/components/posthog-page-view";
 import { sectors, projects } from "@/lib/content";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -75,6 +76,14 @@ export default async function IndustryPage({ params }: Params) {
 
   return (
     <>
+      <PostHogPageView
+        event="industry_viewed"
+        properties={{
+          industry_id: sector.id,
+          industry_title: sector.title,
+          related_project_count: related.length,
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(sectorJsonLd) }}

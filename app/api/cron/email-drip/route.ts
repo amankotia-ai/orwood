@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { emailQueue } from "@/lib/email-queue";
 import { sendSequenceEmail } from "@/lib/email-sender";
+import { getPostHogClient } from "@/lib/posthog-server";
 
 /**
  * Cron endpoint — process queued nurture-sequence emails.
@@ -40,6 +41,16 @@ export async function GET(req: Request) {
     if (messageId) {
       await emailQueue.markSent(item.id);
       sent++;
+      const posthog = getPostHogClient();
+      posthog.capture({
+        distinctId: item.to,
+        event: "nurture_email_sent",
+        properties: {
+          nurture_track: item.track,
+          step: item.step,
+          message_id: messageId,
+        },
+      });
     } else {
       errors.push(item.id);
     }

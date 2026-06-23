@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { PageHeader } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { ContactForm } from "@/components/contact-form";
+import { ContactMethodLink } from "@/components/contact-actions";
 import { OutboundLink } from "@/components/outbound-link";
 import { site, projects, sectors } from "@/lib/content";
 
@@ -77,22 +78,24 @@ export default async function ContactPage() {
               <div className="mt-10 border-t border-line pt-6">
                 <h2 className="label text-stone">Direct</h2>
                 <div className="mt-4 space-y-2 text-lg">
-                  <a
+                  <ContactMethodLink
                     href={`mailto:${site.email}`}
+                    method="email"
                     className="group flex items-center justify-between"
                   >
                     <span className="link-underline group-hover:link-underline-on pb-0.5">
                       {site.email}
                     </span>
-                  </a>
-                  <a
+                  </ContactMethodLink>
+                  <ContactMethodLink
                     href={`tel:${site.phone.replace(/\s/g, "")}`}
+                    method="phone"
                     className="group flex items-center justify-between"
                   >
                     <span className="link-underline group-hover:link-underline-on pb-0.5">
                       {site.phone}
                     </span>
-                  </a>
+                  </ContactMethodLink>
                 </div>
               </div>
             </Reveal>

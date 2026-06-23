@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { Artwork } from "@/components/artwork";
 import { CTA } from "@/components/cta";
+import { DocumentRequestLink } from "@/components/document-request-link";
 import { services, process, projects, resources, site } from "@/lib/content";
 import { cn } from "@/lib/cn";
 
@@ -171,18 +172,22 @@ export default function ServicesPage() {
                         >
                           ORWOOD Doors — full product page →
                         </Link>
-                        <a
+                        <DocumentRequestLink
                           href={`mailto:${site.email}?subject=Document request — ${fireTestReport.title}`}
+                          documentId={fireTestReport.id}
+                          documentTitle={fireTestReport.title}
                           className="label text-sm text-accent transition-colors hover:text-accent/70"
                         >
                           Request fire test report ↗
-                        </a>
-                        <a
+                        </DocumentRequestLink>
+                        <DocumentRequestLink
                           href={`mailto:${site.email}?subject=Document request — ${pqqPack.title}`}
+                          documentId={pqqPack.id}
+                          documentTitle={pqqPack.title}
                           className="label text-sm text-accent transition-colors hover:text-accent/70"
                         >
                           Request PQQ pack ↗
-                        </a>
+                        </DocumentRequestLink>
                         <Link
                           href="/resources"
                           className="label text-sm text-ink underline-offset-4 transition-colors hover:text-clay hover:underline"
@@ -203,12 +208,14 @@ export default function ServicesPage() {
                         ISO 9001:2015 quality management and ISO 14001:2015 environmental management certified. Fire-rated and acoustic door sets installed as part of our fit-out scope are tested to BS EN 1634-1.
                       </p>
                       <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
-                        <a
+                        <DocumentRequestLink
                           href={`mailto:${site.email}?subject=Document request — ${pqqPack.title}`}
+                          documentId={pqqPack.id}
+                          documentTitle={pqqPack.title}
                           className="label text-sm text-accent transition-colors hover:text-accent/70"
                         >
                           Request PQQ pack ↗
-                        </a>
+                        </DocumentRequestLink>
                         <Link
                           href="/resources"
                           className="label text-sm text-ink underline-offset-4 transition-colors hover:text-clay hover:underline"
@@ -335,12 +342,14 @@ export default function ServicesPage() {
                     >
                       <span className="text-sm">{doc.label}</span>
                       {r && (
-                        <a
+                        <DocumentRequestLink
                           href={`mailto:${site.email}?subject=Document request — ${r.title}`}
+                          documentId={r.id}
+                          documentTitle={r.title}
                           className="label shrink-0 text-sm text-accent transition-colors hover:text-accent/70"
                         >
                           Request {r.format}
-                        </a>
+                        </DocumentRequestLink>
                       )}
                     </li>
                   );

@@ -5,6 +5,7 @@ import { Reveal } from "@/components/reveal";
 import { Artwork } from "@/components/artwork";
 import { CTA } from "@/components/cta";
 import { ArticleCTA } from "@/components/article-cta";
+import { PostHogPageView } from "@/components/posthog-page-view";
 import { journal } from "@/lib/content";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -42,6 +43,15 @@ export default async function ArticlePage({ params }: Params) {
 
   return (
     <>
+      <PostHogPageView
+        event="journal_article_viewed"
+        properties={{
+          article_id: article.id,
+          article_title: article.title,
+          category: article.category,
+          reading_time: article.readingTime,
+        }}
+      />
       <article>
         <header className="shell pt-40 md:pt-52">
           <Reveal>

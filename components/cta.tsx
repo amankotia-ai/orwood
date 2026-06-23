@@ -1,3 +1,6 @@
+"use client";
+
+import posthog from "posthog-js";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { Grain } from "@/components/grain";
@@ -36,9 +39,11 @@ export function CTA({
         </div>
         <div className="md:col-span-4 md:justify-self-end">
           <Reveal delay={0.15}>
-            <Button href={href} variant="invert">
-              {cta}
-            </Button>
+            <div onClick={() => posthog.capture("cta_clicked", { cta_text: cta, href })}>
+              <Button href={href} variant="invert">
+                {cta}
+              </Button>
+            </div>
           </Reveal>
         </div>
       </div>

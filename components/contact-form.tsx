@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback, type ChangeEvent, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import posthog from "posthog-js";
 import { sectors } from "@/lib/content";
 import { Arrow } from "@/components/ui/button";
 import { cn } from "@/lib/cn";
@@ -59,7 +60,10 @@ export function ContactForm({
     if (typeof w.gtag === "function") {
       w.gtag("event", "form_start", { form_name: "contact", page: "/contact" });
     }
-  }, []);
+    posthog.capture("contact_form_started", {
+      referrer_project: referrerProject ?? null,
+    });
+  }, [referrerProject]);
 
   const update =
     (key: keyof Form) =>
@@ -109,6 +113,12 @@ export function ContactForm({
           page: "/contact",
         });
       }
+      posthog.capture("contact_form_submitted", {
+        project_type: form.projectType,
+        budget: form.budget,
+        country: form.country,
+        referrer_project: referrerProject ?? null,
+      });
 
       setSent(true);
     } catch {

@@ -1,6 +1,7 @@
 "use client";
 
 import type { AnchorHTMLAttributes, MouseEvent, ReactNode } from "react";
+import posthog from "posthog-js";
 
 function trackOutboundClick(url: string) {
   const w = window as unknown as { gtag?: (...args: unknown[]) => void };
@@ -10,6 +11,10 @@ function trackOutboundClick(url: string) {
       page: window.location.pathname,
     });
   }
+  posthog.capture("outbound_link_clicked", {
+    link_url: url,
+    page: window.location.pathname,
+  });
 }
 
 export function OutboundLink({

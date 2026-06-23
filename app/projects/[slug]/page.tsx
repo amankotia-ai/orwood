@@ -5,6 +5,7 @@ import { Reveal } from "@/components/reveal";
 import { Artwork } from "@/components/artwork";
 import { CTA } from "@/components/cta";
 import { OutboundLink } from "@/components/outbound-link";
+import { PostHogPageView } from "@/components/posthog-page-view";
 import { projects } from "@/lib/content";
 import { cn } from "@/lib/cn";
 
@@ -115,6 +116,16 @@ export default async function ProjectPage({ params }: Params) {
 
   return (
     <>
+      <PostHogPageView
+        event="project_viewed"
+        properties={{
+          project_id: project.id,
+          project_title: project.title,
+          sector: project.sector,
+          location: project.location,
+          year: project.year,
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
