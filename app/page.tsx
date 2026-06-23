@@ -103,7 +103,7 @@ export default function HomePage() {
               <Artwork
                 tone={lead.tone}
                 src={lead.image}
-                className="h-full w-full transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+                className="h-full w-full"
                 label={`${lead.sector} · ${lead.location}`}
               />
             </div>
@@ -238,12 +238,12 @@ export default function HomePage() {
           <div className="md:col-span-7 md:col-start-6">
             {group.map((g, i) => (
               <Reveal key={g.id} delay={i * 0.06}>
-                <div className="grid grid-cols-12 gap-4 border-b border-line py-7 first:border-t">
-                  <h3 className="col-span-12 text-xl md:col-span-4">{g.name}</h3>
-                  <span className="label col-span-12 self-center text-stone md:col-span-3">
+                <div className="grid grid-cols-12 gap-x-4 gap-y-1 border-b border-line py-7 first:border-t">
+                  <h3 className="col-span-12 text-xl lg:col-span-4">{g.name}</h3>
+                  <span className="label col-span-12 self-center text-stone lg:col-span-3">
                     {g.role}
                   </span>
-                  <p className="col-span-12 text-stone md:col-span-5">{g.note}</p>
+                  <p className="col-span-12 mt-2 text-stone lg:col-span-5 lg:mt-0">{g.note}</p>
                 </div>
               </Reveal>
             ))}

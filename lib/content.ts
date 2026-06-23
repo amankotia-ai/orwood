@@ -347,7 +347,7 @@ export const projects: Project[] = [
     year: "2024",
     scope: "Design & Build · FF&E",
     tone: 0,
-    image: "https://images.unsplash.com/photo-1590490360182-c33d82de0e5c?w=1920&q=80&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1920&q=80&auto=format&fit=crop",
     summary:
       "A 220-key waterfront hotel finished and furnished as one project — from the lobby joinery to the last guestroom chair.",
     size: "220 keys · 18,400 m²",
