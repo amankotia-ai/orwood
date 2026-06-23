@@ -49,9 +49,8 @@ export default function HomePage() {
               </p>
             </Reveal>
             <Reveal delay={0.32}>
-              <div data-pano="cta-button" className="flex flex-wrap items-center gap-x-8 gap-y-4">
+              <div data-pano="cta-button">
                 <Button href="/projects">View selected work</Button>
-                <ArrowLink href="/services">Our services</ArrowLink>
               </div>
             </Reveal>
           </div>
@@ -62,6 +61,7 @@ export default function HomePage() {
           <div className="relative h-[64vh] min-h-[440px] w-full overflow-hidden md:h-[88vh]">
             <Artwork
               tone={0}
+              src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80&auto=format&fit=crop"
               className="h-full w-full"
               label="The Aram Hotel — Hospitality · Doha"
             />
@@ -102,6 +102,7 @@ export default function HomePage() {
             <div className="relative h-[58vh] min-h-[380px] w-full overflow-hidden md:h-[84vh]">
               <Artwork
                 tone={lead.tone}
+                src={lead.image}
                 className="h-full w-full transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
                 label={`${lead.sector} · ${lead.location}`}
               />
@@ -149,6 +150,7 @@ export default function HomePage() {
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Artwork
                     tone={sec.tone}
+                    src={sec.image}
                     className="h-full w-full transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                     label={sec.title}
                   />
@@ -276,7 +278,7 @@ export default function HomePage() {
           <div className="md:col-span-5 md:col-start-8">
             <Reveal>
               <div className="relative aspect-[4/3] overflow-hidden">
-                <Artwork tone={0} className="h-full w-full" label="Production · İstanbul" />
+                <Artwork tone={0} src="https://images.unsplash.com/photo-1565793298710-cf528f20e8c8?w=1200&q=80&auto=format&fit=crop" className="h-full w-full" label="Production · İstanbul" />
               </div>
             </Reveal>
           </div>

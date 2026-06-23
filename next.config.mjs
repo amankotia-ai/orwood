@@ -8,6 +8,11 @@ const nextConfig = {
   reactStrictMode: true,
   // Pin the workspace root — parent folders contain stray lockfiles.
   outputFileTracingRoot: __dirname,
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+    ],
+  },
 };
 
 export default nextConfig;

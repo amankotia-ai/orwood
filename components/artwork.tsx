@@ -1,13 +1,10 @@
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 import { Grain } from "./grain";
 
 /**
- * Art-directed placeholder visual.
- *
- * A quiet tonal field with film grain — a stand-in for real project
- * photography. Deterministic per `tone` so the same project always looks
- * the same. To swap in a real photo, replace <Artwork/> with <Image/>
- * (the containers already clip + cover).
+ * Art-directed visual — real photography when `src` is provided,
+ * a tonal gradient placeholder when it isn't.
  */
 
 type Tone = { from: string; to: string; dark: boolean };
@@ -23,11 +20,13 @@ const tones: Tone[] = [
 
 export function Artwork({
   tone = 0,
+  src,
   className,
   label,
   alt,
 }: {
   tone?: number;
+  src?: string;
   className?: string;
   label?: string;
   alt?: string;
@@ -37,20 +36,33 @@ export function Artwork({
   return (
     <div
       className={cn("relative isolate overflow-hidden", className)}
-      style={{ backgroundImage: `linear-gradient(168deg, ${t.from}, ${t.to})` }}
+      style={src ? undefined : { backgroundImage: `linear-gradient(168deg, ${t.from}, ${t.to})` }}
       role={alt ? "img" : undefined}
       aria-label={alt}
       aria-hidden={alt ? undefined : true}
     >
-      {/* soft directional light from top */}
-      <div
-        className="absolute inset-x-0 top-0 h-2/3"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(255,255,255,0.05), transparent)",
-        }}
-      />
-      <Grain opacity={0.32} blend={t.dark ? "overlay" : "soft-light"} />
+      {src && (
+        <Image
+          src={src}
+          alt={alt ?? label ?? ""}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover"
+        />
+      )}
+      {!src && (
+        <>
+          {/* soft directional light from top */}
+          <div
+            className="absolute inset-x-0 top-0 h-2/3"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(255,255,255,0.05), transparent)",
+            }}
+          />
+          <Grain opacity={0.32} blend={t.dark ? "overlay" : "soft-light"} />
+        </>
+      )}
       {/* crisp inner hairline so the image area reads intentional */}
       <div
         className="absolute inset-0"
@@ -64,7 +76,7 @@ export function Artwork({
         <span
           className={cn(
             "absolute bottom-4 left-4 text-[0.7rem] font-medium uppercase tracking-[0.18em]",
-            t.dark ? "text-bone/60" : "text-ink/45"
+            src ? "text-white/70 drop-shadow-sm" : t.dark ? "text-bone/60" : "text-ink/45"
           )}
         >
           {label}

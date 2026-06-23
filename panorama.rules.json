@@ -176,7 +176,7 @@
     {
       "id": "homepage-dual-cta-returning-organic-visitors-secondary-evidence-path-button",
       "name": "Homepage dual CTA — returning organic visitors (secondary evidence-path button)",
-      "status": "active",
+      "status": "paused",
       "audience": {
         "type": "all",
         "conditions": [

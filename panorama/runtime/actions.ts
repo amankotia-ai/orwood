@@ -238,8 +238,7 @@ export function executeAction(action: Action, ruleId: string, emit: Emit): void 
           if (action.clickEvent) el.addEventListener("click", () => emit({ kind: "interaction", ruleId, detail: action.clickEvent! }));
           if ((action as any).changes?.addSecondary) {
             const c = (action as any).changes;
-            const parent = el.parentElement;
-            if (parent && c.secondaryText && c.secondaryHref) {
+            if (c.secondaryText && c.secondaryHref) {
               const link = document.createElement("a");
               link.href = c.secondaryHref;
               link.textContent = c.secondaryText;
@@ -251,7 +250,7 @@ export function executeAction(action: Action, ruleId: string, emit: Emit): void 
               });
               link.setAttribute("data-pa-rule", ruleId);
               link.addEventListener("click", () => emit({ kind: "interaction", ruleId, detail: "secondary_cta_click" }));
-              parent.appendChild(link);
+              el.appendChild(link);
             }
           }
         }

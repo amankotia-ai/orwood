@@ -208,6 +208,7 @@ export type Sector = {
   title: string;
   blurb: string;
   tone: number;
+  image?: string;
   lead: string;
   offer: string[];
 };
@@ -219,6 +220,7 @@ export const sectors: Sector[] = [
     blurb:
       "Hotels, resorts, restaurants and spas where the interior is the experience — built to perform under constant use.",
     tone: 0,
+    image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80&auto=format&fit=crop",
     lead: "Hotels, resorts, restaurants and spas live or die on the interior. We design, make and install public realm and guestrooms that look considered on opening night and survive a decade of full occupancy.",
     offer: [
       "Lobbies, restaurants & bars",
@@ -233,6 +235,7 @@ export const sectors: Sector[] = [
     blurb:
       "Workplaces, lobbies and retail that carry a brand — environments designed to be lived in nine hours a day.",
     tone: 1,
+    image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&q=80&auto=format&fit=crop",
     lead: "Workplaces and commercial interiors carry a brand and take a beating. We deliver headquarters, lobbies and showrooms as turnkey fit-outs, coordinated to a single move-in date.",
     offer: [
       "Headquarters & workplace",
@@ -247,6 +250,7 @@ export const sectors: Sector[] = [
     blurb:
       "Private homes and developments where craft is felt in the detail — the close, quiet quality of a made object.",
     tone: 5,
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80&auto=format&fit=crop",
     lead: "Private homes and branded residences are judged up close. Our joinery and furniture are finished to the tolerance of a made object — panelling, libraries, kitchens and dressing rooms.",
     offer: [
       "Bespoke joinery & millwork",
@@ -261,6 +265,7 @@ export const sectors: Sector[] = [
     blurb:
       "Stores and showrooms where the fit-out is the brand — precise, repeatable and built for the shop floor.",
     tone: 2,
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80&auto=format&fit=crop",
     lead: "Retail interiors have to read as the brand and repeat across locations without losing the finish. We manufacture and roll out store and showroom environments to an exact, repeatable specification.",
     offer: [
       "Flagship & showroom fit-out",
@@ -275,6 +280,7 @@ export const sectors: Sector[] = [
     blurb:
       "Restaurants, cafés and bars where atmosphere and durability have to meet — designed and built as one.",
     tone: 4,
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80&auto=format&fit=crop",
     lead: "Restaurants, cafés and bars need atmosphere that survives a full service, every service. We design and build F&B interiors where the millwork, furniture and finishes are engineered for heavy, daily use.",
     offer: [
       "Restaurant & bar interiors",
@@ -289,6 +295,7 @@ export const sectors: Sector[] = [
     blurb:
       "Large developments with many interiors at once — held to one standard, one programme and one team.",
     tone: 3,
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80&auto=format&fit=crop",
     lead: "Mixed-use developments combine hospitality, retail, workplace and residential in a single scheme. We carry whole interior packages across them — one standard, one programme, one accountable team.",
     offer: [
       "Multi-asset interior packages",
@@ -320,6 +327,7 @@ export type Project = {
   challenge: string;
   solution: string;
   deliverables: string[];
+  image?: string;
   gallery: number[];
   architect?: string;
   architectUrl?: string;
@@ -339,6 +347,7 @@ export const projects: Project[] = [
     year: "2024",
     scope: "Design & Build · FF&E",
     tone: 0,
+    image: "https://images.unsplash.com/photo-1590490360182-c33d82de0e5c?w=1920&q=80&auto=format&fit=crop",
     summary:
       "A 220-key waterfront hotel finished and furnished as one project — from the lobby joinery to the last guestroom chair.",
     size: "220 keys · 18,400 m²",
@@ -382,6 +391,7 @@ export const projects: Project[] = [
     year: "2023",
     scope: "Turnkey Interiors",
     tone: 2,
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80&auto=format&fit=crop",
     summary:
       "A grade-A workplace delivered ready to occupy — every trade, finish and piece of furniture coordinated to one move-in date.",
     size: "9,600 m² · 4 floors",
@@ -421,6 +431,7 @@ export const projects: Project[] = [
     year: "2024",
     scope: "Joinery · FF&E",
     tone: 4,
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920&q=80&auto=format&fit=crop",
     summary:
       "A private residence where the cabinetry, panelling and furniture were drawn, made and fitted by the same hands.",
     size: "640 m² · private residence",
@@ -454,6 +465,7 @@ export const projects: Project[] = [
     year: "2023",
     scope: "Design & Build",
     tone: 1,
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=80&auto=format&fit=crop",
     summary:
       "A coastal resort and spa designed and built as one scope — interiors that hold up to sun, salt and a full season.",
     size: "140 keys · resort & spa",
@@ -493,6 +505,7 @@ export const projects: Project[] = [
     year: "2024",
     scope: "Furniture Solutions",
     tone: 3,
+    image: "https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?w=1920&q=80&auto=format&fit=crop",
     summary:
       "Contract-grade furniture, manufactured in our own workshops, for a corporate headquarters built to be used hard.",
     size: "12,000 m² · headquarters",
@@ -526,6 +539,7 @@ export const projects: Project[] = [
     year: "2022",
     scope: "Joinery · Doors",
     tone: 5,
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80&auto=format&fit=crop",
     summary:
       "A London townhouse fitted with bespoke joinery and a complete set of acoustic, fire-rated doors.",
     size: "5 storeys · townhouse",
