@@ -170,7 +170,7 @@ export default function HomePage() {
       </section>
 
       {/* ───────────────────────── Stats ───────────────────────── */}
-      <section className="shell border-t border-line py-24 md:py-32">
+      <section className="shell py-24 md:py-32">
         <div className="grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-4">
           {stats.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.06}>
@@ -212,7 +212,7 @@ export default function HomePage() {
                   <li>
                     <Link
                       href="/services"
-                      className="group flex items-center justify-between gap-6 border-b border-line py-7 first:border-t"
+                      className="group flex items-center justify-between gap-6 border-b border-line py-7"
                     >
                       <h3 className="text-2xl tracking-[-0.01em] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1.5 md:text-3xl">
                         {s.title}
@@ -238,7 +238,7 @@ export default function HomePage() {
           <div className="md:col-span-7 md:col-start-6">
             {group.map((g, i) => (
               <Reveal key={g.id} delay={i * 0.06}>
-                <div className="grid grid-cols-12 gap-x-4 gap-y-1 border-b border-line py-7 first:border-t">
+                <div className="grid grid-cols-12 gap-x-4 gap-y-1 border-b border-line py-7">
                   <h3 className="col-span-12 text-xl lg:col-span-4">{g.name}</h3>
                   <span className="label col-span-12 self-center text-stone lg:col-span-3">
                     {g.role}
@@ -278,7 +278,7 @@ export default function HomePage() {
           <div className="md:col-span-5 md:col-start-8">
             <Reveal>
               <div className="relative aspect-[4/3] overflow-hidden">
-                <Artwork tone={0} src="https://images.unsplash.com/photo-1565793298710-cf528f20e8c8?w=1200&q=80&auto=format&fit=crop" className="h-full w-full" label="Production · İstanbul" />
+                <Artwork tone={0} src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=1200&q=80&auto=format&fit=crop" className="h-full w-full" label="Production · İstanbul" />
               </div>
             </Reveal>
           </div>
@@ -298,7 +298,7 @@ export default function HomePage() {
         <div className="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 md:mt-20 md:grid-cols-4">
           {process.map((p, i) => (
             <Reveal key={p.index} delay={(i % 4) * 0.05}>
-              <div className="border-t border-line pt-5">
+              <div className="pt-5">
                 <span className="label text-clay">{p.index}</span>
                 <h3 className="mt-3 text-lg">{p.title}</h3>
               </div>
@@ -326,7 +326,7 @@ export default function HomePage() {
           <div className="md:col-span-7 md:col-start-6">
             {presence.regions.map((r, i) => (
               <Reveal key={r.id} delay={i * 0.06}>
-                <div className="grid grid-cols-12 items-baseline gap-4 border-b border-line py-6 first:border-t">
+                <div className="grid grid-cols-12 items-baseline gap-4 border-b border-line py-6">
                   <h3 className="col-span-5 text-xl md:col-span-3">{r.name}</h3>
                   <p className="col-span-7 text-stone md:col-span-9">
                     {r.countries.join(" · ")}
@@ -347,7 +347,7 @@ export default function HomePage() {
           <div className="mt-14 grid gap-x-12 gap-y-14 md:mt-20 md:grid-cols-3">
             {testimonials.map((t, i) => (
               <Reveal key={t.author} delay={(i % 3) * 0.08}>
-                <figure className="flex h-full flex-col border-t border-line pt-7">
+                <figure className="flex h-full flex-col pt-7">
                   <blockquote className="text-xl leading-snug md:text-2xl">
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
