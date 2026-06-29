@@ -65,12 +65,10 @@ export default async function ContactPage() {
           <aside className="md:col-span-4 md:col-start-9">
             <Reveal>
               <div className="border-t border-line pt-6">
-                <h2 className="label text-stone">Studio</h2>
-                <address className="mt-4 space-y-1 text-lg not-italic">
-                  <p>{site.address.line1}</p>
-                  <p>{site.address.line2}</p>
-                  <p>{site.address.city}</p>
-                </address>
+                <p className="text-[1.6rem] leading-snug text-ink">
+                  200+ projects delivered across hospitality, retail and private
+                  residential.
+                </p>
               </div>
             </Reveal>
 
@@ -101,6 +99,17 @@ export default async function ContactPage() {
             </Reveal>
 
             <Reveal delay={0.16}>
+              <div className="mt-10 border-t border-line pt-6">
+                <h2 className="label text-stone">Studio</h2>
+                <address className="mt-4 space-y-1 text-lg not-italic text-stone">
+                  <p>{site.address.line1}</p>
+                  <p>{site.address.line2}</p>
+                  <p>{site.address.city}</p>
+                </address>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.24}>
               <div className="mt-10 border-t border-line pt-6">
                 <h2 className="label text-stone">Careers</h2>
                 <p className="mt-4 text-stone">

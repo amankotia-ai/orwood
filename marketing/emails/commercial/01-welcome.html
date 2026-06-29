@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to ORWOOD</title>
+  <title>Thank you for reaching out</title>
   <!--
-    Sequence: residential
+    Sequence: commercial
     Step: 1 of 5
     Trigger: enquiry form submission (Day 0)
     Subject: Your enquiry with ORWOOD
-    Preview: Bespoke interiors, quietly made.
-    Segment: Residential (UHNW residential, luxury interior designers)
-    Grounded in: Context Graph — icp (UHNW residential clients — privacy, craft, bespoke),
-      brandVoice (softer, warmer register for private clients),
-      insight (residential persona found zero residential content; needs kitchens, wardrobes, libraries;
-      privacy assurance is table stakes for UHNW)
+    Preview: One team, one number — from first brief to move-in day.
+    Segment: Commercial (Commercial, Retail, F&B, Mixed-use, "Not sure yet", blank)
+    Grounded in: Context Graph — product (single accountability, turnkey delivery),
+      brandVoice (confident, spare, show craft rather than claiming it),
+      icp (commercial property owners and developers: fit out to a single move-in date,
+        brand-carrying interiors for daily use),
+      marketingStrategy (case studies as #1 conversion asset, enquiry is the
+        single conversion, portfolio CTA drives next step)
   -->
   <style>
     body, table, td, p, a { margin: 0; padding: 0; }
@@ -30,6 +32,11 @@
       max-width: 600px;
       margin: 0 auto;
       padding: 64px 32px;
+    }
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 48px;
     }
     h1 {
       font-family: 'Archivo', Helvetica, Arial, sans-serif;
@@ -80,15 +87,13 @@
       border-bottom: 1px solid #732017;
       padding-bottom: 2px;
     }
-    .privacy-note {
-      margin: 24px 0;
-      padding: 20px;
-      border-left: 2px solid #d6d1cb;
-    }
-    .privacy-note p {
-      margin-bottom: 0;
+    .proof-point {
+      margin-bottom: 12px;
       font-size: 14px;
-      color: #736c65;
+      color: #18120f;
+    }
+    .proof-point strong {
+      font-weight: 500;
     }
     .footer {
       margin-top: 48px;
@@ -105,56 +110,65 @@
 <body class="email-body">
   <div class="email-container">
 
-    <div style="margin-bottom: 48px; display: flex; align-items: center; gap: 6px;">
-      <span style="font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 0.32em; color: #18120f;">ORWOOD</span>
-      <span style="display: inline-block; width: 4px; height: 4px; background-color: #732017; border-radius: 50%; margin-bottom: 6px;"></span>
-    </div>
+    <img
+      src="{{baseUrl}}/images/orwood-mark.png"
+      alt="ORWOOD"
+      class="logo-mark"
+    />
 
     <h1>Thank you for reaching out.</h1>
 
     <p>
-      We have received your enquiry and are grateful for your
-      trust. A member of our team — typically a senior project
-      lead — will be in touch within two working days to arrange
-      a private conversation about your home.
+      We have received your enquiry and a member of our team will be
+      in touch within two working days to discuss your project.
     </p>
 
     <p>
-      ORWOOD is an interior atelier. We design, manufacture and
-      install bespoke interiors — kitchens, wardrobes, libraries,
-      dressing rooms, joinery, furniture — under one roof.
-      Every piece is made to your brief, in our own workshops.
+      ORWOOD is an interior fit-out atelier: design, manufacturing
+      and delivery under one contract. One team, one number, from
+      first brief to move-in day.
     </p>
+
+    <hr class="divider" />
+
+    <h2>Built to be used</h2>
+
+    <div class="proof-point">
+      <strong>Single point of accountability.</strong> Your project
+      lead manages design, production and on-site delivery across
+      every trade. No subcontractor chains, no split responsibility.
+    </div>
+    <div class="proof-point">
+      <strong>200+ projects delivered.</strong> Corporate headquarters,
+      flagship lobbies, mixed-use developments and retail environments
+      across Türkiye, the GCC and Europe.
+    </div>
+    <div class="proof-point">
+      <strong>Engineered for the tenth year.</strong> Interiors
+      built for the daily demands of commercial use, not the
+      photography of the opening week.
+    </div>
 
     <hr class="divider" />
 
     <h2>What happens next</h2>
 
     <p>
-      Your project lead will reach out to understand what you
-      are creating — the space, the mood, the way you live in it.
-      From there, we can discuss materials, timelines and how
-      our process works. There is no obligation and no hurry.
+      We will review the details you have shared, and your
+      designated project lead will reach out to arrange an initial
+      conversation: a call, a site visit, or a meeting at our
+      workshop in Istanbul.
     </p>
-
-    <div class="privacy-note">
-      <p>
-        <strong>A note on privacy.</strong> We treat every
-        residential project with complete discretion. Your details
-        are held securely and never shared with third parties.
-        We do not publish residential projects without explicit
-        written consent.
-      </p>
-    </div>
 
     <hr class="divider" />
 
     <p>
-      In the meantime, you are welcome to explore some of our work:
+      In the meantime, explore some of the commercial and
+      mixed-use projects we have completed:
     </p>
 
     <div class="cta-block">
-      <a href="{{baseUrl}}/industries/residential">View residential projects &rarr;</a>
+      <a href="{{baseUrl}}/industries/commercial">View commercial projects &rarr;</a>
     </div>
 
     <hr class="divider" />
@@ -165,7 +179,7 @@
     </p>
 
     <div class="footer">
-      <p>ORWOOD &middot; İstanbul</p>
+      <p>ORWOOD &middot; Istanbul</p>
       <p>20+ years &middot; 200+ projects</p>
       <p style="margin-top: 12px;">
         <a href="{{baseUrl}}/privacy">Privacy</a> &middot;

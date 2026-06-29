@@ -157,6 +157,24 @@ export default function ServicesPage() {
                   </Reveal>
                 )}
 
+                {/* SILADU callout — Joinery */}
+                {s.id === "joinery" && (
+                  <Reveal delay={0.22}>
+                    <div className="mt-6 border border-line bg-bone/40 p-5">
+                      <p className="label text-stone">Materials &amp; surfaces</p>
+                      <p className="mt-2 text-sm text-stone">
+                        SILADU, our in-house materials and surfaces operation, handles veneer sourcing, surface development, and finish specification alongside the joinery floor. Design teams can test material feasibility against real production knowledge during design development, before the specification is fixed.
+                      </p>
+                      <Link
+                        href="/journal/material-specification-luxury-hotel-interiors"
+                        className="mt-3 inline-block label text-sm text-accent transition-colors hover:text-accent/70"
+                      >
+                        How materials are specified for luxury hotel interiors →
+                      </Link>
+                    </div>
+                  </Reveal>
+                )}
+
                 {/* Certifications callout — Fire Rated Doors */}
                 {s.id === "doors" && (
                   <Reveal delay={0.2}>

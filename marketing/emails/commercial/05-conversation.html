@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whenever you are ready</title>
+  <!--
+    Sequence: commercial
+    Step: 5 of 5
+    Trigger: Day 12 after enquiry
+    Subject: Whenever you are ready
+    Preview: Bring us the brief and the date. We take it from there.
+    Segment: Commercial property owners, developers
+    Grounded in: Context Graph — marketingStrategy (core conversion: project enquiry;
+      relationship-led, high-consideration sale),
+      brandVoice ('to be a part of every project'; no pressure, quiet confidence;
+        'bring us the brief and the date' is an established ORWOOD phrase),
+      icp (commercial owners value single accountability; the enquiry is the
+        entry point to the project relationship)
+  -->
+  <style>
+    body, table, td, p, a { margin: 0; padding: 0; }
+    body { width: 100% !important; -webkit-text-size-adjust: 100%; }
+
+    .email-body {
+      background-color: #f4f3ef;
+      font-family: 'Archivo', Helvetica, Arial, sans-serif;
+      color: #18120f;
+      line-height: 1.65;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 64px 32px;
+    }
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 48px;
+    }
+    h1 {
+      font-family: 'Archivo', Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 1.3;
+      margin-bottom: 32px;
+      color: #18120f;
+    }
+    p {
+      font-size: 15px;
+      margin-bottom: 20px;
+      color: #18120f;
+    }
+    .muted {
+      color: #736c65;
+      font-size: 13px;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid #d6d1cb;
+      margin: 40px 0;
+    }
+    .cta-block {
+      margin: 32px 0;
+    }
+    .cta-block a {
+      display: inline-block;
+      color: #732017;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid #732017;
+      padding-bottom: 2px;
+    }
+    .contact-line {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #18120f;
+    }
+    .contact-line strong {
+      font-weight: 500;
+    }
+    .footer {
+      margin-top: 48px;
+      font-size: 12px;
+      color: #736c65;
+      line-height: 1.6;
+    }
+    .footer a {
+      color: #736c65;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body class="email-body">
+  <div class="email-container">
+
+    <img
+      src="{{baseUrl}}/images/orwood-mark.png"
+      alt="ORWOOD"
+      class="logo-mark"
+    />
+
+    <h1>Whenever you are ready.</h1>
+
+    <p>
+      Over the past two weeks we have shared what we do, how we
+      make it, and how a project moves from brief to handover.
+      We will leave it there.
+    </p>
+
+    <p>
+      When the timing is right, bring us the brief and the date.
+      We take it from discovery through to the day you open the doors.
+    </p>
+
+    <hr class="divider" />
+
+    <p>
+      The simplest way to start is a short conversation with
+      your project lead. No pitch, no deck: just a discussion of
+      the project, the programme and whether we are the right fit.
+    </p>
+
+    <div class="cta-block">
+      <a href="{{baseUrl}}/contact">Start a conversation &rarr;</a>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="contact-line"><strong>Email</strong> &nbsp; {{contactEmail}}</div>
+    <div class="contact-line"><strong>WhatsApp</strong> &nbsp; {{whatsappNumber}}</div>
+    <div class="contact-line"><strong>Portfolio</strong> &nbsp; {{baseUrl}}/projects</div>
+
+    <hr class="divider" />
+
+    <p class="muted">
+      This is the last email in our introduction sequence. We will
+      not contact you again unless you reach out. If your project
+      brief changes, the enquiry form is always open.
+    </p>
+
+    <div class="footer">
+      <p>ORWOOD &middot; Istanbul</p>
+      <p>20+ years &middot; 200+ projects</p>
+      <p style="margin-top: 12px;">
+        <a href="{{baseUrl}}/privacy">Privacy</a> &middot;
+        <a href="{{unsubscribeUrl}}">Unsubscribe</a>
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>

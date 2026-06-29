@@ -29,8 +29,7 @@ export default function HomePage() {
       <section className="pt-32 md:pt-40">
         <div className="shell">
           <Reveal>
-            <span className="label inline-flex items-center gap-3 text-stone">
-              <span className="h-px w-8 bg-stone/50" />
+            <span suppressHydrationWarning className="label inline-flex items-center gap-3 text-stone">
               Global interior fit-out · since {site.since}
             </span>
           </Reveal>
@@ -50,7 +49,7 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={0.32}>
               <div data-pano="cta-button">
-                <Button href="/projects">View selected work</Button>
+                <Button href="/contact">Bring us the brief</Button>
               </div>
             </Reveal>
           </div>
@@ -133,7 +132,7 @@ export default function HomePage() {
       </section>
 
       {/* ───────────────── Sectors — editorial rows ───────────────── */}
-      <section className="shell py-32 md:py-56">
+      <section className="shell pt-32 pb-16 md:pt-56 md:pb-28">
         <div className="flex items-end justify-between gap-6">
           <h2 className="max-w-2xl text-[clamp(2rem,4.5vw,3.4rem)]">
             <Reveal mask>Industries we serve</Reveal>
@@ -186,7 +185,7 @@ export default function HomePage() {
       </section>
 
       {/* ───────────────── Services — airy index ───────────────── */}
-      <section className="shell py-32 md:py-56">
+      <section className="shell pt-16 pb-32 md:pt-24 md:pb-56">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
             <h2 className="text-[clamp(2rem,4.5vw,3.4rem)]">
@@ -208,8 +207,8 @@ export default function HomePage() {
           <div className="md:col-span-7 md:col-start-6">
             <ul>
               {services.map((s, i) => (
-                <Reveal key={s.id} delay={i * 0.04}>
-                  <li>
+                <li key={s.id}>
+                  <Reveal delay={i * 0.04}>
                     <Link
                       href="/services"
                       className="group flex items-center justify-between gap-6 border-b border-line py-7"
@@ -219,8 +218,8 @@ export default function HomePage() {
                       </h3>
                       <Arrow className="shrink-0 -translate-x-2 text-stone opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:text-ink group-hover:opacity-100" />
                     </Link>
-                  </li>
-                </Reveal>
+                  </Reveal>
+                </li>
               ))}
             </ul>
           </div>
@@ -238,12 +237,12 @@ export default function HomePage() {
           <div className="md:col-span-7 md:col-start-6">
             {group.map((g, i) => (
               <Reveal key={g.id} delay={i * 0.06}>
-                <div className="grid grid-cols-12 gap-x-4 gap-y-1 border-b border-line py-7">
-                  <h3 className="col-span-12 text-xl lg:col-span-4">{g.name}</h3>
-                  <span className="label col-span-12 self-center text-stone lg:col-span-3">
+                <div className="grid grid-cols-12 gap-x-4 gap-y-3 border-b border-line py-7">
+                  <h3 className="col-span-12 text-xl md:col-span-4">{g.name}</h3>
+                  <span className="label col-span-12 self-center text-stone md:col-span-3">
                     {g.role}
                   </span>
-                  <p className="col-span-12 mt-2 text-stone lg:col-span-5 lg:mt-0">{g.note}</p>
+                  <p className="col-span-12 mt-0 text-stone md:col-span-5">{g.note}</p>
                 </div>
               </Reveal>
             ))}
@@ -360,10 +359,10 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-20 border-t border-line pt-10">
-            <span className="label text-stone-soft">Selected clients</span>
+            <span className="label text-stone">Selected clients</span>
             <div className="mt-6 flex flex-wrap items-center gap-x-10 gap-y-4">
               {clients.map((c) => (
-                <span key={c} className="text-lg tracking-tight text-stone/70">
+                <span key={c} className="text-lg tracking-tight text-stone">
                   {c}
                 </span>
               ))}
@@ -371,6 +370,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
 
       <CTA />
     </>
