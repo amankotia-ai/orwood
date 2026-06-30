@@ -230,7 +230,7 @@ export function ContactForm({
           </div>
 
           <label className="block">
-            <span className="label text-stone">
+            <span className="label text-ink">
               Project <span className="text-clay">*</span>
             </span>
             <textarea
@@ -241,7 +241,7 @@ export function ContactForm({
               placeholder="What are you building, where, and by when?"
               aria-invalid={!!errors.message}
               className={cn(
-                "mt-3 w-full resize-none border-b bg-transparent pb-3 text-lg outline-none transition-colors placeholder:text-stone-soft focus:border-ink focus-visible:outline-2 focus-visible:outline-clay focus-visible:outline-offset-2",
+                "mt-3 w-full resize-none border-b bg-transparent pb-3 text-lg outline-none transition-colors placeholder:text-stone focus:border-ink focus-visible:outline-2 focus-visible:outline-clay focus-visible:outline-offset-2",
                 errors.message ? "border-clay" : "border-line"
               )}
             />
@@ -287,7 +287,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="label text-stone">
+      <span className="label text-ink">
         {label} {required && <span className="text-clay">*</span>}
       </span>
       <input
@@ -299,7 +299,7 @@ function Field({
         autoComplete={autoComplete}
         aria-invalid={!!error}
         className={cn(
-          "mt-3 w-full border-b bg-transparent pb-3 text-lg outline-none transition-colors placeholder:text-stone-soft focus:border-ink focus-visible:outline-2 focus-visible:outline-clay focus-visible:outline-offset-2",
+          "mt-3 w-full border-b bg-transparent pb-3 text-lg outline-none transition-colors placeholder:text-stone focus:border-ink focus-visible:outline-2 focus-visible:outline-clay focus-visible:outline-offset-2",
           error ? "border-clay" : "border-line"
         )}
       />
@@ -323,7 +323,7 @@ function Select({
 }) {
   return (
     <label className="block">
-      <span className="label text-stone">{label}</span>
+      <span className="label text-ink">{label}</span>
       <select
         value={value}
         onChange={onChange}
