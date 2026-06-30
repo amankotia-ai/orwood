@@ -24,7 +24,7 @@ export default function ProjectsPage() {
         }
         intro="A selection across hospitality, commercial and residential. Each one designed, manufactured and delivered by the same house."
       />
-      <ProjectsGallery />
+      <ProjectsGallery headingLevel={2} />
       <CTA
         eyebrow="Selected work"
         title="Your project could be next."

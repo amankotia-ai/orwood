@@ -237,12 +237,12 @@ export default function HomePage() {
           <div className="md:col-span-7 md:col-start-6">
             {group.map((g, i) => (
               <Reveal key={g.id} delay={i * 0.06}>
-                <div className="grid grid-cols-12 gap-x-4 gap-y-3 border-b border-line py-7">
-                  <h3 className="col-span-12 text-xl md:col-span-4">{g.name}</h3>
-                  <span className="label col-span-12 self-center text-stone md:col-span-3">
-                    {g.role}
-                  </span>
-                  <p className="col-span-12 mt-0 text-stone md:col-span-5">{g.note}</p>
+                <div className="grid grid-cols-12 items-baseline gap-x-6 gap-y-4 border-b border-line py-8">
+                  <div className="col-span-12 md:col-span-4">
+                    <h3 className="text-xl">{g.name}</h3>
+                    <span className="mt-1 block text-sm text-stone">{g.role}</span>
+                  </div>
+                  <p className="col-span-12 text-sm text-stone md:col-span-7 md:col-start-6">{g.note}</p>
                 </div>
               </Reveal>
             ))}

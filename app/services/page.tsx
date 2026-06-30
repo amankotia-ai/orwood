@@ -50,6 +50,14 @@ const serviceSectors: Record<string, { id: string; label: string }[]> = {
     { id: "commercial", label: "Commercial" },
     { id: "mixed-use", label: "Mixed-use" },
   ],
+  joinery: [
+    { id: "hospitality", label: "Hospitality" },
+    { id: "commercial", label: "Commercial" },
+    { id: "residential", label: "Residential" },
+    { id: "retail", label: "Retail" },
+    { id: "food-beverage", label: "F&B" },
+    { id: "mixed-use", label: "Mixed-use" },
+  ],
 };
 
 const fireTestReport = resources.find(

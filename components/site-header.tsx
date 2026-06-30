@@ -79,7 +79,7 @@ export function SiteHeader() {
             })}
             <Link
               href="/contact"
-              className="group ml-2 hidden items-center gap-2 border border-line px-4 py-2.5 text-ink transition-colors duration-300 hover:border-ink lg:inline-flex"
+              className="group ml-2 hidden items-center gap-2 border border-clay bg-clay px-4 py-2.5 text-white transition-colors duration-300 hover:border-clay/80 hover:bg-clay/80 lg:inline-flex"
             >
               <span className="label">Start a project</span>
               <Arrow className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />

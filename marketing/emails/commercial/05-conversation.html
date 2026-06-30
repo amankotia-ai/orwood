@@ -34,9 +34,22 @@
       padding: 64px 32px;
     }
     .logo-mark {
-      width: 32px;
-      height: 32px;
       margin-bottom: 48px;
+      font-family: 'Archivo', Helvetica, Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      color: #18120f;
+    }
+    .logo-mark .logo-dot {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background-color: #732017;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-left: 3px;
+      margin-bottom: 5px;
     }
     h1 {
       font-family: 'Archivo', Helvetica, Arial, sans-serif;
@@ -95,11 +108,7 @@
 <body class="email-body">
   <div class="email-container">
 
-    <img
-      src="{{baseUrl}}/images/orwood-mark.png"
-      alt="ORWOOD"
-      class="logo-mark"
-    />
+    <div class="logo-mark">ORWOOD<span class="logo-dot"></span></div>
 
     <h1>Whenever you are ready.</h1>
 

@@ -7,7 +7,7 @@ import { Reveal } from "@/components/reveal";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-export function ProjectsGallery() {
+export function ProjectsGallery({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
   const [lead, ...rest] = projects;
 
   return (
@@ -20,7 +20,7 @@ export function ProjectsGallery() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: EASE }}
         >
-          <ProjectCard project={lead} featured />
+          <ProjectCard project={lead} featured headingLevel={headingLevel} />
         </motion.div>
       </Reveal>
 
@@ -41,7 +41,7 @@ export function ProjectsGallery() {
                 transition={{ duration: 0.5, ease: EASE }}
                 className="scroll-mt-44"
               >
-                <ProjectCard project={p} />
+                <ProjectCard project={p} headingLevel={headingLevel} />
               </motion.div>
             </Reveal>
           ))}

@@ -7,12 +7,15 @@ import { cn } from "@/lib/cn";
 export function ProjectCard({
   project,
   featured = false,
+  headingLevel = 3,
   className,
 }: {
   project: Project;
   featured?: boolean;
+  headingLevel?: 2 | 3;
   className?: string;
 }) {
+  const Heading = `h${headingLevel}` as "h2" | "h3";
   return (
     <Link
       href={`/projects/${project.id}`}
@@ -36,14 +39,14 @@ export function ProjectCard({
       </div>
 
       <div className={cn("mt-6 flex items-baseline justify-between gap-4", featured && "shell")}>
-        <h3
+        <Heading
           className={cn(
             "tracking-[-0.02em] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1",
             featured ? "text-2xl md:text-4xl" : "text-2xl"
           )}
         >
           {project.title}
-        </h3>
+        </Heading>
         <div className="flex shrink-0 items-center gap-3">
           <span className="label text-stone">
             {featured ? `${project.scope} — ${project.year}` : project.year}
