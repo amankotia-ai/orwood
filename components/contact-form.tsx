@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useRef, useCallback, type ChangeEvent, type FormEvent } from "react";
+import { useState, useRef, useCallback, useEffect, type ChangeEvent, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import posthog from "posthog-js";
 import { sectors } from "@/lib/content";
 import { Arrow } from "@/components/ui/button";
 import { cn } from "@/lib/cn";
+import { captureAttributionFromLocation, readStoredAttribution } from "@/lib/attribution";
 
 type Form = {
   name: string;
@@ -53,6 +54,13 @@ export function ContactForm({
   const [submitting, setSubmitting] = useState(false);
   const formStartFired = useRef(false);
 
+  // Capture UTMs/referrer for this landing if the visitor arrived straight at
+  // /contact (ad or social link with utm_* params). No-ops if a UTM-tagged
+  // touch is already stored for this session.
+  useEffect(() => {
+    captureAttributionFromLocation();
+  }, []);
+
   const fireFormStart = useCallback(() => {
     if (formStartFired.current) return;
     formStartFired.current = true;
@@ -62,6 +70,7 @@ export function ContactForm({
     }
     posthog.capture("contact_form_started", {
       referrer_project: referrerProject ?? null,
+      ...readStoredAttribution(),
     });
   }, [referrerProject]);
 
@@ -118,6 +127,7 @@ export function ContactForm({
         budget: form.budget,
         country: form.country,
         referrer_project: referrerProject ?? null,
+        ...readStoredAttribution(),
       });
 
       setSent(true);

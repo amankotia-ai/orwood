@@ -56,6 +56,14 @@ export async function GET(req: Request) {
     }
   }
 
+  // Same posthog-node serverless gotcha as /api/contact: capture() only
+  // queues, it doesn't send. Flush once after the loop so every
+  // nurture_email_sent event for this run actually reaches PostHog before
+  // the function returns and Vercel freezes it.
+  if (sent > 0) {
+    await getPostHogClient().flush();
+  }
+
   console.log("[email-drip] cron run", { due: due.length, sent, errors });
 
   return NextResponse.json({ ok: true, due: due.length, sent, errors });

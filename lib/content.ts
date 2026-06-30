@@ -32,6 +32,7 @@ export const nav = [
   { label: "Services", href: "/services" },
   { label: "Industries", href: "/industries" },
   { label: "Manufacturing", href: "/manufacturing" },
+  { label: "Group", href: "/group" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

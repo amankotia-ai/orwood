@@ -81,6 +81,15 @@ export async function POST(req: Request) {
     },
   });
 
+  // posthog-node only queues capture()/identify() calls — it does not send
+  // them until the internal buffer is flushed. On Vercel's serverless
+  // runtime the function can freeze the instant the response is sent, which
+  // silently drops anything still in flight. Awaiting flush() here forces
+  // the queued events out over the network before we respond, so this
+  // enquiry is never lost even though we reuse a singleton client across
+  // invocations.
+  await posthog.flush();
+
   // Send the Day 0 welcome email immediately.
   if (process.env.RESEND_API_KEY) {
     const messageId = await sendSequenceEmail({

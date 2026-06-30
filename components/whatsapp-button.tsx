@@ -2,6 +2,7 @@
 
 import posthog from "posthog-js";
 import { site } from "@/lib/content";
+import { hasAnyUtm, parseUtmFromSearch, readStoredAttribution } from "@/lib/attribution";
 
 const MESSAGE = "Hello ORWOOD — I'd like to talk about a project.";
 
@@ -15,7 +16,11 @@ function trackWhatsAppClick() {
       `https://www.google-analytics.com/g/collect?en=whatsapp_click&ep.page=${encodeURIComponent(data.page)}`,
     );
   }
-  posthog.capture("whatsapp_clicked", { page: data.page });
+  // Prefer UTMs on the current page (visitor clicked straight off a tagged
+  // link); fall back to whatever was stored earlier in the session.
+  const urlUtm = parseUtmFromSearch(new URLSearchParams(window.location.search));
+  const attribution = hasAnyUtm(urlUtm) ? urlUtm : readStoredAttribution() ?? {};
+  posthog.capture("whatsapp_clicked", { page: data.page, ...attribution });
 }
 
 /** Floating WhatsApp click-to-chat. Uses a placeholder number (site.whatsapp). */
