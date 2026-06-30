@@ -5,6 +5,7 @@ import { Reveal } from "@/components/reveal";
 import { Artwork } from "@/components/artwork";
 import { CTA } from "@/components/cta";
 import { ArticleCTA } from "@/components/article-cta";
+import { NextArticleLink } from "@/components/next-article-link";
 import { PostHogPageView } from "@/components/posthog-page-view";
 import { journal } from "@/lib/content";
 
@@ -100,6 +101,7 @@ export default async function ArticlePage({ params }: Params) {
 
           {article.cta && (
             <ArticleCTA
+              articleId={article.id}
               label={article.cta.label}
               href={article.cta.href}
               description={article.cta.description}
@@ -110,18 +112,12 @@ export default async function ArticlePage({ params }: Params) {
 
       {/* Next article */}
       <section className="shell pb-24 md:pb-32">
-        <Link
-          href={`/journal/${next.id}`}
-          className="group block border-t border-line pt-10"
-        >
-          <span className="label text-stone">Next</span>
-          <h2 className="mt-3 max-w-3xl text-2xl tracking-[-0.01em] transition-colors group-hover:text-clay md:text-4xl">
-            {next.title}
-          </h2>
-          <span className="label mt-3 inline-block text-stone-soft">
-            {next.category}
-          </span>
-        </Link>
+        <NextArticleLink
+          fromArticleId={article.id}
+          toArticleId={next.id}
+          toTitle={next.title}
+          toCategory={next.category}
+        />
       </section>
 
       <CTA

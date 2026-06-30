@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { Artwork } from "@/components/artwork";
 import { CTA } from "@/components/cta";
 import { Arrow } from "@/components/ui/button";
+import { JournalArticleLink } from "@/components/journal-article-link";
 import { journal } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -34,7 +34,12 @@ export default function JournalPage() {
       <div className="shell pb-24 md:pb-32">
         {/* Lead article */}
         <Reveal>
-          <Link href={`/journal/${lead.id}`} className="group block">
+          <JournalArticleLink
+            href={`/journal/${lead.id}`}
+            articleId={lead.id}
+            position={0}
+            className="group block"
+          >
             <div className="relative h-[48vh] min-h-[340px] w-full overflow-hidden md:h-[64vh]">
               <Artwork
                 tone={lead.tone}
@@ -56,15 +61,17 @@ export default function JournalPage() {
                 </span>
               </div>
             </div>
-          </Link>
+          </JournalArticleLink>
         </Reveal>
 
         {/* Rest */}
         <div className="mt-20 grid gap-x-12 gap-y-14 md:mt-28 md:grid-cols-2">
           {rest.map((a, i) => (
             <Reveal key={a.id} delay={(i % 2) * 0.06}>
-              <Link
+              <JournalArticleLink
                 href={`/journal/${a.id}`}
+                articleId={a.id}
+                position={i + 1}
                 className="group flex flex-col gap-5 border-t border-line pt-7"
               >
                 <div className="flex items-center justify-between">
@@ -79,7 +86,7 @@ export default function JournalPage() {
                   Read
                   <Arrow className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </span>
-              </Link>
+              </JournalArticleLink>
             </Reveal>
           ))}
         </div>
