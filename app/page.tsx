@@ -47,11 +47,6 @@ export default function HomePage() {
                 countries and counting.
               </p>
             </Reveal>
-            <Reveal delay={0.32}>
-              <div data-pano="cta-button">
-                <Button href="/contact">Bring us the brief</Button>
-              </div>
-            </Reveal>
           </div>
         </div>
 
