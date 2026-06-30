@@ -623,12 +623,19 @@
         "conditions": [
           {
             "type": "currentPath",
-            "match": { "op": "equals", "value": "/projects" }
+            "match": {
+              "op": "equals",
+              "value": "/projects"
+            }
           },
           {
             "type": "utm",
             "param": "campaign",
-            "match": { "op": "equals", "value": "hospitality", "caseInsensitive": true }
+            "match": {
+              "op": "equals",
+              "value": "hospitality",
+              "caseInsensitive": true
+            }
           }
         ]
       },
@@ -652,7 +659,10 @@
         "conditions": [
           {
             "type": "currentPath",
-            "match": { "op": "equals", "value": "/projects" }
+            "match": {
+              "op": "equals",
+              "value": "/projects"
+            }
           },
           {
             "type": "scrollDepth",
@@ -681,12 +691,18 @@
         "conditions": [
           {
             "type": "currentPath",
-            "match": { "op": "equals", "value": "/projects" }
+            "match": {
+              "op": "equals",
+              "value": "/projects"
+            }
           },
           {
             "type": "session",
             "field": "isReturning",
-            "match": { "op": "equals", "value": true }
+            "match": {
+              "op": "equals",
+              "value": true
+            }
           }
         ]
       },
@@ -711,7 +727,10 @@
         "conditions": [
           {
             "type": "currentPath",
-            "match": { "op": "equals", "value": "/projects" }
+            "match": {
+              "op": "equals",
+              "value": "/projects"
+            }
           },
           {
             "type": "exitIntent"
@@ -739,12 +758,23 @@
         "conditions": [
           {
             "type": "currentPath",
-            "match": { "op": "equals", "value": "/projects" }
+            "match": {
+              "op": "equals",
+              "value": "/projects"
+            }
           },
           {
             "type": "geo",
             "field": "country",
-            "match": { "op": "in", "value": ["AE", "QA", "SA"], "caseInsensitive": true }
+            "match": {
+              "op": "in",
+              "value": [
+                "AE",
+                "QA",
+                "SA"
+              ],
+              "caseInsensitive": true
+            }
           }
         ]
       },
@@ -759,6 +789,54 @@
       "metric": "gcc_projects_cta_click",
       "holdout": 0.1,
       "consentRequired": true
+    },
+    {
+      "id": "lower-commitment-submit-label-for-specifier-referrals",
+      "name": "Lower-commitment submit label for specifier referrals",
+      "status": "active",
+      "audience": {
+        "type": "referrer",
+        "match": {
+          "op": "contains",
+          "value": "/manufacturing",
+          "caseInsensitive": true
+        }
+      },
+      "actions": [
+        {
+          "type": "modifyButton",
+          "selector": "button[type=\"submit\"]",
+          "label": "Start the conversation"
+        }
+      ],
+      "description": "Targets specifier segments (architect w8, interior designer w6) tied to the \"no role acknowledgment for specifiers\" finding (flagged directional, low confidence — small test, not a confident rewrite). Element: the form's submit button (button[type=\\\"submit\\\"], confirmed unique on the page). Change: modifyButton swaps the label for visitors referred from /manufacturing, a documented specifier intent signal.",
+      "segment": "Architecture studio principal / Senior interior designer",
+      "metric": "contact_form_submitted",
+      "holdout": 0.1
+    },
+    {
+      "id": "widen-the-proof-line-for-enterprise-tender-referral-traffic",
+      "name": "Widen the proof line for enterprise/tender referral traffic",
+      "status": "active",
+      "audience": {
+        "type": "referrer",
+        "match": {
+          "op": "contains",
+          "value": "linkedin",
+          "caseInsensitive": true
+        }
+      },
+      "actions": [
+        {
+          "type": "textReplace",
+          "replace": "200+ projects delivered across hospitality, retail and private residential — from boutique hotels to multi-property hospitality groups.",
+          "find": "200+ projects delivered across hospitality, retail and private residential."
+        }
+      ],
+      "description": "Targets the enterprise/tender segment (VP Development w9, Head of Real Estate w7, Procurement Manager w7) tied to the \"no certification/capacity signal\" finding. Element: the proof paragraph in the /contact aside. Change: textReplace widens it to name multi-property breadth, without inventing unverified figures, for LinkedIn-referred traffic.",
+      "segment": "VP Development / Head of Real Estate / Procurement Manager",
+      "metric": "contact_form_submitted",
+      "holdout": 0.1
     }
   ]
 }

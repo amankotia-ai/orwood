@@ -4,6 +4,7 @@ import posthog from "posthog-js";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { Grain } from "@/components/grain";
+import { readStoredAttribution } from "@/lib/attribution";
 
 export function CTA({
   eyebrow = "Start a project",
@@ -39,7 +40,15 @@ export function CTA({
         </div>
         <div className="md:col-span-4 md:justify-self-end">
           <Reveal delay={0.15}>
-            <div onClick={() => posthog.capture("cta_clicked", { cta_text: cta, href })}>
+            <div
+              onClick={() =>
+                posthog.capture("cta_clicked", {
+                  cta_text: cta,
+                  href,
+                  ...readStoredAttribution(),
+                })
+              }
+            >
               <Button href={href} variant="invert">
                 {cta}
               </Button>

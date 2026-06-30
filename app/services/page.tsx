@@ -145,6 +145,18 @@ export default function ServicesPage() {
                   </ul>
                 </Reveal>
 
+                {/* Link to the dedicated Joinery & Manufacturing service page */}
+                {s.id === "joinery" && (
+                  <Reveal delay={0.18}>
+                    <Link
+                      href="/manufacturing"
+                      className="mt-6 inline-block label text-sm text-accent transition-colors hover:text-accent/70"
+                    >
+                      Full service page: scope, industries & fire compliance →
+                    </Link>
+                  </Reveal>
+                )}
+
                 {/* Residential-register callout — Furniture Solutions & Joinery */}
                 {(s.id === "furniture-solutions" || s.id === "joinery") && (
                   <Reveal delay={0.2}>

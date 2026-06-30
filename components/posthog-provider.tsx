@@ -4,6 +4,7 @@ import posthog from "posthog-js";
 import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { getConsent, subscribeConsent } from "@/lib/consent";
+import { captureAttributionFromLocation } from "@/lib/attribution";
 
 /**
  * PostHog analytics - consent-gated, matching the GA pattern in analytics.tsx.
@@ -24,6 +25,11 @@ function PageviewCapture() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    // sessionStorage only, no network call - runs regardless of cookie consent
+    // so first-touch UTM attribution is captured on whichever page the visitor
+    // lands on, not just /contact.
+    captureAttributionFromLocation();
+
     if (posthogReady) {
       posthog.capture("$pageview");
     }

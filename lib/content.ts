@@ -141,8 +141,8 @@ export const services: Service[] = [
       "Modular to multi-floor scale",
     ],
     body: [
-      "Joinery is the element that separates a finished room from an assembled one. At ORWOOD, bespoke joinery and built-in cabinetry are manufactured in-house at Hi Mobilya, our İstanbul production facility, and installed as part of the same team that designed them. The people who draw the detail are the people who make it — so the tolerance held on the workshop bench is the tolerance that arrives on site.",
-      "Scope covers the full range of custom-built elements that form part of an interior fit-out: built-in cabinetry, shelving, and storage systems specified to exact dimensions and materiality; reception desks, service counters, and back-of-house joinery; custom millwork including cornicing, trim, panelling, and feature walls; and timber or composite structural elements such as soffit boxes, columns, and screening. Fire-rated joinery is specified and tested for local building codes during design, not retrofitted during certification — which saves both rework and schedule risk.",
+      "Joinery is the element that separates a finished room from an assembled one. At ORWOOD, bespoke joinery and built-in cabinetry are manufactured in-house at Hi Mobilya, our İstanbul production facility, and installed as part of the same team that designed them. The people who draw the detail are the people who make it, so the tolerance held on the workshop bench is the tolerance that arrives on site.",
+      "Scope covers the full range of custom-built elements that form part of an interior fit-out: built-in cabinetry, shelving, and storage systems specified to exact dimensions and materiality; reception desks, service counters, and back-of-house joinery; custom millwork including cornicing, trim, panelling, and feature walls; and timber or composite structural elements such as soffit boxes, columns, and screening. Fire-rated joinery is specified and tested for local building codes during design, not retrofitted during certification, which saves both rework and schedule risk.",
       "Material depth is a structural advantage. Through SILADU, our in-house materials and surfaces operation, veneers, laminates, solid surfaces, and textiles are sourced, matched, and specified alongside the joinery geometry. Design teams can test material feasibility against real production knowledge during design development, before the specification is fixed. A veneer that works on a wall panel and the same veneer on the adjacent furniture come from the same stock, matched by the same team, finished to the same standard.",
       "For hospitality principals and developers, joinery anchors the guest experience and operational durability. Custom cabinetry in lobbies, suites, and back-of-house is built to withstand heavy use, designed to brand standards, and delivered on schedule as part of one accountable team. For architects and interior designers, ORWOOD's in-house joinery capability removes the coordination burden: materials and finishes are specified with direct access to Hi Mobilya manufacturing, so detail intent is preserved in production. For procurement teams, the result is consolidation: one supplier, one invoice, one warranty, across custom joinery, materials, and installation.",
       "200 or more completed projects across 15 countries. Delivered joinery in five-star hotels, corporate headquarters, luxury residences, flagship retail, and multi-use developments. In-house production ensures consistency and speed across regions; local installation teams maintain accountability on site.",
@@ -706,11 +706,11 @@ export const group: Group[] = [
 
 export const manufacturing = {
   intro:
-    "Owning our workshops is the difference between specifying a detail and guaranteeing it. Furniture, joinery and doors are engineered, made, tested and finished in-house — so quality and programme stay in our hands, not a supplier's queue.",
+    "Owning our workshops is the difference between specifying a detail and guaranteeing it. Furniture, joinery and doors are engineered, made, tested and finished in-house, so quality and programme stay in our hands, not a supplier's queue.",
   capabilities: [
     {
       title: "CNC Technology",
-      body: "CNC machining for repeatable precision across volume runs — panels, carcasses and components cut to tolerance.",
+      body: "CNC machining for repeatable precision across volume runs: panels, carcasses and components cut to tolerance.",
       tone: 0,
     },
     {
@@ -720,7 +720,7 @@ export const manufacturing = {
     },
     {
       title: "Quality Control",
-      body: "Prototyping, testing and inspection at every stage — nothing ships before it is checked against the specification.",
+      body: "Prototyping, testing and inspection at every stage; nothing ships before it is checked against the specification.",
       tone: 4,
     },
     {
