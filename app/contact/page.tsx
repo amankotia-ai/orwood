@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { PageHeader } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { ContactForm } from "@/components/contact-form";
+import { ContactExitIntent } from "@/components/contact-exit-intent";
 import { ContactMethodLink } from "@/components/contact-actions";
 import { OutboundLink } from "@/components/outbound-link";
 import { site, projects, sectors } from "@/lib/content";
@@ -30,6 +31,8 @@ export default async function ContactPage() {
 
   return (
     <>
+      <ContactExitIntent />
+
       <PageHeader
         eyebrow="Contact"
         index={

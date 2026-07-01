@@ -7,6 +7,7 @@ import { sectors } from "@/lib/content";
 import { Arrow } from "@/components/ui/button";
 import { cn } from "@/lib/cn";
 import { captureAttributionFromLocation, readStoredAttribution } from "@/lib/attribution";
+import { markContactFormStarted } from "@/lib/contact-form-events";
 
 type Form = {
   name: string;
@@ -72,6 +73,7 @@ export function ContactForm({
       referrer_project: referrerProject ?? null,
       ...readStoredAttribution(),
     });
+    markContactFormStarted();
   }, [referrerProject]);
 
   const update =
